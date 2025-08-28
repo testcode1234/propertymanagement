@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Resources - Options Property Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .hero-bg {
+            background-image: url('https://source.unsplash.com/1600x900/?san-diego,home');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800">
+    <!-- Header -->
+    <header class="bg-blue-900 text-white sticky top-0 z-10">
+        <nav class="container mx-auto flex items-center justify-between py-4">
+            <h1 class="text-2xl font-bold">Options Property Management</h1>
+            <ul class="flex space-x-6">
+                <li><a href="index.html#home" class="hover:text-blue-300">Home</a></li>
+                <li><a href="index.html#services" class="hover:text-blue-300">Services</a></li>
+                <li><a href="index.html#about" class="hover:text-blue-300">About</a></li>
+                <li><a href="owner-info.html" class="hover:text-blue-300">Owner Resources</a></li>
+                <li><a href="index.html#contact" class="hover:text-blue-300">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="owner-resources" class="hero-bg h-96 flex items-center justify-center text-white">
+        <div class="text-center">
+            <h2 class="text-4xl font-bold mb-4">Owner Resources</h2>
+            <p class="text-lg mb-6">Essential tips and information for renting and maintaining your property in San Diego.</p>
+            <a href="index.html#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded inline-block">Contact Us for Support</a>
+        </div>
+    </section>
+
+    <!-- Owner Information Section -->
+    <section id="info" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Property Owner Guide</h2>
+            <div class="space-y-12">
+                <!-- Renting Your Property -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Renting Your Property</h3>
+                    <ul class="list-disc list-inside space-y-2 text-lg">
+                        <li><strong>Setting Competitive Rent:</strong> Research local market rates in San Diego to price your property competitively. We can provide a rental analysis to maximize returns while attracting quality tenants.</li>
+                        <li><strong>Tenant Screening:</strong> Conduct thorough background checks, including credit, employment, and rental history, to ensure reliable tenants. Our team handles this process for you.</li>
+                        <li><strong>Lease Agreements:</strong> Use clear, legally compliant lease agreements tailored to California laws. We ensure all terms protect your interests.</li>
+                        <li><strong>Marketing Your Property:</strong> High-quality photos and listings on platforms like Zillow and Apartments.com attract tenants. We manage marketing to minimize vacancy periods.</li>
+                    </ul>
+                </div>
+                <!-- Maintaining Your Property -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Maintaining Your Property</h3>
+                    <ul class="list-disc list-inside space-y-2 text-lg">
+                        <li><strong>Regular Inspections:</strong> Schedule periodic inspections to identify maintenance issues early, preventing costly repairs. We offer comprehensive inspection services.</li>
+                        <li><strong>Preventive Maintenance:</strong> Maintain HVAC systems, plumbing, and appliances to extend their lifespan. We coordinate routine upkeep with trusted contractors.</li>
+                        <li><strong>Emergency Repairs:</strong> Have a 24/7 plan for urgent issues like leaks or electrical faults. Our team ensures prompt responses to protect your property.</li>
+                        <li><strong>Landscaping and Curb Appeal:</strong> Keep exteriors tidy to attract and retain tenants. We manage landscaping services to enhance property value.</li>
+                    </ul>
+                </div>
+                <!-- Legal and Financial Considerations -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Legal and Financial Tips</h3>
+                    <ul class="list-disc list-inside space-y-2 text-lg">
+                        <li><strong>Understand Local Laws:</strong> Comply with San Diego’s rental regulations, including rent control and eviction rules. We stay updated on legal requirements to keep you compliant.</li>
+                        <li><strong>Insurance:</strong> Secure landlord insurance to protect against property damage and liability. We can recommend trusted providers.</li>
+                        <li><strong>Tax Deductions:</strong> Track expenses like repairs, management fees, and depreciation for tax benefits. We provide detailed financial reports to simplify tax filing.</li>
+                        <li><strong>Rent Collection:</strong> Use secure online payment systems for timely rent collection. Our services include automated rent collection and reporting.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Ready to Optimize Your Property?</h2>
+            <p class="text-lg mb-6">Let Options Property Management handle the details so you can enjoy stress-free ownership.</p>
+            <a href="index.html#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Options Property Management. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
