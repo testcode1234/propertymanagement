@@ -1,43 +1,4 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -46,15 +7,39 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         .hero-bg {
-            background-image: url('https://source.unsplash.com/1600x900/?san-diego,beachfront-condo');
+            background-image: url('https://source.unsplash.com/1600x900/?san-diego,real-estate');
             background-size: cover;
             background-position: center;
+        }
+        .contact-button-container {
+            position: relative;
+            display: inline-block;
+        }
+        .contact-button-bg {
+            background-image: url('https://source.unsplash.com/300x100/?san-diego,home');
+            background-size: cover;
+            background-position: center;
+            padding: 10px 20px;
+            border-radius: 0.375rem; /* Matches Tailwind's rounded class */
+            position: relative;
+            z-index: 1;
+        }
+        .contact-button-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3); /* Slight overlay for button readability */
+            border-radius: 0.375rem;
+            z-index: -1;
         }
     </style>
 </head>
 <body class="font-sans text-gray-800">
     <!-- Header -->
-    <header class="bg-blue-900 text-white">
+    <header class="bg-blue-900 text-white sticky top-0 z-10">
         <nav class="container mx-auto flex items-center justify-between py-4">
             <h1 class="text-2xl font-bold">Options Property Management</h1>
             <ul class="flex space-x-6">
@@ -69,9 +54,11 @@
     <!-- Hero Section -->
     <section id="home" class="hero-bg h-96 flex items-center justify-center text-white">
         <div class="text-center">
-            <h2 class="text-4xl font-bold mb-4">Maximize Your Property Value in San Diego</h2>
-            <p class="text-lg mb-6">Expert property management services tailored for San Diego County.</p>
-            <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">Get a Quote</a>
+            <h2 class="text-4xl font-bold mb-4">Your Trusted Property Management in San Diego</h2>
+            <p class="text-lg mb-6">Professional services to maximize your investment.</p>
+            <div class="contact-button-container">
+                <a href="#contact" class="contact-button-bg bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded inline-block">Contact Us</a>
+            </div>
         </div>
     </section>
 
@@ -79,18 +66,18 @@
     <section id="services" class="py-16 bg-gray-100">
         <div class="container mx-auto">
             <h2 class="text-3xl font-bold text-center mb-8">Our Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
                 <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-4">Tenant Management</h3>
-                    <p>From screening to retention, we ensure reliable tenants for your properties.</p>
+                    <h3 class="text-xl font-semibold mb-4">Tenant Screening & Placement</h3>
+                    <p>We find reliable tenants through thorough background checks and ensure smooth move-ins.</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-4">Maintenance & Repairs</h3>
-                    <p>24/7 maintenance services to keep your properties in top condition.</p>
+                    <h3 class="text-xl font-semibold mb-4">Property Maintenance</h3>
+                    <p>24/7 maintenance and repair services to keep your property in excellent condition.</p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-4">Rent Collection</h3>
-                    <p>Streamlined rent collection with transparent financial reporting.</p>
+                    <h3 class="text-xl font-semibold mb-4">Financial Management</h3>
+                    <p>Efficient rent collection and detailed financial reporting for full transparency.</p>
                 </div>
             </div>
         </div>
@@ -98,23 +85,22 @@
 
     <!-- About Section -->
     <section id="about" class="py-16">
-        <div class="container mx-auto">
+        <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-8">About Us</h2>
-            <p class="text-lg text-center max-w-2xl mx-auto">Options Property Management specializes in residential properties in San Diego County. With a focus on maximizing property value and tenant satisfaction, we bring local expertise and personalized service to every client.</p>
+            <p class="text-lg text-center max-w-2xl mx-auto">Options Property Management is dedicated to serving property owners in San Diego County. With years of local expertise, we provide tailored solutions to enhance property value and ensure tenant satisfaction.</p>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="py-16 bg-gray-100">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-8">Contact Us</h2>
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Get in Touch</h2>
             <div class="max-w-lg mx-auto">
-                <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-4">
-                    <input type="text" name="name" placeholder="Your Name" class="w-full p-3 border rounded" required>
-                    <input type="email" name="email" placeholder="Your Email" class="w-full p-3 border rounded" required>
-                    <textarea name="message" placeholder="Your Message" class="w-full p-3 border rounded h-32" required></textarea>
-                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded w-full">Send Message</button>
-                </form>
+                <div class="space-y-4">
+                    <p class="text-lg text-center">Email: <a href="mailto:contact@optionspm.com" class="text-blue-600 hover:underline">contact@optionspm.com</a></p>
+                    <p class="text-lg text-center">Phone: <a href="tel:+16195551234" class="text-blue-600 hover:underline">(619) 555-1234</a></p>
+                    <p class="text-lg text-center">Address: 123 Coastal Dr, San Diego, CA 92101</p>
+                </div>
             </div>
         </div>
     </section>
@@ -123,8 +109,19 @@
     <footer class="bg-blue-900 text-white py-6">
         <div class="container mx-auto text-center">
             <p>&copy; 2025 Options Property Management. All rights reserved.</p>
-            <p class="mt-2">San Diego, CA | contact@optionspm.com | (619) 555-1234</p>
         </div>
     </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
