@@ -16,13 +16,14 @@
             display: flex;
             align-items: center;
             justify-content: center; /* Center the button horizontally and vertically */
-            width: 800px; /* Increased width for larger image */
-            height: 300px; /* Increased height for larger image */
-            background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=300&q=80');
+            width: 98%; /* Nearly full width of hero section */
+            max-width: 1600px; /* Allow wide image on large screens */
+            height: 360px; /* Slightly less than hero section's 384px to fit within h-96 */
+            background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&h=360&q=80');
             background-size: cover;
-            background-position: center;
-            border-radius: 1rem; /* Larger border-radius for smoother corners */
-            margin: 0 auto; /* Center the container within the hero section */
+            background-position: center center; /* Center image top-to-bottom and left-to-right */
+            border-radius: 1.5rem; /* Smooth corners */
+            margin: 0 auto; /* Center the container horizontally */
         }
         .contact-button-container::before {
             content: '';
@@ -32,12 +33,19 @@
             right: 0;
             bottom: 0;
             background: rgba(0, 0, 0, 0.3); /* Dark overlay for button readability */
-            border-radius: 1rem;
+            border-radius: 1.5rem;
             z-index: 0;
         }
         .contact-button {
             position: relative;
             z-index: 1; /* Ensures button is above the background image and overlay */
+        }
+        /* Ensure hero section centers content */
+        #home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
         }
     </style>
 </head>
@@ -50,6 +58,7 @@
                 <li><a href="#home" class="hover:text-blue-300">Home</a></li>
                 <li><a href="#services" class="hover:text-blue-300">Services</a></li>
                 <li><a href="#about" class="hover:text-blue-300">About</a></li>
+                <li><a href="owner-info.html" class="hover:text-blue-300">Owner Resources</a></li>
                 <li><a href="#contact" class="hover:text-blue-300">Contact</a></li>
             </ul>
         </nav>
