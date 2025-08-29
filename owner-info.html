@@ -5,47 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Owner Resources - Options Property Management</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
     <style>
         .hero-bg {
             background-image: url('https://source.unsplash.com/1600x900/?san-diego,home');
             background-size: cover;
             background-position: center;
-        }
-        .contact-button-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center; /* Center the button horizontally and vertically */
-            width: 98%; /* Match homepage for large width */
-            max-width: 1600px; /* Allow wide image on large screens */
-            height: 360px; /* Match homepage height */
-            background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&h=360&q=80');
-            background-size: cover;
-            background-position: center center; /* Center image top-to-bottom and left-to-right */
-            border-radius: 1.5rem; /* Smooth corners, match homepage */
-            margin: 0 auto; /* Center the container horizontally */
-        }
-        .contact-button-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.3); /* Dark overlay for button readability, match homepage */
-            border-radius: 1.5rem;
-            z-index: 0;
-        }
-        .contact-button {
-            position: relative;
-            z-index: 1; /* Ensures button is above the background image and overlay */
-        }
-        /* Ensure hero section centers content */
-        #owner-resources {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
         }
     </style>
 </head>
@@ -59,6 +24,7 @@
                 <li><a href="index.html#services" class="hover:text-blue-300">Services</a></li>
                 <li><a href="index.html#about" class="hover:text-blue-300">About</a></li>
                 <li><a href="owner-info.html" class="hover:text-blue-300">Owner Resources</a></li>
+                <li><a href="blog.html" class="hover:text-blue-300">Blog</a></li>
                 <li><a href="index.html#contact" class="hover:text-blue-300">Contact</a></li>
             </ul>
         </nav>
