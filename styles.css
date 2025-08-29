@@ -1,0 +1,42 @@
+```css
+/* Shared styles for Options Property Management website */
+.contact-button-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the button horizontally and vertically */
+    width: 98%; /* Match homepage for large width */
+    max-width: 1600px; /* Allow wide image on large screens */
+    height: 360px; /* Match homepage height */
+    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&h=360&q=80');
+    background-size: cover;
+    background-position: center center; /* Center image top-to-bottom and left-to-right */
+    border-radius: 1.5rem; /* Smooth corners, match homepage */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+.contact-button-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3); /* Dark overlay for button readability */
+    border-radius: 1.5rem;
+    z-index: 0;
+}
+
+.contact-button {
+    position: relative;
+    z-index: 1; /* Ensures button is above the background image and overlay */
+}
+
+/* Center hero section content */
+#home, #owner-resources, #blog, #post {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+```
