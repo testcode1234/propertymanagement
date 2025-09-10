@@ -1,3 +1,4 @@
+```css
 /* Shared styles for Options Property Management website */
 .contact-button-container {
     position: relative;
@@ -21,7 +22,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    /* background: rgba(0, 0, 0, 0.5); /* Increased opacity for better readability */
+    background: rgba(0, 0, 0, 0.5); /* Increased opacity for better readability */
     border-radius: 1.5rem;
     z-index: 0;
 }
@@ -29,6 +30,7 @@
 .contact-button {
     position: relative;
     z-index: 1; /* Ensures button is above the background image and overlay */
+    /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Add text shadow for readability */
 }
 
 /* Center hero section content */
@@ -39,7 +41,7 @@
     position: relative;
 }
 
-/* Hero section overlay */
+/* Hero section overlay and text shadow */
 .hero-bg {
     position: relative;
 }
@@ -58,7 +60,11 @@
 .hero-bg .text-center {
     position: relative;
     z-index: 1; /* Ensure text is above the overlay */
-    background: none !important; /* Explicitly remove any background color */
+    background: none !important; /* Explicitly remove any background color with higher specificity */
+}
+
+.hero-bg h2, .hero-bg p {
+    /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Add text shadow for readability */
 }
 
 /* Responsive adjustments for smaller screens */
@@ -78,3 +84,4 @@
         font-size: 1rem; /* Slightly smaller for mobile */
     }
 }
+```
