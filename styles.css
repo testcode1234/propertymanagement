@@ -60,6 +60,7 @@
 .hero-bg .text-center {
     position: relative;
     z-index: 1; /* Ensure text is above the overlay */
+    background: none; /* Explicitly remove any background color */
 }
 
 .hero-bg h2, .hero-bg p {
