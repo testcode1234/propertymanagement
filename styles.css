@@ -22,7 +22,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Increased opacity for better readability */
+    /* background: rgba(0, 0, 0, 0.5); /* Increased opacity for better readability */
     border-radius: 1.5rem;
     z-index: 0;
 }
