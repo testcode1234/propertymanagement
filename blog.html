@@ -1,43 +1,4 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -45,76 +6,90 @@
     <title>Blog - Options Property Management</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
-    <style>
-        .hero-bg {
-            background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&h=900&q=80'), url('https://images.pexels.com/photos/533923/pexels-photo-533923.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900');
-            background-size: cover;
-            background-position: center;
-        }
-    </style>
 </head>
 <body class="font-sans text-gray-800">
     <!-- Header -->
-    <header class="bg-blue-900 text-white sticky top-0 z-10">
-        <nav class="container mx-auto flex items-center justify-between py-4">
+    <header class="bg-blue-900 text-white sticky top-0 z-10 shadow-md">
+        <nav class="container mx-auto flex items-center justify-between py-4 px-4">
             <h1 class="text-2xl font-bold">Options Property Management</h1>
             <ul class="flex space-x-6">
-                <li><a href="index.html#home" class="hover:text-blue-300">Home</a></li>
-                <li><a href="index.html#services" class="hover:text-blue-300">Services</a></li>
-                <li><a href="index.html#about" class="hover:text-blue-300">About</a></li>
-                <li><a href="owner-info.html" class="hover:text-blue-300">Owner Resources</a></li>
-                <li><a href="blog.html" class="hover:text-blue-300">Blog</a></li>
-                <li><a href="index.html#contact" class="hover:text-blue-300">Contact</a></li>
+                <li><a href="index.html#home" class="hover:text-blue-300 transition">Home</a></li>
+                <li><a href="index.html#services" class="hover:text-blue-300 transition">Services</a></li>
+                <li><a href="index.html#about" class="hover:text-blue-300 transition">About</a></li>
+                <li><a href="owner-info.html" class="hover:text-blue-300 transition">Owner Resources</a></li>
+                <li><a href="blog.html" class="hover:text-blue-300 transition">Blog</a></li>
+                <li><a href="index.html#contact" class="hover:text-blue-300 transition">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section id="blog" class="hero-bg h-96 flex items-center justify-center text-white">
-        <div class="text-center">
+        <div class="text-center px-4">
             <h2 class="text-4xl font-bold mb-4">Our Blog</h2>
             <p class="text-lg mb-6">Insights and tips for property owners in San Diego.</p>
-            <div class="contact-button-container">
-                <a href="index.html#contact" class="contact-button bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded inline-block">Contact Us</a>
-            </div>
+            <a href="index.html#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded transition inline-block">Contact Us</a>
         </div>
     </section>
 
     <!-- Blog Posts Section -->
     <section id="posts" class="py-16 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-8">Latest Posts</h2>
-            <div class="space-y-12">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold">Latest Posts</h2>
+                <a href="blog-admin.html" class="text-blue-600 hover:text-blue-800 text-sm font-semibold">+ Add New Post</a>
+            </div>
+            
+            <div class="space-y-8">
                 <!-- Blog Post 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-semibold mb-2">Maximizing Rental Income in San Diego’s Competitive Market</h3>
-                    <p class="text-lg mb-4">Learn how to set competitive rental rates using market analysis and attract high-quality tenants. We share tips on pricing strategies and marketing your property effectively.</p>
-                    <a href="blog-post-1.html" class="text-blue-600 hover:underline">Read More</a>
-                </div>
+                <article class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition">
+                    <h3 class="text-2xl font-semibold mb-2 text-blue-900">
+                        <a href="blog-post-1.html" class="hover:text-blue-600">Maximizing Rental Income in San Diego's Competitive Market</a>
+                    </h3>
+                    <p class="text-sm text-gray-500 mb-3">August 25, 2025</p>
+                    <p class="text-lg mb-4 text-gray-700">Learn how to set competitive rental rates using market analysis and attract high-quality tenants. We share tips on pricing strategies and marketing your property effectively.</p>
+                    <a href="blog-post-1.html" class="text-blue-600 hover:underline font-semibold">Read More →</a>
+                </article>
+
                 <!-- Blog Post 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-semibold mb-2">Top Maintenance Tips to Protect Your Property’s Value</h3>
-                    <p class="text-lg mb-4">Regular maintenance is key to preserving your investment. Discover our top recommendations for HVAC care, plumbing checks, and landscaping to keep your property in top shape.</p>
-                    <a href="blog-post-2.html" class="text-blue-600 hover:underline">Read More</a>
-                </div>
+                <article class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition">
+                    <h3 class="text-2xl font-semibold mb-2 text-blue-900">
+                        <a href="blog-post-2.html" class="hover:text-blue-600">Top Maintenance Tips to Protect Your Property's Value</a>
+                    </h3>
+                    <p class="text-sm text-gray-500 mb-3">August 20, 2025</p>
+                    <p class="text-lg mb-4 text-gray-700">Regular maintenance is key to preserving your investment. Discover our top recommendations for HVAC care, plumbing checks, and landscaping to keep your property in top shape.</p>
+                    <a href="blog-post-2.html" class="text-blue-600 hover:underline font-semibold">Read More →</a>
+                </article>
+
                 <!-- Blog Post 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-semibold mb-2">Navigating San Diego’s Rental Laws: What Owners Need to Know</h3>
-                    <p class="text-lg mb-4">Stay compliant with California’s rent control and eviction regulations. This post covers key legal considerations to protect your property and avoid costly mistakes.</p>
-                    <a href="blog-post-3.html" class="text-blue-600 hover:underline">Read More</a>
-                </div>
+                <article class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition">
+                    <h3 class="text-2xl font-semibold mb-2 text-blue-900">
+                        <a href="blog-post-3.html" class="hover:text-blue-600">Navigating San Diego's Rental Laws: What Owners Need to Know</a>
+                    </h3>
+                    <p class="text-sm text-gray-500 mb-3">August 15, 2025</p>
+                    <p class="text-lg mb-4 text-gray-700">Stay compliant with California's rent control and eviction regulations. This post covers key legal considerations to protect your property and avoid costly mistakes.</p>
+                    <a href="blog-post-3.html" class="text-blue-600 hover:underline font-semibold">Read More →</a>
+                </article>
+
                 <!-- Blog Post 4 -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-semibold mb-2">How to Choose the Right Tenants for Your Property</h3>
-                    <p class="text-lg mb-4">Effective tenant screening can prevent issues down the road. We outline the best practices for background checks and selecting reliable tenants.</p>
-                    <a href="blog-post-4.html" class="text-blue-600 hover:underline">Read More</a>
-                </div>
+                <article class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition">
+                    <h3 class="text-2xl font-semibold mb-2 text-blue-900">
+                        <a href="blog-post-4.html" class="hover:text-blue-600">How to Choose the Right Tenants for Your Property</a>
+                    </h3>
+                    <p class="text-sm text-gray-500 mb-3">August 10, 2025</p>
+                    <p class="text-lg mb-4 text-gray-700">Effective tenant screening can prevent issues down the road. We outline the best practices for background checks and selecting reliable tenants.</p>
+                    <a href="blog-post-4.html" class="text-blue-600 hover:underline font-semibold">Read More →</a>
+                </article>
+
                 <!-- Blog Post 5 -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-semibold mb-2">Boosting Curb Appeal for Your San Diego Rental</h3>
-                    <p class="text-lg mb-4">Attract tenants with a well-maintained exterior. Learn simple landscaping and design tips to make your property stand out in San Diego’s rental market.</p>
-                    <a href="blog-post-5.html" class="text-blue-600 hover:underline">Read More</a>
-                </div>
+                <article class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition">
+                    <h3 class="text-2xl font-semibold mb-2 text-blue-900">
+                        <a href="blog-post-5.html" class="hover:text-blue-600">Boosting Curb Appeal for Your San Diego Rental</a>
+                    </h3>
+                    <p class="text-sm text-gray-500 mb-3">August 5, 2025</p>
+                    <p class="text-lg mb-4 text-gray-700">Attract tenants with a well-maintained exterior. Learn simple landscaping and design tips to make your property stand out in San Diego's rental market.</p>
+                    <a href="blog-post-5.html" class="text-blue-600 hover:underline font-semibold">Read More →</a>
+                </article>
             </div>
         </div>
     </section>
@@ -124,7 +99,7 @@
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-3xl font-bold mb-4">Have Questions About Property Management?</h2>
             <p class="text-lg mb-6">Contact us for expert advice and tailored solutions.</p>
-            <a href="index.html#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">Get in Touch</a>
+            <a href="index.html#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded transition">Get in Touch</a>
         </div>
     </section>
 
@@ -140,9 +115,13 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
     </script>
