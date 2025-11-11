@@ -1,18 +1,60 @@
-```css
-/* Shared styles for Options Property Management website */
+/* ===================================
+   Options Property Management Styles
+   =================================== */
+
+/* Hero Background Image */
+.hero-bg {
+    background-image: 
+        url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&h=900&q=80'),
+        url('https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Blog and blog post pages - ocean/beach theme */
+#blog.hero-bg,
+#post.hero-bg,
+#owner-resources.hero-bg {
+    background-image: 
+        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&h=900&q=80'),
+        url('https://images.pexels.com/photos/533923/pexels-photo-533923.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900');
+}
+
+/* Dark overlay for hero sections */
+.hero-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+/* Ensure hero content appears above overlay */
+.hero-bg > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Contact button container with background */
 .contact-button-container {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center; /* Center the button horizontally and vertically */
-    width: 98%; /* Match homepage for large width */
-    max-width: 1600px; /* Allow wide image on large screens */
-    height: 360px; /* Match homepage height */
-    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&h=360&q=80'), url('https://images.pexels.com/photos/533923/pexels-photo-533923.jpeg?auto=compress&cs=tinysrgb&w=1600&h=360');
+    justify-content: center;
+    width: 98%;
+    max-width: 1600px;
+    height: 360px;
+    background-image: 
+        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&h=360&q=80'),
+        url('https://images.pexels.com/photos/533923/pexels-photo-533923.jpeg?auto=compress&cs=tinysrgb&w=1600&h=360');
     background-size: cover;
-    background-position: center center; /* Center image top-to-bottom and left-to-right */
-    border-radius: 1.5rem; /* Smooth corners, match homepage */
-    margin: 0 auto; /* Center the container horizontally */
+    background-position: center;
+    border-radius: 1.5rem;
+    margin: 0 auto;
 }
 
 .contact-button-container::before {
@@ -22,66 +64,52 @@
     left: 0;
     right: 0;
     bottom: 0;
-    /* background: rgba(0, 0, 0, 0.5); /* Increased opacity for better readability */
+    background: rgba(0, 0, 0, 0.3);
     border-radius: 1.5rem;
     z-index: 0;
 }
 
 .contact-button {
     position: relative;
-    z-index: 1; /* Ensures button is above the background image and overlay */
-    /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Add text shadow for readability */
+    z-index: 1;
 }
 
-/* Center hero section content */
-#home, #owner-resources, #blog, #post {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+/* Smooth transitions */
+a, button {
+    transition: all 0.3s ease;
 }
 
-/* Hero section overlay and text shadow */
-.hero-bg {
-    position: relative;
-}
+/* ===================================
+   Responsive Design
+   =================================== */
 
-.hero-bg::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    /* background: rgba(0, 0, 0, 0.4); /* Dark overlay for hero section */
-    z-index: 0;
-}
-
-.hero-bg .text-center {
-    position: relative;
-    z-index: 1; /* Ensure text is above the overlay */
-    background: none !important; /* Explicitly remove any background color with higher specificity */
-}
-
-.hero-bg h2, .hero-bg p {
-    /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Add text shadow for readability */
-}
-
-/* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
     .contact-button-container {
         width: 90%;
         max-width: 600px;
         height: 300px;
-        background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80'), url('https://images.pexels.com/photos/533923/pexels-photo-533923.jpeg?auto=compress&cs=tinysrgb&w=600&h=300');
+        background-image: 
+            url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80'),
+            url('https://images.pexels.com/photos/533923/pexels-photo-533923.jpeg?auto=compress&cs=tinysrgb&w=600&h=300');
     }
 
     .hero-bg h2 {
-        font-size: 2rem; /* Slightly smaller for mobile */
+        font-size: 2rem;
     }
 
     .hero-bg p {
-        font-size: 1rem; /* Slightly smaller for mobile */
+        font-size: 1rem;
+    }
+    
+    /* Mobile navigation */
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
     }
 }
-```
+
+@media (max-width: 640px) {
+    nav ul {
+        font-size: 0.875rem;
+    }
+}
