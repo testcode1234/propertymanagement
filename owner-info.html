@@ -1,43 +1,4 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -45,74 +6,128 @@
     <title>Owner Resources - Options Property Management</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
-    <style>
-        .hero-bg {
-            background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&h=900&q=80'), url('https://images.pexels.com/photos/533923/pexels-photo-533923.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900');
-            background-size: cover;
-            background-position: center;
-        }
-    </style>
 </head>
 <body class="font-sans text-gray-800">
     <!-- Header -->
-    <header class="bg-blue-900 text-white sticky top-0 z-10">
-        <nav class="container mx-auto flex items-center justify-between py-4">
+    <header class="bg-blue-900 text-white sticky top-0 z-10 shadow-md">
+        <nav class="container mx-auto flex items-center justify-between py-4 px-4">
             <h1 class="text-2xl font-bold">Options Property Management</h1>
             <ul class="flex space-x-6">
-                <li><a href="index.html#home" class="hover:text-blue-300">Home</a></li>
-                <li><a href="index.html#services" class="hover:text-blue-300">Services</a></li>
-                <li><a href="index.html#about" class="hover:text-blue-300">About</a></li>
-                <li><a href="owner-info.html" class="hover:text-blue-300">Owner Resources</a></li>
-                <li><a href="blog.html" class="hover:text-blue-300">Blog</a></li>
-                <li><a href="index.html#contact" class="hover:text-blue-300">Contact</a></li>
+                <li><a href="index.html#home" class="hover:text-blue-300 transition">Home</a></li>
+                <li><a href="index.html#services" class="hover:text-blue-300 transition">Services</a></li>
+                <li><a href="index.html#about" class="hover:text-blue-300 transition">About</a></li>
+                <li><a href="owner-info.html" class="hover:text-blue-300 transition">Owner Resources</a></li>
+                <li><a href="blog.html" class="hover:text-blue-300 transition">Blog</a></li>
+                <li><a href="index.html#contact" class="hover:text-blue-300 transition">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section id="owner-resources" class="hero-bg h-96 flex items-center justify-center text-white">
-        <div class="text-center">
+        <div class="text-center px-4">
             <h2 class="text-4xl font-bold mb-4">Owner Resources</h2>
             <p class="text-lg mb-6">Essential tips and information for renting and maintaining your property in San Diego.</p>
-            <div class="contact-button-container">
-                <a href="index.html#contact" class="contact-button bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded inline-block">Contact Us for Support</a>
-            </div>
+            <a href="index.html#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded transition inline-block">Contact Us for Support</a>
         </div>
     </section>
 
     <!-- Owner Information Section -->
     <section id="info" class="py-16 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-8">Property Owner Guide</h2>
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-3xl font-bold text-center mb-12">Property Owner Guide</h2>
+            
             <div class="space-y-12">
                 <!-- Renting Your Property -->
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4">Renting Your Property</h3>
-                    <ul class="list-disc list-inside space-y-2 text-lg">
-                        <li><strong>Setting Competitive Rent:</strong> Research local market rates in San Diego to price your property competitively. We can provide a rental analysis to maximize returns while attracting quality tenants.</li>
-                        <li><strong>Tenant Screening:</strong> Conduct thorough background checks, including credit, employment, and rental history, to ensure reliable tenants. Our team handles this process for you.</li>
-                        <li><strong>Lease Agreements:</strong> Use clear, legally compliant lease agreements tailored to California laws. We ensure all terms protect your interests.</li>
-                        <li><strong>Marketing Your Property:</strong> High-quality photos and listings on platforms like Zillow and Apartments.com attract tenants. We manage marketing to minimize vacancy periods.</li>
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold mb-6 text-blue-900">Renting Your Property</h3>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex">
+                            <span class="text-blue-600 mr-3">•</span>
+                            <div>
+                                <strong>Setting Competitive Rent:</strong> Research local market rates in San Diego to price your property competitively. We can provide a rental analysis to maximize returns while attracting quality tenants.
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <span class="text-blue-600 mr-3">•</span>
+                            <div>
+                                <strong>Tenant Screening:</strong> Conduct thorough background checks, including credit, employment, and rental history, to ensure reliable tenants. Our team handles this process for you.
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <span class="text-blue-600 mr-3">•</span>
+                            <div>
+                                <strong>Lease Agreements:</strong> Use clear, legally compliant lease agreements tailored to California laws. We ensure all terms protect your interests.
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <span class="text-blue-600 mr-3">•</span>
+                            <div>
+                                <strong>Marketing Your Property:</strong> High-quality photos and listings on platforms like Zillow and Apartments.com attract tenants. We manage marketing to minimize vacancy periods.
+                            </div>
+                        </li>
                     </ul>
                 </div>
+
                 <!-- Maintaining Your Property -->
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4">Maintaining Your Property</h3>
-                    <ul class="list-disc list-inside space-y-2 text-lg">
-                        <li><strong>Regular Inspections:</strong> Schedule periodic inspections to identify maintenance issues early, preventing costly repairs. We offer comprehensive inspection services.</li>
-                        <li><strong>Preventive Maintenance:</strong> Maintain HVAC systems, plumbing, and appliances to extend their lifespan. We coordinate routine upkeep with trusted contractors.</li>
-                        <li><strong>Emergency Repairs:</strong> Have a 24/7 plan for urgent issues like leaks or electrical faults. Our team ensures prompt responses to protect your property.</li>
-                        <li><strong>Landscaping and Curb Appeal:</strong> Keep exteriors tidy to attract and retain tenants. We manage landscaping services to enhance property value.</li>
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold mb-6 text-blue-900">Maintaining Your Property</h3>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex">
+                            <span class="text-blue-600 mr-3">•</span>
+                            <div>
+                                <strong>Regular Inspections:</strong> Schedule periodic inspections to identify maintenance issues early, preventing costly repairs. We offer comprehensive inspection services.
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <span class="text-blue-600 mr-3">•</span>
+                            <div>
+                                <strong>Preventive Maintenance:</strong> Maintain HVAC systems, plumbing, and appliances to extend their lifespan. We coordinate routine upkeep with trusted contractors.
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <span class="text-blue-600 mr-3">•</span>
+                            <div>
+                                <strong>Emergency Repairs:</strong> Have a 24/7 plan for urgent issues like leaks or electrical faults. Our team ensures prompt responses to protect your property.
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <span class="text-blue-600 mr-3">•</span>
+                            <div>
+                                <strong>Landscaping and Curb Appeal:</strong> Keep exteriors tidy to attract and retain tenants. We manage landscaping services to enhance property value.
+                            </div>
+                        </li>
                     </ul>
                 </div>
+
                 <!-- Legal and Financial Considerations -->
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4">Legal and Financial Tips</h3>
-                    <ul class="list-disc list-inside space-y-2 text-lg">
-                        <li><strong>Understand Local Laws:</strong> Comply with San Diego’s rental regulations, including rent control and eviction rules. We stay updated on legal requirements to keep you compliant.</li>
-                        <li><strong>Insurance:</strong> Secure landlord insurance to protect against property damage and liability. We can recommend trusted providers.</li>
-                        <li><strong>Tax Deductions:</strong> Track expenses like repairs, management fees, and depreciation for tax benefits. We provide detailed financial reports to simplify tax filing.</li>
-                        <li><strong>Rent Collection:</strong> Use secure online payment systems for timely rent collection. Our services include automated rent collection and reporting.</li>
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold mb-6 text-blue-900">Legal and Financial Tips</h3>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex">
+                            <span class="text-blue-600 mr-3">•</span>
+                            <div>
+                                <strong>Understand Local Laws:</strong> Comply with San Diego's rental regulations, including rent control and eviction rules. We stay updated on legal requirements to keep you compliant.
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <span class="text-blue-600 mr-3">•</span>
+                            <div>
+                                <strong>Insurance:</strong> Secure landlord insurance to protect against property damage and liability. We can recommend trusted providers.
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <span class="text-blue-600 mr-3">•</span>
+                            <div>
+                                <strong>Tax Deductions:</strong> Track expenses like repairs, management fees, and depreciation for tax benefits. We provide detailed financial reports to simplify tax filing.
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <span class="text-blue-600 mr-3">•</span>
+                            <div>
+                                <strong>Rent Collection:</strong> Use secure online payment systems for timely rent collection. Our services include automated rent collection and reporting.
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -124,7 +139,7 @@
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-3xl font-bold mb-4">Ready to Optimize Your Property?</h2>
             <p class="text-lg mb-6">Let Options Property Management handle the details so you can enjoy stress-free ownership.</p>
-            <a href="index.html#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">Get in Touch</a>
+            <a href="index.html#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded transition">Get in Touch</a>
         </div>
     </section>
 
@@ -140,9 +155,13 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
     </script>
