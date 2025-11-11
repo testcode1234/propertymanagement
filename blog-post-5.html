@@ -1,43 +1,4 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -45,38 +6,28 @@
     <title>Boosting Curb Appeal - Options Property Management</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
-    <style>
-        .hero-bg {
-            background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&h=900&q=80'), url('https://images.pexels.com/photos/533923/pexels-photo-533923.jpeg?auto=compress&cs=tinysrgb&w=1600&h=900');
-            background-size: cover;
-            background-position: center;
-        }
-    </style>
 </head>
 <body class="font-sans text-gray-800">
     <!-- Header -->
-    <header class="bg-blue-900 text-white sticky top-0 z-10">
-        <nav class="container mx-auto flex items-center justify-between py-4">
+    <header class="bg-blue-900 text-white sticky top-0 z-10 shadow-md">
+        <nav class="container mx-auto flex items-center justify-between py-4 px-4">
             <h1 class="text-2xl font-bold">Options Property Management</h1>
             <ul class="flex space-x-6">
-                <li><a href="index.html#home" class="hover:text-blue-300">Home</a></li>
-                <li><a href="index.html#services" class="hover:text-blue-300">Services</a></li>
-                <li><a href="index.html#about" class="hover:text-blue-300">About</a></li>
-                <li><a href="owner-info.html" class="hover:text-blue-300">Owner Resources</a></li>
-                <li><a href="blog.html" class="hover:text-blue-300">Blog</a></li>
-                <li><a href="index.html#contact" class="hover:text-blue-300">Contact</a></li>
+                <li><a href="index.html#home" class="hover:text-blue-300 transition">Home</a></li>
+                <li><a href="index.html#services" class="hover:text-blue-300 transition">Services</a></li>
+                <li><a href="index.html#about" class="hover:text-blue-300 transition">About</a></li>
+                <li><a href="owner-info.html" class="hover:text-blue-300 transition">Owner Resources</a></li>
+                <li><a href="blog.html" class="hover:text-blue-300 transition">Blog</a></li>
+                <li><a href="index.html#contact" class="hover:text-blue-300 transition">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section id="post" class="hero-bg h-96 flex items-center justify-center text-white">
-        <div class="text-center">
+        <div class="text-center px-4">
             <h2 class="text-4xl font-bold mb-4">Boosting Curb Appeal for Your San Diego Rental</h2>
-            <p class="text-lg mb-6">August 5, 2025</p>
-            <div class="contact-button-container">
-                <a href="index.html#contact" class="contact-button bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded inline-block">Contact Us</a>
-            </div>
+            <a href="index.html#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded transition inline-block">Contact Us</a>
         </div>
     </section>
 
@@ -85,20 +36,26 @@
         <div class="container mx-auto px-4 max-w-3xl">
             <h2 class="text-3xl font-bold mb-6">Boosting Curb Appeal for Your San Diego Rental</h2>
             <div class="prose text-lg space-y-6">
-                <p>Curb appeal is critical in San Diego’s competitive rental market, where first impressions can attract or deter potential tenants. A well-maintained exterior enhances your property’s value and appeal. Here’s how to boost curb appeal.</p>
-                <h3>1. Refresh Landscaping</h3>
+                <p>Curb appeal is critical in San Diego's competitive rental market, where first impressions can attract or deter potential tenants. A well-maintained exterior enhances your property's value and appeal. Here's how to boost curb appeal.</p>
+                
+                <h3 class="text-2xl font-semibold mt-8 mb-4">1. Refresh Landscaping</h3>
                 <p>Use drought-resistant plants like succulents or native grasses to create low-maintenance, attractive yards. Regular lawn mowing and tree trimming keep the property tidy.</p>
-                <h3>2. Update Exterior Features</h3>
+                
+                <h3 class="text-2xl font-semibold mt-8 mb-4">2. Update Exterior Features</h3>
                 <p>Repaint faded doors or fences and clean walkways. Consider adding outdoor lighting to highlight pathways or patios, enhancing safety and aesthetics.</p>
-                <h3>3. Highlight Coastal Vibes</h3>
-                <p>Incorporate San Diego’s beach aesthetic with elements like driftwood decor or blue-toned accents. A clean, inviting patio can appeal to tenants seeking the coastal lifestyle.</p>
-                <h3>4. Maintain Cleanliness</h3>
+                
+                <h3 class="text-2xl font-semibold mt-8 mb-4">3. Highlight Coastal Vibes</h3>
+                <p>Incorporate San Diego's beach aesthetic with elements like driftwood decor or blue-toned accents. A clean, inviting patio can appeal to tenants seeking the coastal lifestyle.</p>
+                
+                <h3 class="text-2xl font-semibold mt-8 mb-4">4. Maintain Cleanliness</h3>
                 <p>Power-wash driveways and siding to remove dirt or salt buildup, common in coastal areas. Regular exterior cleaning keeps your property looking fresh.</p>
-                <h3>5. Add Functional Outdoor Spaces</h3>
+                
+                <h3 class="text-2xl font-semibold mt-8 mb-4">5. Add Functional Outdoor Spaces</h3>
                 <p>Create usable spaces like a small seating area or fire pit to attract tenants. These features increase perceived value and make your property stand out.</p>
+                
                 <p>Boosting curb appeal can reduce vacancy periods and justify higher rent. Options Property Management can coordinate landscaping and exterior upgrades for you.</p>
             </div>
-            <a href="blog.html" class="text-blue-600 hover:underline mt-6 inline-block">Back to Blog</a>
+            <a href="blog.html" class="text-blue-600 hover:underline mt-6 inline-block">← Back to Blog</a>
         </div>
     </section>
 
@@ -106,8 +63,8 @@
     <section class="py-16">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-3xl font-bold mb-4">Want to Enhance Your Property?</h2>
-            <p class="text-lg mb-6">We’ll help you boost curb appeal.</p>
-            <a href="index.html#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded">Get in Touch</a>
+            <p class="text-lg mb-6">We'll help you boost curb appeal.</p>
+            <a href="index.html#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded transition">Get in Touch</a>
         </div>
     </section>
 
@@ -123,9 +80,13 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
     </script>
