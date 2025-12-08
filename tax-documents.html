@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Documents & Reporting - Options Property Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a4d7a;
+            --secondary: #2c7bb5;
+            --accent: #e8b44d;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 120px 2rem 60px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .page-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .deadline-banner {
+            background: linear-gradient(135deg, var(--accent) 0%, #d4a049 100%);
+            color: var(--dark);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .deadline-banner h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .deadline-banner .date {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .document-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            border-top: 4px solid var(--accent);
+        }
+
+        .doc-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .document-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .document-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .document-card ul {
+            list-style: none;
+        }
+
+        .document-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--gray);
+        }
+
+        .document-card li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .deductions-section {
+            background: var(--light);
+            padding: 80px 0;
+        }
+
+        .deductions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .deduction-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .deduction-card h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .deduction-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .info-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+            margin: 2rem 0;
+        }
+
+        .info-box h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .info-box p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .info-box ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .info-box li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--gray);
+        }
+
+        .info-box li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .warning-box h4 {
+            color: #92400e;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .warning-box h4:before {
+            content: "⚠️";
+            margin-right: 0.75rem;
+            font-size: 1.5rem;
+        }
+
+        .warning-box p {
+            color: #78350f;
+            line-height: 1.7;
+        }
+
+        .tips-section {
+            background: var(--light);
+            padding: 3rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tip-item {
+            display: flex;
+            align-items: start;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+        }
+
+        .tip-number {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            color: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-right: 1rem;
+        }
+
+        .tip-content h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .tip-content p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 2rem;
+            border-radius: 15px;
+        }
+
+        .cta-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <h1>Options Property Management</h1>
+                <div class="tagline">Serving San Diego Property Owners Since 2015</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="owner-info.html">Owner Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h2>Tax Documents & Reporting</h2>
+        <p>Comprehensive year-end documentation for easy tax filing</p>
+    </div>
+
+    <section>
+        <div class="container">
+            <div class="deadline-banner">
+                <h3>📅 Year-End Tax Documents</h3>
+                <p>Available by</p>
+                <div class="date">January 31st</div>
+                <p>Comprehensive annual summaries delivered on time, every time</p>
+            </div>
+
+            <div style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
+                <p style="color: var(--gray); font-size: 1.1rem; line-height: 1.8;">We provide detailed year-end tax documentation that makes filing your rental property taxes straightforward. Our comprehensive reports categorize all income and expenses, making it easy for you or your tax professional to maximize deductions and comply with IRS requirements.</p>
+            </div>
+
+            <h3 style="color: var(--primary); font-size: 2rem; text-align: center; margin-bottom: 3rem;">What's Included in Your Tax Package</h3>
+
+            <div class="documents-grid">
+                <div class="document-card">
+                    <div class="doc-icon">📊</div>
+                    <h3>Annual Income Summary</h3>
+                    <p>Complete breakdown of all rental income received during the tax year.</p>
+                    <ul>
+                        <li>Monthly rent collected</li>
+                        <li>Pet rent and fees</li>
+                        <li>Late fees collected</li>
+                        <li>Application fees</li>
+                        <li>Other miscellaneous income</li>
+                        <li>Month-by-month detail</li>
+                    </ul>
+                </div>
+
+                <div class="document-card">
+                    <div class="doc-icon">💰</div>
+                    <h3>Expense Report by Category</h3>
+                    <p>All deductible expenses organized by IRS categories for easy reporting.</p>
+                    <ul>
+                        <li>Management fees</li>
+                        <li>Repairs and maintenance</li>
+                        <li>Professional services</li>
+                        <li>Advertising costs</li>
+                        <li>Utilities (if paid by owner)</li>
+                        <li>HOA fees</li>
+                        <li>Insurance premiums</li>
+                    </ul>
+                </div>
+
+                <div class="document-card">
+                    <div class="doc-icon">🔧</div>
+                    <h3>Maintenance Detail Report</h3>
+                    <p>Itemized list of all maintenance and repairs with vendor information.</p>
+                    <ul>
+                        <li>Date of service</li>
+                        <li>Vendor name and contact</li>
+                        <li>Description of work</li>
+                        <li>Amount paid</li>
+                        <li>Category classification</li>
+                        <li>Invoice numbers</li>
+                    </ul>
+                </div>
+
+                <div class="document-card">
+                    <div class="doc-icon">📈</div>
+                    <h3>Cash Flow Statement</h3>
+                    <p>Year-end summary showing net cash flow and owner distributions.</p>
+                    <ul>
+                        <li>Total income collected</li>
+                        <li>Total expenses paid</li>
+                        <li>Net operating income</li>
+                        <li>Owner distributions made</li>
+                        <li>Month-by-month cash flow</li>
+                        <li>Year-over-year comparison</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>📥 Easy Access & Delivery</h4>
+                <p>Your year-end tax package is available through your Owner Portal by January 31st each year. You can:</p>
+                <ul>
+                    <li>Download PDF copies for your records</li>
+                    <li>Export to Excel for further analysis</li>
+                    <li>Forward directly to your CPA or tax preparer</li>
+                    <li>Access previous years' documents anytime</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h4>Important Tax Reminder</h4>
+                <p>We provide comprehensive financial documentation, but we are not tax professionals or CPAs. The information in your year-end summary is for informational purposes. We strongly recommend consulting with a qualified tax professional who can provide advice specific to your situation and ensure you're taking advantage of all available deductions.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="deductions-section">
+        <div class="container">
+            <h3 style="color: var(--primary); font-size: 2rem; text-align: center; margin-bottom: 1rem;">Common Rental Property Tax Deductions</h3>
+            <p style="text-align: center; color: var(--gray); max-width: 700px; margin: 0 auto 2rem;">Understanding potential deductions can help maximize your tax benefits</p>
+
+            <div class="deductions-grid">
+                <div class="deduction-card">
+                    <h4>💼 Management Fees</h4>
+                    <p>Property management fees paid during the year are fully deductible as a business expense.</p>
+                </div>
+
+                <div class="deduction-card">
+                    <h4>🔧 Repairs & Maintenance</h4>
+                    <p>Costs to maintain and repair the property (not improvements) are deductible in the year incurred.</p>
+                </div>
+
+                <div class="deduction-card">
+                    <h4>📢 Advertising & Marketing</h4>
+                    <p>Costs to market your property and find tenants, including listing fees and photography.</p>
+                </div>
+
+                <div class="deduction-card">
+                    <h4>🏦 Mortgage Interest</h4>
+                    <p>Interest paid on mortgages for rental properties is typically fully deductible.</p>
+                </div>
+
+                <div class="deduction-card">
+                    <h4>🏛️ Property Taxes</h4>
+                    <p>Real estate taxes paid to local and state governments are deductible.</p>
+                </div>
+
+                <div class="deduction-card">
+                    <h4>🛡️ Insurance Premiums</h4>
+                    <p>Landlord insurance, liability coverage, and other property-related insurance costs.</p>
+                </div>
+
+                <div class="deduction-card">
+                    <h4>⚡ Utilities</h4>
+                    <p>If you pay for utilities like water, gas, electric, or trash, these are deductible.</p>
+                </div>
+
+                <div class="deduction-card">
+                    <h4>⚖️ Legal & Professional Fees</h4>
+                    <p>Costs for legal services, accounting, tax preparation, and other professional services.</p>
+                </div>
+
+                <div class="deduction-card">
+                    <h4>🏘️ HOA Fees</h4>
+                    <p>Homeowner association fees for condos or properties in HOA communities.</p>
+                </div>
+
+                <div class="deduction-card">
+                    <h4>📉 Depreciation</h4>
+                    <p>Depreciation of the property structure (not land) over 27.5 years for residential rentals.</p>
+                </div>
+
+                <div class="deduction-card">
+                    <h4>🚗 Travel Expenses</h4>
+                    <p>Mileage and travel costs related to managing your rental property.</p>
+                </div>
+
+                <div class="deduction-card">
+                    <h4>🏠 Home Office</h4>
+                    <p>If you have a dedicated space for managing rental activities, a portion may be deductible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="tips-section">
+                <h3 style="color: var(--primary); font-size: 2rem; text-align: center; margin-bottom: 1rem;">Tax Planning Tips for Rental Property Owners</h3>
+
+                <div class="tips-grid">
+                    <div class="tip-item">
+                        <div class="tip-number">1</div>
+                        <div class="tip-content">
+                            <h4>Keep Separate Records</h4>
+                            <p>Maintain separate bank accounts and credit cards for your rental property to simplify tracking income and expenses.</p>
+                        </div>
+                    </div>
+
+                    <div class="tip-item">
+                        <div class="tip-number">2</div>
+                        <div class="tip-content">
+                            <h4>Document Everything</h4>
+                            <p>Save all receipts, invoices, and documentation. Our monthly statements provide this automatically.</p>
+                        </div>
+                    </div>
+
+                    <div class="tip-item">
+                        <div class="tip-number">3</div>
+                        <div class="tip-content">
+                            <h4>Understand Repairs vs. Improvements</h4>
+                            <p>Repairs are immediately deductible; improvements must be depreciated over time. Know the difference.</p>
+                        </div>
+                    </div>
+
+                    <div class="tip-item">
+                        <div class="tip-number">4</div>
+                        <div class="tip-content">
+                            <h4>Track Your Mileage</h4>
+                            <p>Keep a log of trips to your rental property, hardware stores, and meetings with contractors.</p>
+                        </div>
+                    </div>
+
+                    <div class="tip-item">
+                        <div class="tip-number">5</div>
+                        <div class="tip-content">
+                            <h4>Consider a Tax Professional</h4>
+                            <p>Rental property taxes can be complex. A qualified CPA can often save you more than their fee.</p>
+                        </div>
+                    </div>
+
+                    <div class="tip-item">
+                        <div class="tip-number">6</div>
+                        <div class="tip-content">
+                            <h4>Plan for Quarterly Estimates</h4>
+                            <p>If you have significant rental income, you may need to pay quarterly estimated taxes to avoid penalties.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>📞 Questions About Your Tax Documents?</h4>
+                <p>We're here to help explain your year-end summaries and provide any additional documentation you or your tax professional may need. Contact us at <a href="tel:+17606512271" style="color: var(--secondary);">(760) 651-2271</a> or <a href="mailto:optionspropertymgmnt@gmail.com" style="color: var(--secondary);">optionspropertymgmnt@gmail.com</a>.</p>
+            </div>
+
+            <div class="cta-section">
+                <h3>Simplified Tax Reporting for Property Owners</h3>
+                <p>Let us handle the documentation while you focus on growing your portfolio</p>
+                <a href="index.html#contact" class="cta-button">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Options Property Management</h4>
+                    <p>Professional property management services in San Diego County since 2015.</p>
+                    <p><strong>Licensed • Insured • Professional</strong></p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="owner-info.html">Owner Resources</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="tel:+17606512271">(760) 651-2271</a></li>
+                        <li><a href="mailto:optionspropertymgmnt@gmail.com">optionspropertymgmnt@gmail.com</a></li>
+                        <li>Valley Center, CA 92082</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Options Property Management. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

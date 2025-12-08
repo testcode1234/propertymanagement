@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Resources - Options Property Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a4d7a;
+            --secondary: #2c7bb5;
+            --accent: #e8b44d;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 120px 2rem 60px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .page-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Quick Links Grid */
+        .quick-links {
+            background: var(--light);
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .link-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .link-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .link-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+
+        .link-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .link-button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .link-button:hover {
+            background: var(--secondary);
+        }
+
+        /* Documents Section */
+        .documents-section {
+            background: white;
+        }
+
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .document-category {
+            border-left: 4px solid var(--accent);
+            padding: 2rem;
+            background: var(--light);
+            border-radius: 5px;
+        }
+
+        .document-category h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .document-list {
+            list-style: none;
+        }
+
+        .document-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .document-list li:last-child {
+            border-bottom: none;
+        }
+
+        .document-list a {
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .document-list a:hover {
+            color: var(--primary);
+        }
+
+        .document-list a:before {
+            content: "📄";
+            margin-right: 0.75rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: var(--light);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.07);
+        }
+
+        .faq-question {
+            background: white;
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary);
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: var(--light);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            background: white;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .tip-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+            border-top: 4px solid var(--accent);
+        }
+
+        .tip-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .tip-card p {
+            color: var(--gray);
+        }
+
+        /* Contact CTA */
+        .contact-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 2rem;
+        }
+
+        .contact-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .page-header h2 {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <h1>Options Property Management</h1>
+                <div class="tagline">Serving San Diego Property Owners Since 2015</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="owner-info.html">Owner Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h2>Owner Resources</h2>
+        <p>Everything you need to manage your investment property with confidence</p>
+    </div>
+
+    <section class="quick-links">
+        <div class="container">
+            <div class="section-header">
+                <h2>Quick Access Tools</h2>
+                <p>Convenient access to the most commonly used owner resources and portals</p>
+            </div>
+
+            <div class="links-grid">
+                <div class="link-card">
+                    <div class="link-icon">💼</div>
+                    <h3>Owner Portal Login</h3>
+                    <p>Access your monthly statements, property reports, and maintenance records 24/7</p>
+                    <a href="mailto:optionspropertymgmnt@gmail.com?subject=Owner Portal Access Request" class="link-button">Request Access</a>
+                </div>
+
+                <div class="link-card">
+                    <div class="link-icon">📊</div>
+                    <h3>Monthly Statements</h3>
+                    <p>View detailed financial reports, rent collection status, and expense breakdowns</p>
+                    <a href="mailto:optionspropertymgmnt@gmail.com?subject=Statement Request" class="link-button">View Statements</a>
+                </div>
+
+                <div class="link-card">
+                    <div class="link-icon">🔧</div>
+                    <h3>Maintenance Requests</h3>
+                    <p>Track active maintenance issues and review completed work orders</p>
+                    <a href="mailto:optionspropertymgmnt@gmail.com?subject=Maintenance Inquiry" class="link-button">View Status</a>
+                </div>
+
+                <div class="link-card">
+                    <div class="link-icon">📅</div>
+                    <h3>Property Inspections</h3>
+                    <p>Access inspection reports and photo documentation of your property</p>
+                    <a href="mailto:optionspropertymgmnt@gmail.com?subject=Inspection Report Request" class="link-button">View Reports</a>
+                </div>
+
+                <div class="link-card">
+                    <div class="link-icon">💰</div>
+                    <h3>Tax Documents</h3>
+                    <p>Download year-end summaries and tax reporting documents</p>
+                    <a href="mailto:optionspropertymgmnt@gmail.com?subject=Tax Documents Request" class="link-button">Get Documents</a>
+                </div>
+
+                <div class="link-card">
+                    <div class="link-icon">📞</div>
+                    <h3>Owner Support</h3>
+                    <p>Contact your dedicated property manager for questions or concerns</p>
+                    <a href="tel:+17606512271" class="link-button">Call (760) 651-2271</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="documents-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Important Documents & Forms</h2>
+                <p>Essential resources for property owners</p>
+            </div>
+
+            <div class="documents-grid">
+                <div class="document-category">
+                    <h3>Getting Started</h3>
+                    <ul class="document-list">
+                        <li><a href="mailto:optionspropertymgmnt@gmail.com?subject=Management Agreement Request">Property Management Agreement</a></li>
+                        <li><a href="mailto:optionspropertymgmnt@gmail.com?subject=Onboarding Guide Request">New Owner Onboarding Guide</a></li>
+                        <li><a href="mailto:optionspropertymgmnt@gmail.com?subject=Fee Schedule Request">Fee Schedule & Pricing</a></li>
+                        <li><a href="mailto:optionspropertymgmnt@gmail.com?subject=Owner Handbook Request">Owner Handbook</a></li>
+                    </ul>
+                </div>
+
+                <div class="document-category">
+                    <h3>Legal & Compliance</h3>
+                    <ul class="document-list">
+                        <li><a href="mailto:optionspropertymgmnt@gmail.com?subject=Lease Template Request">Standard Lease Agreement</a></li>
+                        <li><a href="mailto:optionspropertymgmnt@gmail.com?subject=Fair Housing Guide Request">Fair Housing Guidelines</a></li>
+                        <li><a href="mailto:optionspropertymgmnt@gmail.com?subject=California Law Summary Request">California Landlord-Tenant Law Summary</a></li>
+                        <li><a href="mailto:optionspropertymgmnt@gmail.com?subject=Insurance Requirements Request">Insurance Requirements</a></li>
+                    </ul>
+                </div>
+
+                <div class="document-category">
+                    <h3>Financial Resources</h3>
+                    <ul class="document-list">
+                        <li><a href="mailto:optionspropertymgmnt@gmail.com?subject=Statement Guide Request">How to Read Your Statement</a></li>
+                        <li><a href="mailto:optionspropertymgmnt@gmail.com?subject=Tax Guide Request">Tax Deduction Guide for Landlords</a></li>
+                        <li><a href="mailto:optionspropertymgmnt@gmail.com?subject=ROI Calculator Request">Rental Property ROI Calculator</a></li>
+                        <li><a href="mailto:optionspropertymgmnt@gmail.com?subject=Market Analysis Request">San Diego Market Analysis</a></li>
+                    </ul>
+                </div>
+
+                <div class="document-category">
+                    <h3>Property Maintenance</h3>
+                    <ul class="document-list">
+                        <li><a href="mailto:optionspropertymgmnt@gmail.com?subject=Maintenance Checklist Request">Seasonal Maintenance Checklist</a></li>
+                        <li><a href="mailto:optionspropertymgmnt@gmail.com?subject=Vendor List Request">Approved Vendor List</a></li>
+                        <li><a href="mailto:optionspropertymgmnt@gmail.com?subject=Emergency Procedures Request">Emergency Procedures Guide</a></li>
+                        <li><a href="mailto:optionspropertymgmnt@gmail.com?subject=Inspection Schedule Request">Inspection Schedule & Standards</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Answers to common questions from property owners</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How often will I receive financial statements?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        You'll receive detailed monthly statements by the 15th of each month, covering all income, expenses, and activity for the previous month. Year-end tax summaries are provided by January 31st annually.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        When do I receive my rental income?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Owner distributions are processed by the 10th of each month via direct deposit or check, after deducting management fees and approved expenses. You'll always know exactly what to expect through our transparent reporting.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Who handles maintenance and repairs?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        We coordinate all maintenance through our network of licensed, insured contractors. Emergency repairs (under $500) are handled immediately to protect your property. Non-emergency work over $500 requires your approval, which we request promptly with detailed cost estimates.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How do you screen potential tenants?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Every applicant undergoes comprehensive screening including credit checks, criminal background checks, employment verification, income verification (3x rent minimum), and previous landlord references. We follow strict Fair Housing guidelines throughout the process.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What happens if a tenant doesn't pay rent?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        We follow a systematic collection process starting with immediate follow-up on late payments. If necessary, we handle the entire eviction process in compliance with California law, including all legal notices and court proceedings, keeping you informed at every step.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How often will you inspect my property?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        We conduct move-in and move-out inspections, plus quarterly drive-by inspections and annual interior inspections. All inspections include photo documentation and detailed reports accessible through your owner portal.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I visit my property anytime?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        As the owner, you have the right to inspect your property with proper notice (typically 24 hours in California). We coordinate all owner visits to ensure compliance with tenant rights and lease terms. Just contact us to schedule a visit.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What are your management fees?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Our management fee structure is transparent and competitive. Contact us for a detailed fee schedule tailored to your property type and needs. We never have hidden fees, and all costs are clearly outlined in your management agreement and monthly statements.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tips-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Property Owner Tips</h2>
+                <p>Maximize your investment with these expert recommendations</p>
+            </div>
+
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h3>💡 Optimize Your Rental Rate</h3>
+                    <p>We analyze comparable properties monthly to ensure your rent stays competitive. Pricing too high leads to vacancies; too low leaves money on the table. Trust our market expertise for optimal returns.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h3>🛡️ Protect Your Investment</h3>
+                    <p>Maintain proper landlord insurance coverage and keep sufficient reserves for unexpected repairs. We recommend setting aside 10-15% of monthly rent for maintenance and capital improvements.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h3>📈 Plan for the Long Term</h3>
+                    <p>Rental property is a long-term investment. Focus on quality tenants, regular maintenance, and strategic improvements that add value. We help you make decisions that maximize long-term appreciation.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h3>🔍 Stay Compliant</h3>
+                    <p>California landlord-tenant laws are complex and frequently changing. Let us handle compliance with rent control, habitability standards, security deposit rules, and fair housing requirements.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h3>🔧 Preventive Maintenance Pays</h3>
+                    <p>Regular maintenance prevents costly emergency repairs. Our preventive maintenance programs include HVAC servicing, plumbing checks, and seasonal inspections that protect your property value.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h3>📊 Review Your Statements</h3>
+                    <p>Take time to review your monthly statements. Understanding your property's financial performance helps you make informed decisions about improvements, rent adjustments, and long-term strategy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="contact-cta">
+        <div class="container">
+            <h2>Have Questions About Your Property?</h2>
+            <p>Our experienced team is here to help you maximize your investment</p>
+            <a href="mailto:optionspropertymgmnt@gmail.com" class="cta-button">Contact Your Property Manager</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Options Property Management</h4>
+                    <p>Professional property management services in San Diego County since 2015. We help property owners maximize their investments through expert management, transparent communication, and dedicated service.</p>
+                    <p><strong>Licensed • Insured • Professional</strong></p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="owner-info.html">Owner Resources</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="tel:+17606512271">(760) 651-2271</a></li>
+                        <li><a href="mailto:optionspropertymgmnt@gmail.com">optionspropertymgmnt@gmail.com</a></li>
+                        <li>PO BOX 1353<br>Valley Center, CA 92082</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Options Property Management. All rights reserved. | Licensed California Real Estate Company</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

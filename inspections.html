@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Inspections - Options Property Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a4d7a;
+            --secondary: #2c7bb5;
+            --accent: #e8b44d;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 120px 2rem 60px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .page-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .inspection-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .inspection-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            border-top: 4px solid var(--accent);
+        }
+
+        .inspection-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .inspection-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .inspection-card .frequency {
+            background: var(--light);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .inspection-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .inspection-card ul {
+            list-style: none;
+        }
+
+        .inspection-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--gray);
+        }
+
+        .inspection-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .checklist-section {
+            background: var(--light);
+            padding: 80px 0;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .checklist-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .checklist-category h4 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .checklist-category h4:before {
+            content: "📋";
+            font-size: 1.5rem;
+            margin-right: 0.75rem;
+        }
+
+        .checklist-category ul {
+            list-style: none;
+        }
+
+        .checklist-category li {
+            padding: 0.75rem;
+            border-bottom: 1px solid #e5e7eb;
+            color: var(--gray);
+        }
+
+        .checklist-category li:last-child {
+            border-bottom: none;
+        }
+
+        .photo-section {
+            text-align: center;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .photo-example {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .photo-example h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .photo-example p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .benefits-section {
+            background: var(--light);
+            padding: 80px 0;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card p {
+            color: var(--gray);
+        }
+
+        .info-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+            margin: 2rem 0;
+        }
+
+        .info-box h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .info-box p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 2rem;
+            border-radius: 15px;
+        }
+
+        .cta-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .checklist-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <h1>Options Property Management</h1>
+                <div class="tagline">Serving San Diego Property Owners Since 2015</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="owner-info.html">Owner Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h2>Property Inspections</h2>
+        <p>Comprehensive inspections with detailed photo documentation</p>
+    </div>
+
+    <section>
+        <div class="container">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
+                <h3 style="color: var(--primary); font-size: 2rem; margin-bottom: 1rem;">Protecting Your Investment</h3>
+                <p style="color: var(--gray); font-size: 1.1rem; line-height: 1.8;">Regular property inspections are essential for maintaining your property's condition, identifying issues early, and ensuring tenant compliance with lease terms. We conduct thorough inspections with extensive photo documentation available through your owner portal.</p>
+            </div>
+
+            <h3 style="color: var(--primary); font-size: 2rem; text-align: center; margin-bottom: 3rem;">Our Inspection Schedule</h3>
+
+            <div class="inspection-types">
+                <div class="inspection-card">
+                    <div class="inspection-icon">🏠</div>
+                    <h3>Move-In Inspection</h3>
+                    <div class="frequency">Before Tenant Occupancy</div>
+                    <p>Comprehensive documentation of property condition before tenant moves in, establishing baseline condition.</p>
+                    <ul>
+                        <li>Room-by-room documentation</li>
+                        <li>50+ detailed photographs</li>
+                        <li>Condition notes for every area</li>
+                        <li>Existing damage identification</li>
+                        <li>Appliance condition noted</li>
+                        <li>Signed by tenant acknowledgment</li>
+                    </ul>
+                </div>
+
+                <div class="inspection-card">
+                    <div class="inspection-icon">🔍</div>
+                    <h3>Quarterly Drive-By</h3>
+                    <div class="frequency">Every 3 Months</div>
+                    <p>Exterior property check to monitor landscaping, curb appeal, and visible maintenance needs.</p>
+                    <ul>
+                        <li>Exterior condition assessment</li>
+                        <li>Landscaping evaluation</li>
+                        <li>Visible damage identification</li>
+                        <li>Unauthorized modifications check</li>
+                        <li>HOA compliance verification</li>
+                        <li>Photos of property exterior</li>
+                    </ul>
+                </div>
+
+                <div class="inspection-card">
+                    <div class="inspection-icon">📅</div>
+                    <h3>Annual Interior Inspection</h3>
+                    <div class="frequency">Once Per Year</div>
+                    <p>Detailed interior walkthrough to verify property condition and identify maintenance needs.</p>
+                    <ul>
+                        <li>Full interior access inspection</li>
+                        <li>All rooms photographed</li>
+                        <li>Maintenance issues identified</li>
+                        <li>Lease compliance verification</li>
+                        <li>Safety equipment checks</li>
+                        <li>Tenant concerns addressed</li>
+                    </ul>
+                </div>
+
+                <div class="inspection-card">
+                    <div class="inspection-icon">🚪</div>
+                    <h3>Move-Out Inspection</h3>
+                    <div class="frequency">After Tenant Vacates</div>
+                    <p>Thorough assessment comparing final condition to move-in documentation for security deposit disposition.</p>
+                    <ul>
+                        <li>Side-by-side comparison photos</li>
+                        <li>Damage vs. wear assessment</li>
+                        <li>Cleaning evaluation</li>
+                        <li>Repair cost estimates</li>
+                        <li>Security deposit recommendations</li>
+                        <li>Turn-ready preparation list</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>📱 Instant Access to Reports</h4>
+                <p>All inspection reports with photos are uploaded to your Owner Portal within 48 hours of completion. You'll receive an email notification when each report is ready, with instant online access to review the photos and findings from any device.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="checklist-section">
+        <div class="container">
+            <h3 style="color: var(--primary); font-size: 2rem; text-align: center; margin-bottom: 1rem;">What We Inspect</h3>
+            <p style="text-align: center; color: var(--gray); max-width: 700px; margin: 0 auto 2rem;">Comprehensive checklist covering every aspect of your property</p>
+
+            <div class="checklist-grid">
+                <div class="checklist-category">
+                    <h4>Interior Areas</h4>
+                    <ul>
+                        <li>Living room, bedrooms, hallways</li>
+                        <li>Kitchen and appliances</li>
+                        <li>Bathrooms and fixtures</li>
+                        <li>Flooring condition (carpet, tile, hardwood)</li>
+                        <li>Walls and ceilings (damage, stains)</li>
+                        <li>Windows and window coverings</li>
+                        <li>Doors and door hardware</li>
+                        <li>Light fixtures and switches</li>
+                        <li>Closets and storage areas</li>
+                    </ul>
+                </div>
+
+                <div class="checklist-category">
+                    <h4>Systems & Safety</h4>
+                    <ul>
+                        <li>HVAC system operation</li>
+                        <li>Plumbing (leaks, water pressure)</li>
+                        <li>Electrical outlets and fixtures</li>
+                        <li>Smoke and CO detectors</li>
+                        <li>Water heater condition</li>
+                        <li>Thermostat function</li>
+                        <li>Garbage disposal operation</li>
+                        <li>Fire extinguisher (if provided)</li>
+                    </ul>
+                </div>
+
+                <div class="checklist-category">
+                    <h4>Exterior & Grounds</h4>
+                    <ul>
+                        <li>Roof condition and gutters</li>
+                        <li>Siding and exterior paint</li>
+                        <li>Driveway and walkways</li>
+                        <li>Landscaping and lawn care</li>
+                        <li>Sprinkler system</li>
+                        <li>Fencing and gates</li>
+                        <li>Garage and garage door</li>
+                        <li>Outdoor lighting</li>
+                        <li>Trash enclosure areas</li>
+                    </ul>
+                </div>
+
+                <div class="checklist-category">
+                    <h4>Lease Compliance</h4>
+                    <ul>
+                        <li>Unauthorized pets or occupants</li>
+                        <li>Unapproved modifications</li>
+                        <li>Proper use of property</li>
+                        <li>Cleanliness standards</li>
+                        <li>Parking compliance</li>
+                        <li>HOA rule adherence</li>
+                        <li>Proper waste disposal</li>
+                        <li>Tenant maintenance obligations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="photo-section">
+        <div class="container">
+            <h3 style="color: var(--primary); font-size: 2rem; margin-bottom: 1rem;">Comprehensive Photo Documentation</h3>
+            <p style="color: var(--gray); max-width: 700px; margin: 0 auto 2rem;">Every inspection includes extensive photographs to document condition and track changes over time</p>
+
+            <div class="photo-grid">
+                <div class="photo-example">
+                    <div class="photo-placeholder">📸</div>
+                    <h4>Wide-Angle Room Shots</h4>
+                    <p>Overall condition and layout of each room</p>
+                </div>
+
+                <div class="photo-example">
+                    <div class="photo-placeholder">🔍</div>
+                    <h4>Detail Close-Ups</h4>
+                    <p>Specific damage, wear, or maintenance issues</p>
+                </div>
+
+                <div class="photo-example">
+                    <div class="photo-placeholder">🏠</div>
+                    <h4>Exterior Views</h4>
+                    <p>Multiple angles of property exterior and landscaping</p>
+                </div>
+
+                <div class="photo-example">
+                    <div class="photo-placeholder">⚙️</div>
+                    <h4>Systems & Appliances</h4>
+                    <p>Condition of HVAC, water heater, appliances</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>📊 Comparison Reports</h4>
+                <p>Our move-out inspections include side-by-side photo comparisons showing move-in condition versus move-out condition. This visual documentation provides clear evidence for security deposit deductions and eliminates disputes about property condition.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits-section">
+        <div class="container">
+            <h3 style="color: var(--primary); font-size: 2rem; text-align: center; margin-bottom: 3rem;">Why Regular Inspections Matter</h3>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛡️</div>
+                    <h4>Early Problem Detection</h4>
+                    <p>Catch small issues before they become expensive repairs. A small leak found early can prevent major water damage.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h4>Protect Property Value</h4>
+                    <p>Regular monitoring ensures your property maintains its condition and value throughout the tenancy.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚖️</div>
+                    <h4>Lease Enforcement</h4>
+                    <p>Verify tenants are following lease terms and address violations before they become serious problems.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">📋</div>
+                    <h4>Documentation Protection</h4>
+                    <p>Detailed photo records protect you from false damage claims and security deposit disputes.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏆</div>
+                    <h4>Tenant Accountability</h4>
+                    <p>Regular inspections encourage tenants to maintain the property properly and report issues promptly.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">📈</div>
+                    <h4>Insurance Protection</h4>
+                    <p>Inspection records can be valuable documentation for insurance claims if damage occurs.</p>
+                </div>
+            </div>
+
+            <div class="cta-section" style="margin-top: 4rem;">
+                <h3>Professional Property Monitoring</h3>
+                <p>Let us protect your investment with regular, thorough inspections</p>
+                <a href="index.html#contact" class="cta-button">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Options Property Management</h4>
+                    <p>Professional property management services in San Diego County since 2015.</p>
+                    <p><strong>Licensed • Insured • Professional</strong></p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="owner-info.html">Owner Resources</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="tel:+17606512271">(760) 651-2271</a></li>
+                        <li><a href="mailto:optionspropertymgmnt@gmail.com">optionspropertymgmnt@gmail.com</a></li>
+                        <li>Valley Center, CA 92082</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Options Property Management. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

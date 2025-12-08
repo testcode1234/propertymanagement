@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Statements - Options Property Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a4d7a;
+            --secondary: #2c7bb5;
+            --accent: #e8b44d;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 120px 2rem 60px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .page-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .intro-section {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .intro-section p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .statement-example {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+
+        .statement-example h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .statement-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+
+        .statement-table th {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .statement-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .statement-table tr:hover {
+            background: var(--light);
+        }
+
+        .section-header {
+            background: var(--light);
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .amount-positive {
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .amount-negative {
+            color: #ef4444;
+            font-weight: 600;
+        }
+
+        .total-row {
+            font-weight: 600;
+            background: var(--light);
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+            border-top: 4px solid var(--accent);
+        }
+
+        .feature-card h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .info-box {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+            margin: 2rem 0;
+        }
+
+        .info-box h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 2rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+        }
+
+        .cta-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .statement-table {
+                font-size: 0.9rem;
+            }
+
+            .statement-table th,
+            .statement-table td {
+                padding: 0.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <h1>Options Property Management</h1>
+                <div class="tagline">Serving San Diego Property Owners Since 2015</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="owner-info.html">Owner Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h2>Monthly Owner Statements</h2>
+        <p>Complete transparency with detailed financial reporting</p>
+    </div>
+
+    <section>
+        <div class="container">
+            <div class="intro-section">
+                <p>Every month by the 15th, you receive a comprehensive financial statement detailing all income, expenses, and activity for your property. Our clear, easy-to-read format ensures you always know exactly how your investment is performing.</p>
+            </div>
+
+            <div class="statement-example">
+                <h3>Sample Monthly Statement</h3>
+                <p style="text-align: center; color: var(--gray); margin-bottom: 2rem;">Property Address: 123 Main Street, San Diego, CA 92101<br>Statement Period: November 1-30, 2025</p>
+
+                <table class="statement-table">
+                    <tr class="section-header">
+                        <td colspan="2"><strong>INCOME</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Rent Received</td>
+                        <td class="amount-positive">$2,800.00</td>
+                    </tr>
+                    <tr>
+                        <td>Pet Rent</td>
+                        <td class="amount-positive">$50.00</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>Total Income</td>
+                        <td class="amount-positive">$2,850.00</td>
+                    </tr>
+
+                    <tr class="section-header">
+                        <td colspan="2"><strong>EXPENSES</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Management Fee (8%)</td>
+                        <td class="amount-negative">$228.00</td>
+                    </tr>
+                    <tr>
+                        <td>HVAC Repair - ABC Heating</td>
+                        <td class="amount-negative">$285.00</td>
+                    </tr>
+                    <tr>
+                        <td>Landscaping - Green Care Services</td>
+                        <td class="amount-negative">$125.00</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>Total Expenses</td>
+                        <td class="amount-negative">$638.00</td>
+                    </tr>
+
+                    <tr class="section-header">
+                        <td colspan="2"><strong>SUMMARY</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Previous Balance</td>
+                        <td>$0.00</td>
+                    </tr>
+                    <tr>
+                        <td>Total Income</td>
+                        <td class="amount-positive">$2,850.00</td>
+                    </tr>
+                    <tr>
+                        <td>Total Expenses</td>
+                        <td class="amount-negative">($638.00)</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td><strong>Owner Distribution</strong></td>
+                        <td class="amount-positive"><strong>$2,212.00</strong></td>
+                    </tr>
+                </table>
+
+                <div style="background: var(--light); padding: 1.5rem; border-radius: 8px; margin-top: 2rem;">
+                    <p style="color: var(--gray);"><strong>Distribution Date:</strong> December 10, 2025<br>
+                    <strong>Payment Method:</strong> Direct Deposit - Bank Account ending in ****1234</p>
+                </div>
+            </div>
+
+            <h3 style="color: var(--primary); font-size: 2rem; text-align: center; margin: 4rem 0 2rem;">What's Included in Your Statement</h3>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4>📊 Income Breakdown</h4>
+                    <p>Detailed listing of all rental income, including base rent, pet rent, parking fees, and any other income sources. See exactly what was collected and when.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>💳 Expense Details</h4>
+                    <p>Every expense is itemized with vendor names, invoice numbers, and dates. Review maintenance costs, repairs, utilities, and all other expenses with full transparency.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🏦 Payment History</h4>
+                    <p>Track rent payment dates, late fees (if applicable), and payment methods. Know exactly when your tenants pay and if there are any collection issues.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>🔧 Maintenance Summary</h4>
+                    <p>All maintenance and repair work is documented with descriptions, costs, and vendor information. Know what work was done and why.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>📈 Year-to-Date Totals</h4>
+                    <p>Track your property's financial performance over time with cumulative totals for income, expenses, and net cash flow throughout the year.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>💰 Distribution Details</h4>
+                    <p>Clear calculation showing how we arrived at your monthly distribution amount, with payment date and method clearly stated.</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>📅 Statement Delivery Schedule</h4>
+                <p><strong>Monthly Statements:</strong> Delivered by the 15th of each month covering the previous month's activity</p>
+                <p><strong>Owner Distributions:</strong> Processed by the 10th of each month via direct deposit or check</p>
+                <p><strong>Year-End Tax Summary:</strong> Provided by January 31st annually with all information needed for tax filing</p>
+            </div>
+
+            <div class="info-box">
+                <h4>📱 How to Access Your Statements</h4>
+                <p>All statements are available 24/7 through your Owner Portal. You'll receive an email notification when each new statement is ready. Statements can be viewed online or downloaded as PDF files for your records. Historical statements are always available for download.</p>
+            </div>
+
+            <div class="info-box">
+                <h4>❓ Questions About Your Statement?</h4>
+                <p>We understand that financial statements can sometimes raise questions. Your dedicated property manager is always available to review your statement with you and explain any line items. Simply call us at <a href="tel:+17606512271" style="color: var(--secondary);">(760) 651-2271</a> or email <a href="mailto:optionspropertymgmnt@gmail.com" style="color: var(--secondary);">optionspropertymgmnt@gmail.com</a>.</p>
+            </div>
+
+            <div class="cta-section">
+                <h3>Ready to Experience Transparent Financial Management?</h3>
+                <p>See how we make property ownership simple with clear, detailed reporting</p>
+                <a href="index.html#contact" class="cta-button">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Options Property Management</h4>
+                    <p>Professional property management services in San Diego County since 2015.</p>
+                    <p><strong>Licensed • Insured • Professional</strong></p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="owner-info.html">Owner Resources</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="tel:+17606512271">(760) 651-2271</a></li>
+                        <li><a href="mailto:optionspropertymgmnt@gmail.com">optionspropertymgmnt@gmail.com</a></li>
+                        <li>Valley Center, CA 92082</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Options Property Management. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Services - Options Property Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a4d7a;
+            --secondary: #2c7bb5;
+            --accent: #e8b44d;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 120px 2rem 60px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .page-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .emergency-banner {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .emergency-banner h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .emergency-banner .phone {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+
+        .process-section {
+            background: var(--light);
+            padding: 80px 0;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            color: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        .process-step h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .process-step p {
+            color: var(--gray);
+        }
+
+        .maintenance-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .type-card {
+            background: white;
+            padding: 2.5rem;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            border-radius: 5px;
+        }
+
+        .type-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .type-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .type-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .type-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--gray);
+        }
+
+        .type-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .approval-section {
+            background: var(--light);
+            padding: 3rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+        }
+
+        .approval-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .approval-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .approval-card h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .approval-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .approval-card ul {
+            list-style: none;
+        }
+
+        .approval-card li {
+            color: var(--gray);
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .approval-card li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .vendor-section {
+            text-align: center;
+        }
+
+        .vendor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .vendor-badge {
+            background: var(--light);
+            padding: 2rem 1rem;
+            border-radius: 10px;
+        }
+
+        .vendor-badge h4 {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .info-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+            margin: 2rem 0;
+        }
+
+        .info-box h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .info-box p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 2rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+        }
+
+        .cta-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .approval-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <h1>Options Property Management</h1>
+                <div class="tagline">Serving San Diego Property Owners Since 2015</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="owner-info.html">Owner Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h2>Property Maintenance Services</h2>
+        <p>Professional maintenance coordination to protect your investment</p>
+    </div>
+
+    <section>
+        <div class="container">
+            <div class="emergency-banner">
+                <h3>🚨 24/7 Emergency Maintenance Hotline</h3>
+                <p>For urgent issues like flooding, gas leaks, no heat/AC, or security concerns</p>
+                <div class="phone"><a href="tel:+17606512271" style="color: white; text-decoration: none;">(760) 651-2271</a></div>
+                <p>Available around the clock for true emergencies</p>
+            </div>
+
+            <div style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
+                <h3 style="color: var(--primary); font-size: 2rem; margin-bottom: 1rem;">Proactive Property Care</h3>
+                <p style="color: var(--gray); font-size: 1.1rem; line-height: 1.8;">We coordinate all maintenance and repairs through our network of licensed, insured contractors, ensuring quality work at competitive prices while keeping you informed every step of the way.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <div class="container">
+            <h3 style="color: var(--primary); font-size: 2rem; text-align: center; margin-bottom: 1rem;">Our Maintenance Process</h3>
+            <p style="text-align: center; color: var(--gray); max-width: 700px; margin: 0 auto 2rem;">From request to completion, we handle every detail</p>
+
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>Issue Reported</h4>
+                    <p>Tenant reports issue via phone, email, or online portal. Request logged immediately with photos if provided.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Priority Assessment</h4>
+                    <p>We evaluate urgency and determine if emergency response is needed or if it can be scheduled.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Vendor Coordination</h4>
+                    <p>Licensed contractor scheduled and dispatched. Emergency repairs under $500 approved automatically.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Owner Approval</h4>
+                    <p>Non-emergency repairs over $500 sent to you with detailed estimate for approval before work begins.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h4>Work Completed</h4>
+                    <p>Contractor completes work and we verify quality. Tenant confirms issue resolved.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <h4>Documentation</h4>
+                    <p>Invoice processed, photos archived, work order updated in your portal with all details.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h3 style="color: var(--primary); font-size: 2rem; text-align: center; margin-bottom: 3rem;">Maintenance Categories We Handle</h3>
+
+            <div class="maintenance-types">
+                <div class="type-card">
+                    <div class="type-icon">🔧</div>
+                    <h3>Plumbing Services</h3>
+                    <p>Expert plumbing repairs and maintenance</p>
+                    <ul>
+                        <li>Leak repairs and pipe replacement</li>
+                        <li>Drain cleaning and unclogging</li>
+                        <li>Water heater repair/replacement</li>
+                        <li>Fixture installation and repair</li>
+                        <li>Sewer line issues</li>
+                    </ul>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-icon">❄️</div>
+                    <h3>HVAC Systems</h3>
+                    <p>Heating and cooling maintenance</p>
+                    <ul>
+                        <li>AC repair and maintenance</li>
+                        <li>Furnace service and repair</li>
+                        <li>Filter replacement programs</li>
+                        <li>Seasonal tune-ups</li>
+                        <li>System replacement coordination</li>
+                    </ul>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-icon">⚡</div>
+                    <h3>Electrical Work</h3>
+                    <p>Licensed electrical services</p>
+                    <ul>
+                        <li>Outlet and switch repair</li>
+                        <li>Lighting installation/repair</li>
+                        <li>Circuit breaker issues</li>
+                        <li>Electrical safety inspections</li>
+                        <li>Code compliance upgrades</li>
+                    </ul>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-icon">🏠</div>
+                    <h3>General Repairs</h3>
+                    <p>Handyman and repair services</p>
+                    <ul>
+                        <li>Drywall repair and painting</li>
+                        <li>Door and window repairs</li>
+                        <li>Flooring repairs</li>
+                        <li>Appliance repair/replacement</li>
+                        <li>General carpentry</li>
+                    </ul>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-icon">🌱</div>
+                    <h3>Exterior Maintenance</h3>
+                    <p>Curb appeal and outdoor care</p>
+                    <ul>
+                        <li>Landscaping services</li>
+                        <li>Sprinkler system repair</li>
+                        <li>Fence and gate repair</li>
+                        <li>Roof inspection and repair</li>
+                        <li>Gutter cleaning</li>
+                    </ul>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-icon">🔒</div>
+                    <h3>Security & Access</h3>
+                    <p>Safety and access control</p>
+                    <ul>
+                        <li>Lock changes and rekeying</li>
+                        <li>Garage door repair</li>
+                        <li>Security system issues</li>
+                        <li>Gate access problems</li>
+                        <li>Smoke/CO detector service</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="approval-section">
+                <h3 style="color: var(--primary); font-size: 2rem; text-align: center; margin-bottom: 1rem;">Owner Approval Process</h3>
+                <p style="text-align: center; color: var(--gray); max-width: 700px; margin: 0 auto;">We balance protecting your property with respecting your budget</p>
+
+                <div class="approval-grid">
+                    <div class="approval-card">
+                        <h4>⚡ Emergency Repairs (Auto-Approved)</h4>
+                        <p><strong>Under $500</strong> - Handled immediately to prevent property damage</p>
+                        <ul>
+                            <li>Burst pipes or major leaks</li>
+                            <li>No heat in winter</li>
+                            <li>No AC in extreme heat</li>
+                            <li>Gas leaks</li>
+                            <li>Security issues (broken locks, etc.)</li>
+                            <li>Electrical hazards</li>
+                        </ul>
+                        <p style="margin-top: 1rem;"><em>You're notified immediately and receive full documentation within 24 hours.</em></p>
+                    </div>
+
+                    <div class="approval-card">
+                        <h4>📋 Non-Emergency Repairs</h4>
+                        <p><strong>Over $500</strong> - Requires your approval before work begins</p>
+                        <ul>
+                            <li>Appliance replacements</li>
+                            <li>Major system repairs</li>
+                            <li>Cosmetic improvements</li>
+                            <li>Non-urgent structural repairs</li>
+                        </ul>
+                        <p style="margin-top: 1rem;">We send you:</p>
+                        <ul>
+                            <li>Detailed scope of work</li>
+                            <li>Contractor bid(s)</li>
+                            <li>Photos of the issue</li>
+                            <li>Recommendation</li>
+                            <li>Timeline for approval</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>💡 Preventive Maintenance Programs</h4>
+                <p>Avoid costly emergency repairs with our preventive maintenance services. We can arrange regular HVAC tune-ups, gutter cleaning, sprinkler system checks, and other seasonal maintenance to keep your property in excellent condition and extend the life of major systems.</p>
+            </div>
+
+            <div class="info-box">
+                <h4>📱 Owner Portal Tracking</h4>
+                <p>Track all maintenance activity through your Owner Portal. View open work orders, completed repairs, vendor invoices, and before/after photos. Every maintenance item is documented and categorized for easy tracking and tax purposes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="vendor-section">
+        <div class="container">
+            <h3 style="color: var(--primary); font-size: 2rem; margin-bottom: 1rem;">Our Trusted Vendor Network</h3>
+            <p style="color: var(--gray); max-width: 700px; margin: 0 auto 1rem;">All contractors in our network are licensed, insured, and proven reliable</p>
+
+            <div class="vendor-grid">
+                <div class="vendor-badge">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">✓</div>
+                    <h4>Licensed & Insured</h4>
+                </div>
+                <div class="vendor-badge">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">⭐</div>
+                    <h4>Quality Verified</h4>
+                </div>
+                <div class="vendor-badge">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">💰</div>
+                    <h4>Competitive Pricing</h4>
+                </div>
+                <div class="vendor-badge">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">⏱️</div>
+                    <h4>Fast Response</h4>
+                </div>
+                <div class="vendor-badge">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔧</div>
+                    <h4>Specialized Experts</h4>
+                </div>
+                <div class="vendor-badge">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">📋</div>
+                    <h4>Warranty Protected</h4>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h3>Maintenance Issues? We've Got You Covered</h3>
+                <p>24/7 emergency response and professional coordination for all your property needs</p>
+                <a href="tel:+17606512271" class="cta-button">Call (760) 651-2271</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Options Property Management</h4>
+                    <p>Professional property management services in San Diego County since 2015.</p>
+                    <p><strong>Licensed • Insured • Professional</strong></p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="owner-info.html">Owner Resources</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="tel:+17606512271">(760) 651-2271</a></li>
+                        <li><a href="mailto:optionspropertymgmnt@gmail.com">optionspropertymgmnt@gmail.com</a></li>
+                        <li>Valley Center, CA 92082</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Options Property Management. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

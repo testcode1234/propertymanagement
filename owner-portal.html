@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Portal - Options Property Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a4d7a;
+            --secondary: #2c7bb5;
+            --accent: #e8b44d;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 120px 2rem 60px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .page-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .portal-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .portal-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .portal-form h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        .login-button {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .login-button:hover {
+            background: var(--secondary);
+        }
+
+        .form-links {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .form-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            display: block;
+            margin: 0.5rem 0;
+        }
+
+        .form-links a:hover {
+            text-decoration: underline;
+        }
+
+        .portal-info {
+            background: var(--light);
+            padding: 3rem;
+            border-radius: 15px;
+        }
+
+        .portal-info h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .feature-list li {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+            min-width: 50px;
+        }
+
+        .feature-text h4 {
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .feature-text p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .info-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            margin-top: 2rem;
+        }
+
+        .info-box h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .info-box p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .info-box a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .info-box a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .portal-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <h1>Options Property Management</h1>
+                <div class="tagline">Serving San Diego Property Owners Since 2015</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="owner-info.html">Owner Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h2>Owner Portal</h2>
+        <p>24/7 access to your property information and financial reports</p>
+    </div>
+
+    <section>
+        <div class="container">
+            <div class="portal-content">
+                <div class="portal-form">
+                    <h3>Login to Your Account</h3>
+                    <form action="mailto:optionspropertymgmnt@gmail.com" method="post" enctype="text/plain">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+
+                        <button type="submit" class="login-button">Sign In</button>
+
+                        <div class="form-links">
+                            <a href="mailto:optionspropertymgmnt@gmail.com?subject=Password Reset Request">Forgot your password?</a>
+                            <a href="mailto:optionspropertymgmnt@gmail.com?subject=New Owner Portal Access Request">Need access? Contact us</a>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="portal-info">
+                    <h3>Your Portal Features</h3>
+                    <p>Access everything you need to stay informed about your investment property.</p>
+
+                    <ul class="feature-list">
+                        <li>
+                            <div class="feature-icon">📊</div>
+                            <div class="feature-text">
+                                <h4>Financial Statements</h4>
+                                <p>View and download monthly statements with detailed income and expense breakdowns</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="feature-icon">💰</div>
+                            <div class="feature-text">
+                                <h4>Payment History</h4>
+                                <p>Track all rent payments, owner distributions, and transaction history</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="feature-icon">🔧</div>
+                            <div class="feature-text">
+                                <h4>Maintenance Tracking</h4>
+                                <p>Monitor active work orders and review completed maintenance with photos</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="feature-icon">📄</div>
+                            <div class="feature-text">
+                                <h4>Document Library</h4>
+                                <p>Access leases, inspection reports, tax documents, and more</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="feature-icon">📸</div>
+                            <div class="feature-text">
+                                <h4>Property Photos</h4>
+                                <p>View current property condition through inspection photo galleries</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="feature-icon">📧</div>
+                            <div class="feature-text">
+                                <h4>Secure Messaging</h4>
+                                <p>Communicate directly with your property manager through the portal</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="info-box">
+                        <h4>New Owner?</h4>
+                        <p>If you're a new client or haven't received your portal login credentials yet, please contact us at <a href="tel:+17606512271">(760) 651-2271</a> or <a href="mailto:optionspropertymgmnt@gmail.com">optionspropertymgmnt@gmail.com</a> and we'll get you set up within 24 hours.</p>
+                    </div>
+
+                    <div class="info-box" style="margin-top: 1.5rem;">
+                        <h4>Mobile Access</h4>
+                        <p>The owner portal is fully mobile-responsive. Access your property information anytime, anywhere from your smartphone or tablet. Simply bookmark this page for easy access.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Options Property Management</h4>
+                    <p>Professional property management services in San Diego County since 2015.</p>
+                    <p><strong>Licensed • Insured • Professional</strong></p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="owner-info.html">Owner Resources</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="tel:+17606512271">(760) 651-2271</a></li>
+                        <li><a href="mailto:optionspropertymgmnt@gmail.com">optionspropertymgmnt@gmail.com</a></li>
+                        <li>Valley Center, CA 92082</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Options Property Management. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
