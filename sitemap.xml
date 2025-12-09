@@ -95,4 +95,25 @@
     <priority>0.8</priority>
   </url>
   
+  <url>
+    <loc>https://www.options-pm.com/blog-winter-maintenance.html</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.options-pm.com/blog-north-county.html</loc>
+    <lastmod>2025-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.options-pm.com/blog-rental-pricing.html</loc>
+    <lastmod>2025-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
 </urlset>
