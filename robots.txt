@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.options-pm.com/sitemap.xml
+
+# Allow search engines to index all pages
+# Optimized for: Google, Bing, Yahoo, DuckDuckGo
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
