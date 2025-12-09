@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 California Landlord-Tenant Law Updates - Options Property Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a4d7a;
+            --secondary: #2c7bb5;
+            --accent: #e8b44d;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .article-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 120px 2rem 60px;
+            margin-top: 80px;
+        }
+
+        .article-header .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 2rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .article-content h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+        }
+
+        .article-content h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 1.5rem 0 1.5rem 2rem;
+            color: var(--gray);
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+            line-height: 1.8;
+        }
+
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 5px;
+        }
+
+        .warning-box h4 {
+            color: #92400e;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .warning-box h4:before {
+            content: "⚠️";
+            margin-right: 0.75rem;
+            font-size: 1.5rem;
+        }
+
+        .warning-box p {
+            color: #78350f;
+            line-height: 1.7;
+        }
+
+        .highlight-box {
+            background: var(--light);
+            border-left: 4px solid var(--accent);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 5px;
+        }
+
+        .highlight-box h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .info-box {
+            background: #dbeafe;
+            border-left: 4px solid var(--secondary);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 5px;
+        }
+
+        .info-box h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .info-box p {
+            color: var(--dark);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 2rem;
+            margin: 4rem 0;
+            border-radius: 15px;
+        }
+
+        .cta-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .back-link {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .back-link a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .article-header h1 {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <h1>Options Property Management</h1>
+                <div class="tagline">Serving San Diego Property Owners Since 2015</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="owner-info.html">Owner Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="article-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="blog.html">← Back to Blog</a>
+            </div>
+            <h1>2025 California Landlord-Tenant Law Updates</h1>
+            <div class="article-meta">
+                <span>📅 December 2025</span>
+                <span>⏱️ 6 min read</span>
+                <span>⚖️ Legal & Compliance</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="article-content">
+        <p>California's rental housing laws continue to evolve, with 2025 bringing several important updates that property owners and managers must understand and implement. Whether you're a seasoned landlord or new to rental property ownership, staying compliant with state and local regulations is essential to protect your investment and avoid costly penalties.</p>
+
+        <p>This guide covers the key legal changes taking effect in 2025 and what they mean for your rental property operations.</p>
+
+        <div class="warning-box">
+            <h4>Important Legal Disclaimer</h4>
+            <p>This article provides general information about California landlord-tenant laws but is not legal advice. Laws can vary by locality and individual circumstances. Always consult with a qualified attorney for specific legal guidance regarding your rental property.</p>
+        </div>
+
+        <h2>AB 1482: Rent Control and Just Cause Eviction</h2>
+
+        <p>The Tenant Protection Act of 2019 (AB 1482) remains in effect and continues to impact most rental properties in California. Here's what you need to know about the current requirements:</p>
+
+        <h3>Rent Increase Limitations</h3>
+
+        <p>Under AB 1482, rent increases are capped at the lower of:</p>
+        <ul>
+            <li>5% plus the local Consumer Price Index (CPI), or</li>
+            <li>10% total</li>
+        </ul>
+
+        <p>For 2025, with inflation moderating, most areas in California will see maximum allowable increases in the 6-8% range. However, this is a maximum—not a recommendation. Market conditions and tenant retention strategies should guide your actual rent increase decisions.</p>
+
+        <h3>Properties Exempt from AB 1482</h3>
+
+        <p>Certain properties remain exempt from these rent control provisions:</p>
+        <ul>
+            <li>Housing built within the last 15 years (currently properties built after 2010)</li>
+            <li>Single-family homes and condos (unless owned by corporations or LLCs owning more than two properties)</li>
+            <li>Deed-restricted affordable housing</li>
+        </ul>
+
+        <div class="info-box">
+            <h4>Just Cause Eviction Requirements</h4>
+            <p>AB 1482 also requires "just cause" to terminate tenancies after a tenant has been in residence for 12 months. This means you must have a valid reason—such as non-payment of rent, lease violations, or owner move-in—to end a tenancy. Simply wanting to increase rent beyond allowed limits or re-rent to someone else is not sufficient cause.</p>
+        </div>
+
+        <h2>Security Deposit Regulations</h2>
+
+        <p>California maintains strict rules regarding security deposits, and compliance is essential to avoid disputes and potential penalties.</p>
+
+        <h3>Maximum Security Deposit Amounts</h3>
+
+        <p>The maximum security deposit you can collect is:</p>
+        <ul>
+            <li>Unfurnished properties: Two months' rent (for tenancies starting before July 1, 2024) or one month's rent (for tenancies starting after July 1, 2024)</li>
+            <li>Furnished properties: Three months' rent (before July 1, 2024) or two months' rent (after July 1, 2024)</li>
+            <li>Service members: No more than one month's rent regardless of when the tenancy began</li>
+        </ul>
+
+        <h3>Security Deposit Return Requirements</h3>
+
+        <p>Landlords have 21 days after a tenant moves out to:</p>
+        <ol>
+            <li>Return the full security deposit, or</li>
+            <li>Provide an itemized statement of deductions with remaining funds</li>
+        </ol>
+
+        <p>Failure to meet this deadline can result in penalties, including potentially forfeiting your right to retain any portion of the deposit.</p>
+
+        <div class="highlight-box">
+            <h4>💡 Best Practice: Photo Documentation</h4>
+            <p>Always conduct thorough move-in and move-out inspections with extensive photo documentation. Time-stamped photos can prove invaluable if disputes arise over damage versus normal wear and tear. We provide detailed inspection reports with photos for all our managed properties to protect both owners and tenants.</p>
+        </div>
+
+        <h2>Habitability and Maintenance Requirements</h2>
+
+        <p>California's implied warranty of habitability requires landlords to maintain rental properties in livable condition. Recent emphasis on enforcement means compliance is more critical than ever.</p>
+
+        <h3>Essential Requirements</h3>
+
+        <p>Your rental property must provide:</p>
+        <ul>
+            <li>Effective waterproofing and weather protection</li>
+            <li>Plumbing facilities in good working order</li>
+            <li>Hot and cold running water</li>
+            <li>Heating facilities in good working order</li>
+            <li>Electrical lighting with safe wiring</li>
+            <li>Clean and sanitary conditions (including pest control)</li>
+            <li>Adequate trash receptacles</li>
+            <li>Working locks on doors and windows</li>
+            <li>Properly installed smoke and carbon monoxide detectors</li>
+        </ul>
+
+        <h3>Response Time Requirements</h3>
+
+        <p>While California law doesn't specify exact timeframes for repairs (except for emergency situations), courts generally expect:</p>
+        <ul>
+            <li>Emergency repairs (no heat, major leaks, gas leaks): Immediate to 24 hours</li>
+            <li>Urgent repairs (broken toilets, no hot water): 24-72 hours</li>
+            <li>Non-urgent repairs: Within 30 days</li>
+        </ul>
+
+        <p>Failure to maintain habitable conditions can result in tenants withholding rent, "repair and deduct," or legal action for damages.</p>
+
+        <h2>Fair Housing Compliance</h2>
+
+        <p>Fair housing laws protect tenants from discrimination based on protected characteristics. California offers broader protections than federal law, prohibiting discrimination based on:</p>
+
+        <ul>
+            <li>Race or color</li>
+            <li>National origin</li>
+            <li>Religion</li>
+            <li>Sex (including sexual harassment)</li>
+            <li>Familial status (families with children)</li>
+            <li>Disability or medical condition</li>
+            <li>Genetic information</li>
+            <li>Marital status</li>
+            <li>Sexual orientation and gender identity</li>
+            <li>Source of income (including Section 8 vouchers)</li>
+            <li>Age</li>
+            <li>Ancestry</li>
+        </ul>
+
+        <div class="warning-box">
+            <h4>Source of Income Protection</h4>
+            <p>California's source of income protection means you cannot refuse to rent to someone simply because they use a housing voucher or receive public assistance. Violations can result in significant penalties and legal action.</p>
+        </div>
+
+        <h2>Required Disclosures</h2>
+
+        <p>California requires landlords to provide various disclosures to tenants. Failure to provide these can result in penalties or liability:</p>
+
+        <h3>Move-In Disclosures</h3>
+
+        <ul>
+            <li><strong>Lead-based paint disclosure</strong> (for properties built before 1978)</li>
+            <li><strong>Mold disclosure</strong> (explaining mold prevention and tenant responsibilities)</li>
+            <li><strong>Bed bug disclosure</strong> (history of infestations in the past two years)</li>
+            <li><strong>Presence of smoke detectors and carbon monoxide devices</strong></li>
+            <li><strong>Death in unit disclosure</strong> (if death occurred within three years)</li>
+            <li><strong>Methamphetamine contamination</strong> (if property was used as a drug lab)</li>
+            <li><strong>Registered sex offender database</strong> (information on how to access the database)</li>
+        </ul>
+
+        <h3>Ongoing Disclosures</h3>
+
+        <ul>
+            <li>Notice of intent to enter (typically 24 hours, with exceptions for emergencies)</li>
+            <li>Notice of rent increases (30 days for increases less than 10%; 90 days for increases of 10% or more within 12 months)</li>
+            <li>Notice of sale (if property is being sold)</li>
+        </ul>
+
+        <h2>Eviction Process Changes</h2>
+
+        <p>California's eviction process has become increasingly technical, with strict procedural requirements that must be followed precisely.</p>
+
+        <h3>Notice Requirements</h3>
+
+        <p>Different situations require different notice periods:</p>
+
+        <ul>
+            <li><strong>3-Day Notice:</strong> For non-payment of rent or other lease violations</li>
+            <li><strong>30-Day Notice:</strong> For terminating month-to-month tenancies (tenancy less than one year) without cause, where allowed</li>
+            <li><strong>60-Day Notice:</strong> For terminating month-to-month tenancies (tenancy one year or more) without cause, where allowed</li>
+            <li><strong>90-Day Notice:</strong> For terminating subsidized tenancies</li>
+        </ul>
+
+        <p>Under AB 1482, many "no-cause" evictions are prohibited. Valid reasons for eviction include:</p>
+
+        <ul>
+            <li>Non-payment of rent</li>
+            <li>Breach of lease terms</li>
+            <li>Nuisance or illegal activity</li>
+            <li>Owner move-in (with relocation assistance required)</li>
+            <li>Substantial renovation (with relocation assistance required)</li>
+            <li>Withdrawal from rental market (Ellis Act)</li>
+        </ul>
+
+        <div class="info-box">
+            <h4>Relocation Assistance</h4>
+            <p>Many California cities require landlords to pay relocation assistance when evicting tenants for owner move-in or major renovations. Amounts vary by locality but can be substantial—often equivalent to 2-3 months' rent. Know your local requirements before initiating such evictions.</p>
+        </div>
+
+        <h2>Local Ordinances</h2>
+
+        <p>Many California cities have additional rental housing regulations beyond state law. San Diego and surrounding communities have various local requirements:</p>
+
+        <h3>City of San Diego</h3>
+        <ul>
+            <li>Additional just cause eviction protections</li>
+            <li>Tenant relocation assistance requirements</li>
+            <li>Rental unit registration in some cases</li>
+        </ul>
+
+        <h3>Other Jurisdictions</h3>
+        <p>Many cities throughout San Diego County have their own ordinances regarding rental housing, rent control, eviction procedures, and tenant protections. Always check local regulations in addition to state law.</p>
+
+        <h2>Compliance is Essential</h2>
+
+        <p>California's landlord-tenant laws are among the most tenant-friendly in the nation, with strict requirements and significant penalties for non-compliance. Violations can result in:</p>
+
+        <ul>
+            <li>Financial penalties and fines</li>
+            <li>Tenant lawsuits for damages</li>
+            <li>Loss of eviction cases due to procedural errors</li>
+            <li>Requirement to pay tenant attorney fees</li>
+            <li>Inability to collect rent during disputes</li>
+        </ul>
+
+        <div class="highlight-box">
+            <h4>💼 Professional Management Advantage</h4>
+            <p>One of the primary values of professional property management is ensuring compliance with constantly evolving landlord-tenant laws. We stay current on state and local regulations, use legally compliant forms and procedures, and handle all required notices and disclosures properly. This protects you from costly mistakes and legal problems.</p>
+        </div>
+
+        <div class="cta-section">
+            <h3>Need Help Staying Compliant?</h3>
+            <p>Our team stays current on all California rental laws so you don't have to worry about compliance</p>
+            <a href="index.html#contact" class="cta-button">Talk to Our Team</a>
+        </div>
+
+        <h2>Conclusion</h2>
+
+        <p>California's rental housing laws continue to become more complex, with enhanced tenant protections and stricter compliance requirements. Successful property ownership in this environment requires careful attention to legal obligations and professional management of tenant relationships.</p>
+
+        <p>Whether you manage your own properties or work with a professional management company, understanding these legal requirements is essential. When in doubt, consult with a qualified attorney who specializes in California landlord-tenant law. The cost of professional legal advice is far less than the cost of litigation or penalties for non-compliance.</p>
+
+        <p>At Options Property Management, we handle all aspects of legal compliance for our clients, from properly structured leases and required disclosures to legally compliant eviction procedures when necessary. Our decade of experience in San Diego County ensures your property operates within all applicable laws and regulations.</p>
+
+        <div class="back-link">
+            <a href="blog.html">← Back to All Articles</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Options Property Management</h4>
+                    <p>Professional property management services in San Diego County since 2015.</p>
+                    <p><strong>Licensed • Insured • Professional</strong></p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="owner-info.html">Owner Resources</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="tel:+17606512271">(760) 651-2271</a></li>
+                        <li><a href="mailto:optionspropertymgmnt@gmail.com">optionspropertymgmnt@gmail.com</a></li>
+                        <li>28588 Cole Grade Rd #1353<br>Valley Center, CA 92082</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Options Property Management. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

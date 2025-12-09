@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The True Cost of Self-Managing Your Rental Property in San Diego | Options Property Management</title>
+    <meta name="description" content="Discover the hidden costs of DIY property management in San Diego. From vacancy costs to compliance risks, learn what self-management really costs property owners.">
+    <meta name="keywords" content="property management San Diego, self-managing rental property, DIY property management costs, San Diego landlord, property management fees, rental property management">
+    <meta name="author" content="Options Property Management">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The True Cost of Self-Managing Your Rental Property">
+    <meta property="og:description" content="Many owners underestimate the hidden costs of DIY property management. Learn what self-management really costs you.">
+    <meta property="og:url" content="https://www.options-pm.com/blog-self-managing-costs.html">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The True Cost of Self-Managing Your Rental Property">
+    <meta name="twitter:description" content="Discover the hidden costs of DIY property management in San Diego.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a4d7a;
+            --secondary: #2c7bb5;
+            --accent: #e8b44d;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .article-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 120px 2rem 60px;
+            margin-top: 80px;
+        }
+
+        .article-header .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 2rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .article-content h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+        }
+
+        .article-content h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 1.5rem 0 1.5rem 2rem;
+            color: var(--gray);
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+            line-height: 1.8;
+        }
+
+        .cost-table {
+            background: var(--light);
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            overflow-x: auto;
+        }
+
+        .cost-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .cost-table th {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .cost-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .cost-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .cost-table .total-row {
+            font-weight: 700;
+            background: var(--light);
+            font-size: 1.1rem;
+        }
+
+        .highlight-box {
+            background: var(--light);
+            border-left: 4px solid var(--accent);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 5px;
+        }
+
+        .highlight-box h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .comparison-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .comparison-card h4 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .comparison-card ul {
+            list-style: none;
+            margin: 0;
+        }
+
+        .comparison-card li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .comparison-card li:before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 0.75rem;
+        }
+
+        .comparison-card.cons li:before {
+            content: "✗";
+            color: #ef4444;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 2rem;
+            margin: 4rem 0;
+            border-radius: 15px;
+        }
+
+        .cta-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .back-link {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .back-link a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .article-header h1 {
+                font-size: 2rem;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    
+    <!-- Schema.org markup for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "The True Cost of Self-Managing Your Rental Property",
+      "description": "Discover the hidden costs of DIY property management in San Diego",
+      "author": {
+        "@type": "Organization",
+        "name": "Options Property Management"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Options Property Management",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.options-pm.com/logo.png"
+        }
+      },
+      "datePublished": "2025-11-15",
+      "dateModified": "2025-11-15"
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <h1>Options Property Management</h1>
+                <div class="tagline">Serving San Diego Property Owners Since 2015</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="owner-info.html">Owner Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <article>
+        <div class="article-header">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="blog.html">← Back to Blog</a>
+                </div>
+                <h1>The True Cost of Self-Managing Your Rental Property</h1>
+                <div class="article-meta">
+                    <span>📅 November 2025</span>
+                    <span>⏱️ 7 min read</span>
+                    <span>🏡 Property Management</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="article-content">
+            <p>When property owners in San Diego consider whether to self-manage their rental properties or hire professional management, the decision often comes down to one factor: cost. The management fee—typically 8-10% of monthly rent—seems like a significant expense that could be saved through DIY management.</p>
+
+            <p>However, this narrow focus on the visible management fee misses the bigger picture. Self-managing a rental property involves numerous hidden costs that many owners don't anticipate until they're deep into the experience. Let's examine what self-management really costs.</p>
+
+            <h2>The Hidden Costs of Self-Management</h2>
+
+            <h3>1. Vacancy Costs: The Biggest Hidden Expense</h3>
+
+            <p>The difference between professional and amateur property marketing can mean the difference between filling a vacancy in 2 weeks versus 6 weeks—or longer. Every day your property sits vacant costs you money.</p>
+
+            <p>Consider a San Diego rental with $2,500 monthly rent:</p>
+
+            <ul>
+                <li><strong>Professional management:</strong> Average 14 days to lease = $1,167 vacancy cost</li>
+                <li><strong>Self-management:</strong> Average 45 days to lease = $3,750 vacancy cost</li>
+                <li><strong>Hidden cost difference:</strong> $2,583 per turnover</li>
+            </ul>
+
+            <p>Professional property managers have established marketing systems, professional photography, extensive advertising reach, and efficient showing processes that fill vacancies faster. Self-managed properties often rely on Craigslist ads and word-of-mouth, resulting in extended vacancy periods.</p>
+
+            <h3>2. Tenant Screening Mistakes</h3>
+
+            <p>Poor tenant selection is perhaps the most expensive mistake a landlord can make. A problem tenant can cost tens of thousands of dollars in:</p>
+
+            <ul>
+                <li>Lost rent during non-payment periods</li>
+                <li>Legal fees for eviction proceedings</li>
+                <li>Property damage beyond security deposits</li>
+                <li>Lost time and stress</li>
+            </ul>
+
+            <p>Professional property managers conduct comprehensive screening including:</p>
+            <ul>
+                <li>Credit reports and analysis</li>
+                <li>Criminal background checks</li>
+                <li>Employment and income verification</li>
+                <li>Previous landlord references (going back multiple landlords)</li>
+                <li>Eviction history searches</li>
+            </ul>
+
+            <p>Self-managing landlords often lack access to professional screening tools or the experience to interpret the results effectively. A single bad tenant placement can cost more than years of management fees.</p>
+
+            <div class="cost-table">
+                <h4 style="color: var(--primary); margin-bottom: 1rem;">Cost of a Problem Tenant: Real Example</h4>
+                <table>
+                    <tr>
+                        <th>Expense</th>
+                        <th>Cost</th>
+                    </tr>
+                    <tr>
+                        <td>Lost rent (4 months non-payment during eviction)</td>
+                        <td>$10,000</td>
+                    </tr>
+                    <tr>
+                        <td>Legal fees for eviction</td>
+                        <td>$3,500</td>
+                    </tr>
+                    <tr>
+                        <td>Property damage beyond security deposit</td>
+                        <td>$4,200</td>
+                    </tr>
+                    <tr>
+                        <td>Cleaning and repairs for re-rent</td>
+                        <td>$2,800</td>
+                    </tr>
+                    <tr>
+                        <td>Additional vacancy during repairs</td>
+                        <td>$2,500</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td><strong>Total Cost:</strong></td>
+                        <td><strong>$23,000</strong></td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>3. Legal and Compliance Risks</h3>
+
+            <p>California's landlord-tenant laws are complex and constantly evolving. Mistakes in compliance can be expensive:</p>
+
+            <ul>
+                <li><strong>Improper lease clauses:</strong> Unenforceable terms or missing required disclosures</li>
+                <li><strong>Fair Housing violations:</strong> Fines up to $16,000 for first offense, more for subsequent violations</li>
+                <li><strong>Security deposit errors:</strong> Improper handling can forfeit your right to withhold any funds</li>
+                <li><strong>Eviction procedure mistakes:</strong> Procedural errors can void evictions and require starting over</li>
+                <li><strong>Habitability issues:</strong> Failure to address maintenance can result in rent withholding or lawsuits</li>
+            </ul>
+
+            <p>Professional property managers stay current on regulations, use legally compliant forms, and follow proper procedures, protecting you from costly legal mistakes.</p>
+
+            <h3>4. Time Investment</h3>
+
+            <p>Self-managing a rental property isn't a passive investment. Property owners commonly underestimate the time required:</p>
+
+            <ul>
+                <li><strong>Tenant placement:</strong> 20-40 hours (marketing, showings, screening, lease preparation)</li>
+                <li><strong>Monthly management:</strong> 3-8 hours (rent collection, maintenance coordination, inspections)</li>
+                <li><strong>Tenant turnover:</strong> 15-30 hours (inspection, repairs coordination, cleaning oversight, re-leasing)</li>
+                <li><strong>Maintenance emergencies:</strong> Unpredictable time demands, often at inconvenient times</li>
+            </ul>
+
+            <p>What's your time worth? If you value your time at $50/hour, monthly management alone costs $150-400 in time investment. For many professionals, the "savings" from self-management quickly disappear when properly accounting for time costs.</p>
+
+            <h3>5. Maintenance Cost Inflation</h3>
+
+            <p>Professional property managers typically have established relationships with licensed contractors who provide:</p>
+
+            <ul>
+                <li>Competitive pricing (often 15-30% below retail rates)</li>
+                <li>Priority scheduling</li>
+                <li>Quality guarantees</li>
+                <li>Proper licensing and insurance</li>
+            </ul>
+
+            <p>Self-managing owners often pay full retail rates for contractors, experience delays in getting service scheduled, and may hire unlicensed workers to save money—creating liability exposure and potentially poor-quality work requiring expensive corrections.</p>
+
+            <h3>6. Delayed Maintenance Costs</h3>
+
+            <p>Self-managing owners, particularly those juggling property management with full-time jobs, often delay addressing maintenance issues. Small problems become expensive repairs:</p>
+
+            <ul>
+                <li>A minor roof leak ignored becomes major water damage and mold remediation</li>
+                <li>A slow drain becomes a complete sewer line replacement</li>
+                <li>A small HVAC issue becomes total system failure</li>
+            </ul>
+
+            <p>Professional management includes regular inspections and proactive maintenance, catching problems early when repairs are cheaper.</p>
+
+            <h3>7. Suboptimal Rent Pricing</h3>
+
+            <p>Setting rent requires detailed knowledge of the local market, comparable properties, and seasonal trends. Mistakes cost money in both directions:</p>
+
+            <ul>
+                <li><strong>Pricing too high:</strong> Extended vacancies and lost income</li>
+                <li><strong>Pricing too low:</strong> Leaving money on the table every month</li>
+            </ul>
+
+            <p>Underpricing by just $100/month costs $1,200 annually. Over a 5-year tenancy, that's $6,000 in lost income—far exceeding typical management fees.</p>
+
+            <h2>The Real Cost Comparison</h2>
+
+            <div class="cost-table">
+                <h4 style="color: var(--primary); margin-bottom: 1rem;">Annual Cost Comparison: $2,500/month Rental Property</h4>
+                <table>
+                    <tr>
+                        <th>Cost Factor</th>
+                        <th>Self-Managed</th>
+                        <th>Professional Management</th>
+                    </tr>
+                    <tr>
+                        <td>Management Fee</td>
+                        <td>$0</td>
+                        <td>$2,700 (9%)</td>
+                    </tr>
+                    <tr>
+                        <td>Extended Vacancy (additional 30 days)</td>
+                        <td>$2,500</td>
+                        <td>$0</td>
+                    </tr>
+                    <tr>
+                        <td>Time Investment (5 hrs/month @ $50/hr)</td>
+                        <td>$3,000</td>
+                        <td>$0</td>
+                    </tr>
+                    <tr>
+                        <td>Higher Maintenance Costs (15% premium)</td>
+                        <td>$450</td>
+                        <td>$0</td>
+                    </tr>
+                    <tr>
+                        <td>Suboptimal Pricing ($75/month under market)</td>
+                        <td>$900</td>
+                        <td>$0</td>
+                    </tr>
+                    <tr>
+                        <td>Legal/Compliance Risk</td>
+                        <td>$500 (estimated)</td>
+                        <td>$0</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td><strong>Total Annual Cost:</strong></td>
+                        <td><strong>$7,350</strong></td>
+                        <td><strong>$2,700</strong></td>
+                    </tr>
+                </table>
+            </div>
+
+            <p>This analysis doesn't even include the cost of major mistakes like bad tenant placement, which can easily add $20,000+ in a single incident.</p>
+
+            <h2>When Self-Management Might Work</h2>
+
+            <p>To be fair, self-management can work in specific circumstances:</p>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h4>Good Candidates for Self-Management</h4>
+                    <ul>
+                        <li>Property is very close to your home</li>
+                        <li>You have significant free time</li>
+                        <li>You have property management experience</li>
+                        <li>You have established contractor relationships</li>
+                        <li>You're familiar with landlord-tenant law</li>
+                        <li>You enjoy hands-on property work</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-card cons">
+                    <h4>Poor Candidates for Self-Management</h4>
+                    <ul>
+                        <li>Property is far from your home</li>
+                        <li>You have a demanding full-time job</li>
+                        <li>You have no property management experience</li>
+                        <li>You don't have contractor connections</li>
+                        <li>Legal compliance makes you nervous</li>
+                        <li>You value your personal time highly</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>The Professional Management Value Proposition</h2>
+
+            <p>Professional property management delivers value through:</p>
+
+            <h3>Fast, Quality Tenant Placement</h3>
+            <ul>
+                <li>Professional marketing reaching thousands of prospects</li>
+                <li>Efficient showing processes</li>
+                <li>Comprehensive screening catching red flags</li>
+                <li>Average 14-18 days to lease versus 45+ days for self-managed properties</li>
+            </ul>
+
+            <h3>Proactive Property Maintenance</h3>
+            <ul>
+                <li>Regular inspections catching problems early</li>
+                <li>Established contractor network with competitive pricing</li>
+                <li>24/7 emergency response</li>
+                <li>Preventive maintenance programs</li>
+            </ul>
+
+            <h3>Legal Compliance and Risk Management</h3>
+            <ul>
+                <li>Current knowledge of California and local laws</li>
+                <li>Legally compliant lease agreements and forms</li>
+                <li>Proper eviction procedures when needed</li>
+                <li>Required disclosures and documentation</li>
+            </ul>
+
+            <h3>Optimized Financial Performance</h3>
+            <ul>
+                <li>Strategic rent pricing maximizing income</li>
+                <li>Efficient rent collection systems</li>
+                <li>Detailed financial reporting</li>
+                <li>Tax documentation for year-end filing</li>
+            </ul>
+
+            <h3>Peace of Mind</h3>
+            <ul>
+                <li>No middle-of-the-night emergency calls</li>
+                <li>No tenant confrontations</li>
+                <li>Professional handling of difficult situations</li>
+                <li>Your weekends and evenings stay yours</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>💡 The Bottom Line</h4>
+                <p>Professional property management isn't an expense—it's an investment that typically pays for itself through reduced vacancy, better tenant quality, optimized pricing, and avoiding costly mistakes. When you account for all the hidden costs of self-management, professional management often costs less while delivering better results and preserving your most valuable resource: your time.</p>
+            </div>
+
+            <div class="cta-section">
+                <h3>Maximize Your Investment Returns</h3>
+                <p>Let our experienced team handle the details while you enjoy the benefits of property ownership</p>
+                <a href="index.html#contact" class="cta-button">Schedule a Free Consultation</a>
+            </div>
+
+            <h2>Making the Right Decision for Your Situation</h2>
+
+            <p>The choice between self-management and professional management isn't one-size-fits-all. Consider your specific circumstances:</p>
+
+            <ul>
+                <li>Do you have the time and interest to manage your property actively?</li>
+                <li>Are you comfortable handling difficult tenant situations?</li>
+                <li>Do you understand California's complex landlord-tenant laws?</li>
+                <li>Can you respond to emergencies 24/7?</li>
+                <li>Do you have reliable contractor relationships?</li>
+                <li>Is your property close enough for convenient management?</li>
+            </ul>
+
+            <p>For many successful professionals and out-of-area investors, the answer is clear: professional management provides better returns, less stress, and more time for what matters most in your life.</p>
+
+            <p>At Options Property Management, we've managed hundreds of properties across San Diego County since 2015. Our clients consistently report that the value we deliver—through faster leasing, better tenant quality, proactive maintenance, and expert guidance—far exceeds our management fee. We'd be happy to analyze your specific situation and help you make the right decision for your investment property.</p>
+
+            <div class="back-link">
+                <a href="blog.html">← Back to All Articles</a>
+            </div>
+        </div>
+    </article>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Options Property Management</h4>
+                    <p>Professional property management services in San Diego County since 2015.</p>
+                    <p><strong>Licensed • Insured • Professional</strong></p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="owner-info.html">Owner Resources</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="tel:+17606512271">(760) 651-2271</a></li>
+                        <li><a href="mailto:optionspropertymgmnt@gmail.com">optionspropertymgmnt@gmail.com</a></li>
+                        <li>28588 Cole Grade Rd #1353<br>Valley Center, CA 92082</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Options Property Management. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
