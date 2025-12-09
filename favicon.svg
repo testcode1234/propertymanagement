@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="48" fill="#1a4d7a" stroke="#2c7bb5" stroke-width="3"/>
+  
+  <!-- Letter O -->
+  <text x="50" y="72" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="white" text-anchor="middle">O</text>
+  
+  <!-- Small house icon accent -->
+  <path d="M 50 25 L 65 35 L 65 45 L 35 45 L 35 35 Z" fill="#e8b44d" opacity="0.8"/>
+</svg>
