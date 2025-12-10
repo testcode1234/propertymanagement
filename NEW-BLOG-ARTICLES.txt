@@ -1,0 +1,72 @@
+NEW BLOG ARTICLES CREATED & LINKED
+===================================
+
+✅ CREATED 2 NEW COMPREHENSIVE ARTICLES:
+
+1. blog-security-deposits.html (2,000+ words)
+   "Security Deposit Best Practices: Protecting Yourself and Your Tenants"
+   
+   Topics Covered:
+   • California Civil Code 1950.5 requirements
+   • Maximum deposit limits (updated AB 2747)
+   • What deposits can/cannot cover
+   • Damage vs. normal wear and tear
+   • Move-in documentation best practices
+   • Pre-move-out inspection requirements
+   • 21-day return deadline and itemization
+   • Penalties for non-compliance
+   • Common mistakes and how to avoid them
+   • Professional management procedures
+   
+   Category: Legal & Compliance
+   Date: September 2025
+   
+2. blog-single-vs-multi.html (2,100+ words)
+   "Single-Family vs. Multi-Unit: Which is Right for Your Portfolio?"
+   
+   Topics Covered:
+   • Comparative analysis table
+   • Single-family home advantages/disadvantages
+   • Multi-unit property advantages/disadvantages
+   • San Diego market-specific considerations
+   • Cash flow examples for both types
+   • Financing differences
+   • Management complexity comparison
+   • Appreciation vs. cash flow trade-offs
+   • Which strategy fits different investor profiles
+   • Hybrid portfolio approach
+   
+   Category: Investment Strategy
+   Date: August 2025
+
+✅ UPDATED FILES:
+
+• blog.html - Added links to both new articles
+• sitemap.xml - Added both new articles with proper dates
+
+✅ TOTAL BLOG ARTICLES NOW: 10
+
+All articles professionally formatted with:
+• Full SEO optimization (titles, descriptions, keywords)
+• Open Graph and Twitter Card meta tags
+• Schema.org structured data
+• Professional styling with proper CSS
+• Mobile responsive design
+• Consistent branding
+• Working navigation and footer links
+• Favicon support
+
+CURRENT COMPLETE BLOG LINEUP:
+==============================
+1. San Diego Rental Market Outlook 2026 (Featured)
+2. 2025 California Landlord-Tenant Law Updates
+3. The True Cost of Self-Managing Your Rental
+4. Maximizing Tax Deductions for Rental Properties
+5. How Quality Tenant Screening Saves You Money
+6. Winter Property Maintenance Checklist
+7. North County San Diego: Hidden Gem for Investors
+8. Setting the Right Rental Price
+9. Security Deposit Best Practices ← NEW
+10. Single-Family vs. Multi-Unit Investment ← NEW
+
+Total Content: 19,000+ words of professional SEO-optimized content!
