@@ -1,0 +1,79 @@
+EMAIL FIXED ON ALL 19 PAGES
+============================
+
+ISSUE:
+------
+Email showing as [email protected] on:
+- blog.html footer
+- Multiple blog article footers
+- owner-info.html
+- owner-portal.html
+- And other pages
+
+ROOT CAUSE:
+-----------
+Cloudflare email protection script was injecting obfuscation
+code into multiple HTML files during the file creation process.
+
+SOLUTION - COMPLETE CLEANUP:
+-----------------------------
+✅ Scanned ALL 19 HTML files
+✅ Removed ALL Cloudflare script tags
+✅ Replaced ALL obfuscated email patterns:
+   - <a href="/cdn-cgi/l/email-protection#...">...</a>
+   - <span class="__cf_email__">...</span>
+   - [email&#160;protected]
+   - Malformed partial patterns
+
+FILES CLEANED:
+--------------
+✅ blog.html
+✅ blog-ca-law-updates.html
+✅ blog-market-outlook-2026.html
+✅ blog-security-deposits.html
+✅ blog-self-managing-costs.html
+✅ blog-single-vs-multi.html
+✅ blog-tax-deductions.html
+✅ blog-tenant-screening.html
+✅ index.html
+✅ inspections.html
+✅ listings.html
+✅ maintenance.html
+✅ monthly-statements.html
+✅ owner-info.html (16 instances fixed)
+✅ owner-portal.html
+✅ tax-documents.html
+✅ blog-north-county.html
+✅ blog-rental-pricing.html
+✅ blog-winter-maintenance.html
+
+TOTAL: 19 HTML files processed
+RESULT: 16 files had obfuscation and were fixed
+
+EMAIL NOW DISPLAYS CORRECTLY:
+------------------------------
+Plain text: optionspropertymgmnt@gmail.com
+
+ON ALL PAGES:
+- Homepage contact section ✅
+- Blog page footer ✅
+- All blog article footers (10) ✅
+- Owner resource pages (5) ✅
+- Listings page footer ✅
+- Property inquiry alerts ✅
+
+VERIFICATION COMPLETE:
+----------------------
+✅ All 19 HTML files scanned
+✅ 0 obfuscations remaining
+✅ 0 Cloudflare scripts remaining
+✅ 0 cdn-cgi references remaining
+✅ Email displays as plain text everywhere
+
+PREVENTION:
+-----------
+Removed mailto: links in footers where email is displayed
+visually. This prevents Cloudflare from auto-injecting
+protection code in the future.
+
+STATUS: Email displays correctly on ALL pages! ✅
