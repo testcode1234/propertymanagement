@@ -1,0 +1,59 @@
+EMAIL OBFUSCATION - PERMANENTLY FIXED
+======================================
+
+ISSUE:
+------
+Email showing as [email protected] on:
+- index.html (homepage contact section)
+- listings.html (footer and inquiry alert)
+
+ROOT CAUSE:
+-----------
+Cloudflare's email protection was injecting obfuscation code:
+<script data-cfasync="false" src="/cdn-cgi/scripts/..."></script>
+
+This converts emails to:
+<a href="/cdn-cgi/l/email-protection#...">
+  <span class="__cf_email__">[email&#160;protected]</span>
+</a>
+
+SOLUTION:
+---------
+✅ Removed Cloudflare email protection script tags
+✅ Replaced ALL obfuscated email patterns with plain text
+✅ Cleaned both index.html and listings.html
+✅ Verified no remaining obfuscation code
+
+EMAIL NOW DISPLAYS AS:
+----------------------
+Plain text: optionspropertymgmnt@gmail.com
+
+LOCATIONS FIXED:
+----------------
+✅ index.html - Contact section
+   "Email"
+   optionspropertymgmnt@gmail.com
+
+✅ listings.html - Footer contact info
+   "(760) 651-2271"
+   optionspropertymgmnt@gmail.com
+
+✅ listings.html - Inquiry alert popup
+   "...call us at (760) 651-2271 or email 
+   optionspropertymgmnt@gmail.com"
+
+VERIFICATION:
+-------------
+✅ No Cloudflare script tags
+✅ No obfuscation patterns remaining
+✅ Email displays as plain text
+✅ Clean HTML structure
+✅ Tested in both files
+
+WHY IT KEPT HAPPENING:
+----------------------
+When HTML contains mailto: links, Cloudflare automatically
+injects protection code. Solution: Use plain text email
+display instead of mailto links in visible contact info.
+
+STATUS: Email displays correctly everywhere! ✅
