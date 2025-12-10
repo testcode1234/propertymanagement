@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>Available Rental Properties | Options Property Management</title>
+    <meta name="description" content="Browse available rental properties managed by Options Property Management across San Diego County. Quality homes in Valley Center, Escondido, San Marcos, Vista, and more.">
+    <meta name="keywords" content="San Diego rentals, rental properties San Diego, homes for rent Valley Center, San Diego property listings">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a4d7a;
+            --secondary: #2c7bb5;
+            --accent: #e8b44d;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --success: #059669;
+            --warning: #d97706;
+            --pending: #6366f1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 120px 2rem 60px;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .filter-bar {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--primary);
+            background: white;
+            color: var(--primary);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .listings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .listing-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .listing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+
+        .listing-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-active {
+            background: var(--success);
+            color: white;
+        }
+
+        .status-pending {
+            background: var(--pending);
+            color: white;
+        }
+
+        .status-rented {
+            background: var(--gray);
+            color: white;
+        }
+
+        .listing-content {
+            padding: 1.5rem;
+        }
+
+        .listing-price {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .listing-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--gray);
+        }
+
+        .listing-location {
+            color: var(--gray);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .listing-features {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .feature strong {
+            color: var(--dark);
+        }
+
+        .listing-description {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .listing-amenities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .amenity-tag {
+            background: var(--light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .contact-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--accent);
+            color: var(--dark);
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .contact-btn:disabled {
+            background: var(--gray);
+            color: white;
+            cursor: not-allowed;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+        }
+
+        .cta-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .listings-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-bar {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <h1>Options Property Management</h1>
+                <div class="tagline">Serving San Diego Property Owners Since 2015</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="owner-info.html">Owner Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Available Rental Properties</h1>
+            <p>Quality homes across San Diego County</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="filter-bar">
+            <span style="font-weight: 600; color: var(--dark);">Filter by Status:</span>
+            <button class="filter-btn active" onclick="filterListings('all')">All Properties</button>
+            <button class="filter-btn" onclick="filterListings('active')">Available Now</button>
+            <button class="filter-btn" onclick="filterListings('pending')">Application Pending</button>
+            <button class="filter-btn" onclick="filterListings('rented')">Recently Rented</button>
+        </div>
+
+        <div class="listings-grid" id="listings">
+            <!-- Active Listings -->
+            <div class="listing-card" data-status="active">
+                <div class="listing-image">
+                    🏡
+                    <span class="status-badge status-active">Available</span>
+                </div>
+                <div class="listing-content">
+                    <div class="listing-price">$3,200<span>/month</span></div>
+                    <div class="listing-location">📍 Escondido, CA</div>
+                    <div class="listing-features">
+                        <div class="feature"><strong>3</strong> Beds</div>
+                        <div class="feature"><strong>2</strong> Baths</div>
+                        <div class="feature"><strong>1,650</strong> sq ft</div>
+                    </div>
+                    <div class="listing-description">
+                        Beautiful single-family home in family-friendly neighborhood. Updated kitchen with stainless appliances, spacious backyard with patio, and 2-car garage.
+                    </div>
+                    <div class="listing-amenities">
+                        <span class="amenity-tag">🚗 2-Car Garage</span>
+                        <span class="amenity-tag">🌳 Large Yard</span>
+                        <span class="amenity-tag">❄️ Central A/C</span>
+                        <span class="amenity-tag">🐕 Pet Friendly</span>
+                    </div>
+                    <button class="contact-btn" onclick="inquire('Escondido 3BR')">Inquire About Property</button>
+                </div>
+            </div>
+
+            <div class="listing-card" data-status="active">
+                <div class="listing-image">
+                    🏠
+                    <span class="status-badge status-active">Available</span>
+                </div>
+                <div class="listing-content">
+                    <div class="listing-price">$2,850<span>/month</span></div>
+                    <div class="listing-location">📍 San Marcos, CA</div>
+                    <div class="listing-features">
+                        <div class="feature"><strong>3</strong> Beds</div>
+                        <div class="feature"><strong>2.5</strong> Baths</div>
+                        <div class="feature"><strong>1,800</strong> sq ft</div>
+                    </div>
+                    <div class="listing-description">
+                        Well-maintained townhome near CSUSM. Open floor plan, granite countertops, walk-in closets. Community pool and clubhouse included.
+                    </div>
+                    <div class="listing-amenities">
+                        <span class="amenity-tag">🏊 Pool Access</span>
+                        <span class="amenity-tag">🧺 In-Unit Laundry</span>
+                        <span class="amenity-tag">🚶 Walk to CSUSM</span>
+                        <span class="amenity-tag">🔒 Gated Community</span>
+                    </div>
+                    <button class="contact-btn" onclick="inquire('San Marcos Townhome')">Inquire About Property</button>
+                </div>
+            </div>
+
+            <div class="listing-card" data-status="active">
+                <div class="listing-image">
+                    🏡
+                    <span class="status-badge status-active">Available</span>
+                </div>
+                <div class="listing-content">
+                    <div class="listing-price">$3,800<span>/month</span></div>
+                    <div class="listing-location">📍 Carlsbad, CA</div>
+                    <div class="listing-features">
+                        <div class="feature"><strong>4</strong> Beds</div>
+                        <div class="feature"><strong>3</strong> Baths</div>
+                        <div class="feature"><strong>2,200</strong> sq ft</div>
+                    </div>
+                    <div class="listing-description">
+                        Stunning coastal property minutes from beach. Modern upgrades throughout, chef's kitchen, master suite with ocean views, private backyard oasis.
+                    </div>
+                    <div class="listing-amenities">
+                        <span class="amenity-tag">🌊 Near Beach</span>
+                        <span class="amenity-tag">🔥 Fireplace</span>
+                        <span class="amenity-tag">☀️ Solar Panels</span>
+                        <span class="amenity-tag">🚗 3-Car Garage</span>
+                    </div>
+                    <button class="contact-btn" onclick="inquire('Carlsbad 4BR')">Inquire About Property</button>
+                </div>
+            </div>
+
+            <div class="listing-card" data-status="active">
+                <div class="listing-image">
+                    🏠
+                    <span class="status-badge status-active">Available</span>
+                </div>
+                <div class="listing-content">
+                    <div class="listing-price">$2,650<span>/month</span></div>
+                    <div class="listing-location">📍 Vista, CA</div>
+                    <div class="listing-features">
+                        <div class="feature"><strong>3</strong> Beds</div>
+                        <div class="feature"><strong>2</strong> Baths</div>
+                        <div class="feature"><strong>1,500</strong> sq ft</div>
+                    </div>
+                    <div class="listing-description">
+                        Charming single-story home with open concept living. Fresh paint, laminate flooring, covered patio. Quiet cul-de-sac location near schools and shopping.
+                    </div>
+                    <div class="listing-amenities">
+                        <span class="amenity-tag">📚 Near Schools</span>
+                        <span class="amenity-tag">🌳 Fenced Yard</span>
+                        <span class="amenity-tag">🚗 2-Car Garage</span>
+                        <span class="amenity-tag">❄️ Central A/C</span>
+                    </div>
+                    <button class="contact-btn" onclick="inquire('Vista 3BR')">Inquire About Property</button>
+                </div>
+            </div>
+
+            <!-- Pending Listings -->
+            <div class="listing-card" data-status="pending">
+                <div class="listing-image">
+                    🏡
+                    <span class="status-badge status-pending">Pending</span>
+                </div>
+                <div class="listing-content">
+                    <div class="listing-price">$3,450<span>/month</span></div>
+                    <div class="listing-location">📍 Valley Center, CA</div>
+                    <div class="listing-features">
+                        <div class="feature"><strong>4</strong> Beds</div>
+                        <div class="feature"><strong>2.5</strong> Baths</div>
+                        <div class="feature"><strong>2,100</strong> sq ft</div>
+                    </div>
+                    <div class="listing-description">
+                        Spacious family home on large lot with mountain views. Renovated kitchen, hardwood floors, bonus room perfect for office. Application in progress.
+                    </div>
+                    <div class="listing-amenities">
+                        <span class="amenity-tag">🏔️ Mountain Views</span>
+                        <span class="amenity-tag">🌳 1 Acre Lot</span>
+                        <span class="amenity-tag">🏡 Bonus Room</span>
+                        <span class="amenity-tag">🐕 Pet Friendly</span>
+                    </div>
+                    <button class="contact-btn" disabled>Application in Progress</button>
+                </div>
+            </div>
+
+            <div class="listing-card" data-status="pending">
+                <div class="listing-image">
+                    🏠
+                    <span class="status-badge status-pending">Pending</span>
+                </div>
+                <div class="listing-content">
+                    <div class="listing-price">$2,950<span>/month</span></div>
+                    <div class="listing-location">📍 Oceanside, CA</div>
+                    <div class="listing-features">
+                        <div class="feature"><strong>2</strong> Beds</div>
+                        <div class="feature"><strong>2</strong> Baths</div>
+                        <div class="feature"><strong>1,200</strong> sq ft</div>
+                    </div>
+                    <div class="listing-description">
+                        Coastal condo with ocean breezes. Updated throughout, balcony with partial ocean view, assigned parking. Walk to beach and downtown. Application pending.
+                    </div>
+                    <div class="listing-amenities">
+                        <span class="amenity-tag">🌊 Near Beach</span>
+                        <span class="amenity-tag">🏊 Pool/Spa</span>
+                        <span class="amenity-tag">🚶 Walk to Downtown</span>
+                        <span class="amenity-tag">🅿️ Covered Parking</span>
+                    </div>
+                    <button class="contact-btn" disabled>Application in Progress</button>
+                </div>
+            </div>
+
+            <div class="listing-card" data-status="pending">
+                <div class="listing-image">
+                    🏡
+                    <span class="status-badge status-pending">Pending</span>
+                </div>
+                <div class="listing-content">
+                    <div class="listing-price">$3,100<span>/month</span></div>
+                    <div class="listing-location">📍 Encinitas, CA</div>
+                    <div class="listing-features">
+                        <div class="feature"><strong>3</strong> Beds</div>
+                        <div class="feature"><strong>2</strong> Baths</div>
+                        <div class="feature"><strong>1,600</strong> sq ft</div>
+                    </div>
+                    <div class="listing-description">
+                        Charming beach cottage with coastal vibe. Remodeled kitchen and baths, hardwood floors, private yard with outdoor shower. Application processing.
+                    </div>
+                    <div class="listing-amenities">
+                        <span class="amenity-tag">🏖️ Beach Close</span>
+                        <span class="amenity-tag">🚿 Outdoor Shower</span>
+                        <span class="amenity-tag">🌺 Garden Yard</span>
+                        <span class="amenity-tag">🚗 Garage</span>
+                    </div>
+                    <button class="contact-btn" disabled>Application in Progress</button>
+                </div>
+            </div>
+
+            <!-- Rented Listings -->
+            <div class="listing-card" data-status="rented">
+                <div class="listing-image">
+                    🏡
+                    <span class="status-badge status-rented">Rented</span>
+                </div>
+                <div class="listing-content">
+                    <div class="listing-price">$2,750<span>/month</span></div>
+                    <div class="listing-location">📍 Chula Vista, CA</div>
+                    <div class="listing-features">
+                        <div class="feature"><strong>3</strong> Beds</div>
+                        <div class="feature"><strong>2</strong> Baths</div>
+                        <div class="feature"><strong>1,450</strong> sq ft</div>
+                    </div>
+                    <div class="listing-description">
+                        Move-in ready home in established neighborhood. Open floor plan, upgraded appliances, low-maintenance landscaping. Recently leased.
+                    </div>
+                    <div class="listing-amenities">
+                        <span class="amenity-tag">🏫 Great Schools</span>
+                        <span class="amenity-tag">🛒 Near Shopping</span>
+                        <span class="amenity-tag">🚗 2-Car Garage</span>
+                        <span class="amenity-tag">🌳 Fenced Yard</span>
+                    </div>
+                    <button class="contact-btn" disabled>Recently Rented</button>
+                </div>
+            </div>
+
+            <div class="listing-card" data-status="rented">
+                <div class="listing-image">
+                    🏠
+                    <span class="status-badge status-rented">Rented</span>
+                </div>
+                <div class="listing-content">
+                    <div class="listing-price">$3,500<span>/month</span></div>
+                    <div class="listing-location">📍 La Mesa, CA</div>
+                    <div class="listing-features">
+                        <div class="feature"><strong>4</strong> Beds</div>
+                        <div class="feature"><strong>3</strong> Baths</div>
+                        <div class="feature"><strong>2,000</strong> sq ft</div>
+                    </div>
+                    <div class="listing-description">
+                        Beautiful two-story home with modern finishes. Gourmet kitchen, master retreat, landscaped backyard with fruit trees. Now occupied.
+                    </div>
+                    <div class="listing-amenities">
+                        <span class="amenity-tag">🍊 Fruit Trees</span>
+                        <span class="amenity-tag">🏠 Two Story</span>
+                        <span class="amenity-tag">🌳 Large Lot</span>
+                        <span class="amenity-tag">❄️ Central A/C</span>
+                    </div>
+                    <button class="contact-btn" disabled>Recently Rented</button>
+                </div>
+            </div>
+
+            <div class="listing-card" data-status="rented">
+                <div class="listing-image">
+                    🏡
+                    <span class="status-badge status-rented">Rented</span>
+                </div>
+                <div class="listing-content">
+                    <div class="listing-price">$2,900<span>/month</span></div>
+                    <div class="listing-location">📍 Santee, CA</div>
+                    <div class="listing-features">
+                        <div class="feature"><strong>3</strong> Beds</div>
+                        <div class="feature"><strong>2</strong> Baths</div>
+                        <div class="feature"><strong>1,550</strong> sq ft</div>
+                    </div>
+                    <div class="listing-description">
+                        Comfortable home in family neighborhood. Updated throughout, spacious living areas, covered patio, community park nearby. Lease signed.
+                    </div>
+                    <div class="listing-amenities">
+                        <span class="amenity-tag">🎮 Near Parks</span>
+                        <span class="amenity-tag">🏫 Top Schools</span>
+                        <span class="amenity-tag">🚗 Garage</span>
+                        <span class="amenity-tag">🌳 Backyard</span>
+                    </div>
+                    <button class="contact-btn" disabled>Recently Rented</button>
+                </div>
+            </div>
+
+            <div class="listing-card" data-status="rented">
+                <div class="listing-image">
+                    🏠
+                    <span class="status-badge status-rented">Rented</span>
+                </div>
+                <div class="listing-content">
+                    <div class="listing-price">$3,300<span>/month</span></div>
+                    <div class="listing-location">📍 El Cajon, CA</div>
+                    <div class="listing-features">
+                        <div class="feature"><strong>4</strong> Beds</div>
+                        <div class="feature"><strong>2.5</strong> Baths</div>
+                        <div class="feature"><strong>1,900</strong> sq ft</div>
+                    </div>
+                    <div class="listing-description">
+                        Spacious home with excellent layout. Remodeled kitchen, new flooring throughout, mountain views, cul-de-sac location. Now rented.
+                    </div>
+                    <div class="listing-amenities">
+                        <span class="amenity-tag">🏔️ Mountain Views</span>
+                        <span class="amenity-tag">🚗 3-Car Garage</span>
+                        <span class="amenity-tag">🌳 Large Yard</span>
+                        <span class="amenity-tag">🏡 Bonus Room</span>
+                    </div>
+                    <button class="contact-btn" disabled>Recently Rented</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h3>Property Owners: List Your Rental With Us</h3>
+            <p>Professional marketing, thorough tenant screening, and expert management for your rental property</p>
+            <a href="index.html#contact" class="cta-button">Get Started Today</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Options Property Management</h4>
+                    <p>Professional property management services in San Diego County since 2015.</p>
+                    <p><strong>Licensed • Insured • Professional</strong></p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="owner-info.html">Owner Resources</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="listings.html">Property Listings</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="tel:+17606512271">(760) 651-2271</a></li>
+                        <li>optionspropertymgmnt@gmail.com</li>
+                        <li>28588 Cole Grade Rd #1353<br>Valley Center, CA 92082</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Options Property Management. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function filterListings(status) {
+            const cards = document.querySelectorAll('.listing-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter cards
+            cards.forEach(card => {
+                if (status === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    if (card.dataset.status === status) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        function inquire(property) {
+            alert('Thank you for your interest in ' + property + '!\n\nTo inquire about this property, please call us at (760) 651-2271 or email optionspropertymgmnt@gmail.com\n\nOur team will respond within 24 hours.');
+        }
+    </script>
+</body>
+</html>
