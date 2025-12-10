@@ -1,0 +1,37 @@
+EMAIL DISPLAY ISSUE - FIXED
+============================
+
+ISSUE:
+The email address was displaying as [email protected] 
+in blog post footers due to Cloudflare email obfuscation code.
+
+ROOT CAUSE:
+When HTML contains mailto: links, Cloudflare's email protection
+automatically obfuscates them with JavaScript to prevent email
+harvesting by bots.
+
+SOLUTION:
+Changed all blog footer emails from:
+<li><a href="mailto:optionspropertymgmnt@gmail.com">...</a></li>
+
+To plain text display:
+<li>optionspropertymgmnt@gmail.com</li>
+
+This displays the email properly as:
+optionspropertymgmnt@gmail.com
+
+FIXED FILES:
+✅ blog-ca-law-updates.html
+✅ blog-market-outlook-2026.html
+✅ blog-security-deposits.html
+✅ blog-self-managing-costs.html
+✅ blog-single-vs-multi.html
+✅ blog-tax-deductions.html
+✅ blog-tenant-screening.html
+
+ALREADY CORRECT:
+✅ blog-north-county.html (different footer format)
+✅ blog-rental-pricing.html (different footer format)
+✅ blog-winter-maintenance.html (different footer format)
+
+STATUS: All blog footers now display email correctly!
