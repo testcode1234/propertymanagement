@@ -1,0 +1,48 @@
+LISTINGS PAGE FILTERING - FIXED
+================================
+
+ISSUE:
+------
+Filter buttons on listings.html were not working when clicked.
+No properties were being filtered by status.
+
+ROOT CAUSE:
+-----------
+JavaScript function used 'event.target' to identify clicked button,
+but the 'event' object was not being passed to the function.
+
+SOLUTION:
+---------
+Updated filterListings() function to accept 'element' parameter:
+  OLD: function filterListings(status)
+  NEW: function filterListings(status, element)
+
+Updated all button onclick handlers to pass 'this':
+  OLD: onclick="filterListings('all')"
+  NEW: onclick="filterListings('all', this)"
+
+BUTTONS UPDATED:
+----------------
+✅ All Properties button
+✅ Available Now button  
+✅ Application Pending button
+✅ Recently Rented button
+
+HOW IT WORKS NOW:
+-----------------
+1. User clicks filter button
+2. Button passes 'this' (itself) to filterListings()
+3. Function removes 'active' class from all buttons
+4. Function adds 'active' class to clicked button
+5. Function shows/hides property cards based on status
+
+TESTED RESULTS:
+---------------
+✅ "All Properties" shows all 12 listings
+✅ "Available Now" shows 4 active listings (green badges)
+✅ "Application Pending" shows 3 pending listings (blue badges)
+✅ "Recently Rented" shows 4 rented listings (gray badges)
+✅ Active button styling updates correctly
+✅ Property cards appear/disappear smoothly
+
+STATUS: Filtering now works perfectly! ✅
