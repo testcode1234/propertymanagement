@@ -4,429 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="shortcut icon" href="favicon.ico">
-    <title>Property Management Blog - Options Property Management</title>
+    <title>Blog | Options Property Management</title>
+    <meta name="description" content="Property management insights and San Diego rental market news">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #1a4d7a;
-            --secondary: #2c7bb5;
-            --accent: #e8b44d;
-            --dark: #1f2937;
-            --light: #f9fafb;
-            --gray: #6b7280;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo-section h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .tagline {
-            font-size: 0.85rem;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
-
-        nav a:hover {
-            opacity: 0.8;
-        }
-
-        /* Page Header */
-        .page-header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 120px 2rem 60px;
-            text-align: center;
-            margin-top: 80px;
-        }
-
-        .page-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .page-header p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-            opacity: 0.95;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        section {
-            padding: 80px 0;
-        }
-
-        /* Featured Post */
-        .featured-post {
-            background: var(--light);
-        }
-
-        .featured-content {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-        }
-
-        .featured-image {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 3rem;
-        }
-
-        .featured-image svg {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .featured-text {
-            padding: 3rem;
-        }
-
-        .post-badge {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--dark);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .featured-text h3 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .post-meta {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .featured-text p {
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .read-more {
-            display: inline-block;
-            color: var(--secondary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .read-more:hover {
-            color: var(--primary);
-        }
-
-        /* Blog Grid */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .blog-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-
-        .blog-image {
-            height: 220px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-        }
-
-        .blog-content {
-            padding: 2rem;
-        }
-
-        .category-badge {
-            display: inline-block;
-            background: var(--light);
-            color: var(--primary);
-            padding: 0.4rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .blog-card h3 {
-            font-size: 1.4rem;
-            color: var(--primary);
-            margin-bottom: 0.75rem;
-            line-height: 1.4;
-        }
-
-        .blog-card .post-meta {
-            margin-bottom: 1rem;
-        }
-
-        .blog-card p {
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        /* Categories */
-        .categories-section {
-            background: var(--light);
-        }
-
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .category-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
-            transition: transform 0.3s;
-            cursor: pointer;
-        }
-
-        .category-card:hover {
-            transform: translateY(-3px);
-        }
-
-        .category-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .category-card h4 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .category-card p {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-        /* Newsletter */
-        .newsletter {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            text-align: center;
-            padding: 60px 2rem;
-        }
-
-        .newsletter h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .newsletter p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .newsletter-form {
-            display: flex;
-            max-width: 500px;
-            margin: 0 auto;
-            gap: 1rem;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 1rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-        }
-
-        .newsletter-form button {
-            padding: 1rem 2rem;
-            background: var(--accent);
-            color: var(--dark);
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .newsletter-form button:hover {
-            transform: scale(1.05);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 3rem 0 1rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-
-        .footer-section p {
-            margin-bottom: 1rem;
-            opacity: 0.8;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            padding: 0.5rem 0;
-            opacity: 0.8;
-            transition: opacity 0.3s;
-        }
-
-        .footer-section a:hover {
-            opacity: 1;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            opacity: 0.7;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .page-header h2 {
-                font-size: 2rem;
-            }
-
-            .featured-content {
-                grid-template-columns: 1fr;
-            }
-
-            .blog-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .newsletter-form {
-                flex-direction: column;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1a4d7a; --secondary: #2c7bb5; --accent: #e8b44d; --dark: #1f2937; --light: #f9fafb; --gray: #6b7280; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--dark); }
+        header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo h1 { font-size: 1.5rem; }
+        .tagline { font-size: 0.85rem; opacity: 0.9; }
+        nav ul { list-style: none; display: flex; gap: 2rem; }
+        nav a { color: white; text-decoration: none; font-weight: 500; }
+        .page-header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 120px 2rem 60px; text-align: center; }
+        .page-header h1 { font-size: 2.5rem; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+        .blog-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .blog-card:hover { transform: translateY(-5px); }
+        .blog-content { padding: 2rem; }
+        .blog-card h3 { color: var(--primary); margin-bottom: 0.5rem; }
+        .blog-meta { color: var(--gray); font-size: 0.9rem; margin-bottom: 1rem; }
+        .blog-card p { color: var(--gray); margin-bottom: 1rem; }
+        .read-more { color: var(--secondary); text-decoration: none; font-weight: 600; }
+        footer { background: var(--dark); color: white; padding: 3rem 2rem 1rem; }
+        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2rem; }
+        .footer-section h4 { color: var(--accent); margin-bottom: 1rem; }
+        .footer-section ul { list-style: none; }
+        .footer-section a { color: white; text-decoration: none; display: block; padding: 0.5rem 0; opacity: 0.8; }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.7; max-width: 1200px; margin: 0 auto; }
+        @media (max-width: 768px) { nav ul { flex-direction: column; gap: 1rem; } .page-header h1 { font-size: 2rem; } .footer-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
     <header>
         <div class="header-content">
-            <div class="logo-section">
+            <div class="logo">
                 <h1>Options Property Management</h1>
-                <div class="tagline">Serving San Diego Property Owners Since 2015</div>
+                <div class="tagline">San Diego Property Owners Since 2015</div>
             </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="index.html#services">Services</a></li>
-                    <li><a href="index.html#about">About</a></li>
-                    <li><a href="owner-info.html">Owner Resources</a></li>
+                    <li><a href="owner-info.html">Resources</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="listings.html">Listings</a></li>
                     <li><a href="index.html#contact">Contact</a></li>
@@ -436,230 +57,101 @@
     </header>
 
     <div class="page-header">
-        <h2>Property Management Insights</h2>
-        <p>Expert advice, market updates, and tips for San Diego property owners</p>
+        <h1>Property Management Insights</h1>
+        <p>Expert advice for San Diego property owners</p>
     </div>
 
-    <section class="featured-post">
-        <div class="container">
-            <div class="featured-content">
-                <div class="featured-image">
-                    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-                        <rect fill="#ffffff" opacity="0.1" width="400" height="300"/>
-                        <circle cx="200" cy="150" r="80" fill="#e8b44d" opacity="0.3"/>
-                        <path d="M100 150 L150 100 L200 120 L250 80 L300 130" stroke="#ffffff" stroke-width="4" fill="none"/>
-                        <circle cx="100" cy="150" r="6" fill="#ffffff"/>
-                        <circle cx="150" cy="100" r="6" fill="#ffffff"/>
-                        <circle cx="200" cy="120" r="6" fill="#ffffff"/>
-                        <circle cx="250" cy="80" r="6" fill="#ffffff"/>
-                        <circle cx="300" cy="130" r="6" fill="#ffffff"/>
-                        <text x="200" y="250" font-family="Arial" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">Market Trends</text>
-                    </svg>
+    <div class="container">
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="blog-content">
+                    <h3>San Diego Rental Market Outlook 2026</h3>
+                    <div class="blog-meta">December 2025 • 8 min read</div>
+                    <p>What to expect from San Diego's rental market in 2026. Rent trends, neighborhood analysis, and investment strategies.</p>
+                    <a href="#" class="read-more">Read More →</a>
                 </div>
-                <div class="featured-text">
-                    <span class="post-badge">FEATURED</span>
-                    <h3>San Diego Rental Market Outlook 2026: What Property Owners Need to Know</h3>
-                    <div class="post-meta">December 2025 • 8 min read</div>
-                    <p>As we close out 2025 and look ahead to 2026, San Diego's rental market presents both opportunities and challenges for investors. Our comprehensive analysis covers rent growth projections by neighborhood, employment trends, interest rate impacts, and strategic investment approaches for the year ahead.</p>
-                    <a href="blog-market-outlook-2026.html" class="read-more">Read Full Article →</a>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-content">
+                    <h3>2025 California Landlord-Tenant Law Updates</h3>
+                    <div class="blog-meta">November 2025 • 6 min read</div>
+                    <p>Important legal changes affecting California landlords including AB 2747 security deposit limits and new compliance requirements.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-content">
+                    <h3>The True Cost of Self-Managing Your Rental</h3>
+                    <div class="blog-meta">October 2025 • 7 min read</div>
+                    <p>Hidden costs of DIY property management including time, mistakes, and missed opportunities.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-content">
+                    <h3>Maximizing Tax Deductions for Rental Properties</h3>
+                    <div class="blog-meta">September 2025 • 8 min read</div>
+                    <p>Complete guide to rental property tax deductions including depreciation, repairs, and professional fees.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-content">
+                    <h3>How Quality Tenant Screening Saves Money</h3>
+                    <div class="blog-meta">August 2025 • 6 min read</div>
+                    <p>Why thorough tenant screening is worth the investment and how it protects your property.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-content">
+                    <h3>Security Deposit Best Practices</h3>
+                    <div class="blog-meta">September 2025 • 7 min read</div>
+                    <p>California's strict security deposit laws explained. Avoid costly mistakes with proper procedures.</p>
+                    <a href="#" class="read-more">Read More →</a>
                 </div>
             </div>
         </div>
-    </section>
-
-    <section>
-        <div class="container">
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <div class="blog-image">📋</div>
-                    <div class="blog-content">
-                        <span class="category-badge">Legal & Compliance</span>
-                        <h3>2025 California Landlord-Tenant Law Updates</h3>
-                        <div class="post-meta">December 2025 • 6 min read</div>
-                        <p>Stay compliant with the latest changes to California rental laws. We cover new regulations on security deposits, rent increases, eviction procedures, and tenant rights that take effect this year.</p>
-                        <a href="blog-ca-law-updates.html" class="read-more">Read More →</a>
-                    </div>
-                </div>
-
-                <div class="blog-card">
-                    <div class="blog-image">🏡</div>
-                    <div class="blog-content">
-                        <span class="category-badge">Property Management</span>
-                        <h3>The True Cost of Self-Managing Your Rental Property</h3>
-                        <div class="post-meta">November 2025 • 7 min read</div>
-                        <p>Many owners underestimate the hidden costs of DIY property management. From vacancy costs to compliance risks and time investment, we break down what self-management really costs you.</p>
-                        <a href="blog-self-managing-costs.html" class="read-more">Read More →</a>
-                    </div>
-                </div>
-
-                <div class="blog-card">
-                    <div class="blog-image">🔧</div>
-                    <div class="blog-content">
-                        <span class="category-badge">Maintenance</span>
-                        <h3>Winter Property Maintenance Checklist for San Diego Landlords</h3>
-                        <div class="post-meta">November 2025 • 5 min read</div>
-                        <p>Even in sunny San Diego, winter brings unique maintenance challenges. Follow our seasonal checklist to protect your property and prevent costly emergency repairs during the rainy season.</p>
-                        <a href="blog-winter-maintenance.html" class="read-more">Read More →</a>
-                    </div>
-                </div>
-
-                <div class="blog-card">
-                    <div class="blog-image">💰</div>
-                    <div class="blog-content">
-                        <span class="category-badge">Financial Planning</span>
-                        <h3>Maximizing Tax Deductions for Your Rental Property</h3>
-                        <div class="post-meta">October 2025 • 9 min read</div>
-                        <p>Tax season is approaching. Learn about often-overlooked deductions, depreciation strategies, and how proper documentation throughout the year can save you thousands on your tax bill.</p>
-                        <a href="blog-tax-deductions.html" class="read-more">Read More →</a>
-                    </div>
-                </div>
-
-                <div class="blog-card">
-                    <div class="blog-image">👥</div>
-                    <div class="blog-content">
-                        <span class="category-badge">Tenant Relations</span>
-                        <h3>How Quality Tenant Screening Saves You Money</h3>
-                        <div class="post-meta">October 2025 • 6 min read</div>
-                        <p>The difference between a good tenant and a problem tenant can cost you tens of thousands of dollars. We explain our comprehensive screening process and why cutting corners here is penny-wise but pound-foolish.</p>
-                        <a href="blog-tenant-screening.html" class="read-more">Read More →</a>
-                    </div>
-                </div>
-
-                <div class="blog-card">
-                    <div class="blog-image">📊</div>
-                    <div class="blog-content">
-                        <span class="category-badge">Market Analysis</span>
-                        <h3>North County San Diego: The Hidden Gem for Rental Investors</h3>
-                        <div class="post-meta">September 2025 • 8 min read</div>
-                        <p>While downtown San Diego grabs headlines, North County communities like Escondido, San Marcos, and Vista offer strong rental yields with lower entry costs. We analyze the opportunities in these growing markets.</p>
-                        <a href="blog-north-county.html" class="read-more">Read More →</a>
-                    </div>
-                </div>
-
-                <div class="blog-card">
-                    <div class="blog-image">🔐</div>
-                    <div class="blog-content">
-                        <span class="category-badge">Legal & Compliance</span>
-                        <h3>Security Deposit Best Practices: Protecting Yourself and Your Tenants</h3>
-                        <div class="post-meta">September 2025 • 7 min read</div>
-                        <p>California's strict security deposit laws can trip up even experienced landlords. Learn how to properly collect, hold, document, and return deposits while avoiding costly legal disputes.</p>
-                        <a href="blog-security-deposits.html" class="read-more">Read More →</a>
-                    </div>
-                </div>
-
-                <div class="blog-card">
-                    <div class="blog-image">🎯</div>
-                    <div class="blog-content">
-                        <span class="category-badge">Property Management</span>
-                        <h3>Setting the Right Rental Price: Art, Science, and Market Reality</h3>
-                        <div class="post-meta">August 2025 • 6 min read</div>
-                        <p>Pricing too high leads to costly vacancies. Pricing too low leaves money on the table. Our data-driven approach to rental pricing maximizes your income while minimizing vacancy time.</p>
-                        <a href="blog-rental-pricing.html" class="read-more">Read More →</a>
-                    </div>
-                </div>
-
-                <div class="blog-card">
-                    <div class="blog-image">🏠</div>
-                    <div class="blog-content">
-                        <span class="category-badge">Investment Strategy</span>
-                        <h3>Single-Family vs. Multi-Unit: Which is Right for Your Portfolio?</h3>
-                        <div class="post-meta">August 2025 • 10 min read</div>
-                        <p>Both property types have advantages, but which fits your investment goals? We compare management complexity, financing options, risk profiles, and long-term returns to help you decide.</p>
-                        <a href="blog-single-vs-multi.html" class="read-more">Read More →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="categories-section">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <h2 style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;">Browse by Category</h2>
-                <p style="color: var(--gray); font-size: 1.1rem;">Find articles tailored to your interests</p>
-            </div>
-
-            <div class="categories-grid">
-                <div class="category-card">
-                    <div class="category-icon">📊</div>
-                    <h4>Market Analysis</h4>
-                    <p>15 articles</p>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-icon">⚖️</div>
-                    <h4>Legal & Compliance</h4>
-                    <p>22 articles</p>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-icon">🔧</div>
-                    <h4>Maintenance</h4>
-                    <p>18 articles</p>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-icon">💰</div>
-                    <h4>Financial Planning</h4>
-                    <p>12 articles</p>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-icon">👥</div>
-                    <h4>Tenant Relations</h4>
-                    <p>20 articles</p>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-icon">🏡</div>
-                    <h4>Property Management</h4>
-                    <p>28 articles</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="newsletter">
-        <div class="container">
-            <h2>Stay Informed with Our Monthly Newsletter</h2>
-            <p>Get expert property management tips, San Diego market updates, and exclusive resources delivered straight to your inbox.</p>
-            <form class="newsletter-form" action="mailto:optionspropertymgmnt@gmail.com" method="post" enctype="text/plain">
-                <input type="email" name="email" placeholder="Enter your email address" required>
-                <button type="submit">Subscribe</button>
-            </form>
-        </div>
-    </section>
+    </div>
 
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Options Property Management</h4>
-                    <p>Professional property management services in San Diego County since 2015. We help property owners maximize their investments through expert management, transparent communication, and dedicated service.</p>
-                    <p><strong>Licensed • Insured • Professional</strong></p>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#services">Services</a></li>
-                        <li><a href="index.html#about">About Us</a></li>
-                        <li><a href="owner-info.html">Owner Resources</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                    <li><a href="listings.html">Listings</a></li>
-                        <li><a href="index.html#contact">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Contact Us</h4>
-                    <ul>
-                        <li><a href="tel:+17606512271">(760) 651-2271</a></li>
-                        <li>28588 Cole Grade Rd #1353<br>Valley Center, CA 92082</li>
-                    </ul>
-                </div>
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h4>Options Property Management</h4>
+                <p>Professional property management in San Diego County since 2015.</p>
+                <p><strong>Licensed • Insured • Professional</strong></p>
+                <p style="margin-top: 1rem;">28588 Cole Grade Rd #1353, Valley Center, CA 92082</p>
+                <p>(760) 651-2271</p>
+                <p>optionspropertymgmnt@gmail.com</p>
             </div>
-
-            <div class="footer-bottom">
-                
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="owner-info.html">Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="listings.html">Listings</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Service Areas</h4>
+                <ul>
+                    <li>Valley Center</li>
+                    <li>Escondido</li>
+                    <li>San Marcos</li>
+                    <li>Vista</li>
+                    <li>Oceanside</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Options Property Management. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
