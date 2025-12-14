@@ -4,52 +4,591 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <title>Options Property Management | San Diego Property Management</title>
-    <meta name="description" content="Professional property management in San Diego County since 2015.">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>San Diego Property Management | Options Property Management | Since 2015</title>
+    <meta name="description" content="Professional property management in San Diego County since 2015. Expert tenant screening, 24/7 maintenance, transparent reporting. Maximize your rental income with Options Property Management.">
+    <meta name="keywords" content="San Diego property management, Valley Center property manager, rental property management, tenant screening San Diego, property management services, San Diego landlord services">
+    <meta name="author" content="Options Property Management">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Options Property Management - San Diego's Trusted Property Manager">
+    <meta property="og:description" content="Professional property management in San Diego County since 2015. 200+ properties managed with 98% owner satisfaction.">
+    <meta property="og:url" content="https://www.options-pm.com/">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Options Property Management - San Diego">
+    <meta name="twitter:description" content="Professional property management in San Diego County since 2015.">
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Options Property Management",
+      "description": "Professional property management services in San Diego County",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "28588 Cole Grade Rd #1353",
+        "addressLocality": "Valley Center",
+        "addressRegion": "CA",
+        "postalCode": "92082"
+      },
+      "telephone": "+1-760-651-2271",
+      "email": "optionspropertymgmnt@gmail.com",
+      "url": "https://www.options-pm.com",
+      "areaServed": "San Diego County, California",
+      "priceRange": "$$"
+    }
+    </script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --primary: #1a4d7a; --secondary: #2c7bb5; --accent: #e8b44d; --dark: #1f2937; --light: #f9fafb; --gray: #6b7280; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--dark); }
-        header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .header-content { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .logo h1 { font-size: 1.5rem; }
-        .tagline { font-size: 0.85rem; opacity: 0.9; }
-        nav ul { list-style: none; display: flex; gap: 2rem; }
-        nav a { color: white; text-decoration: none; font-weight: 500; }
-        .hero { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 150px 2rem 100px; text-align: center; }
-        .hero h2 { font-size: 3rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.3rem; margin-bottom: 2rem; }
-        .btn { background: var(--accent); color: var(--dark); padding: 1rem 2.5rem; text-decoration: none; border-radius: 50px; font-weight: 600; display: inline-block; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
-        .title { text-align: center; font-size: 2.5rem; color: var(--primary); margin-bottom: 3rem; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .card h3 { color: var(--primary); margin-bottom: 1rem; }
-        .contact { background: var(--light); padding: 4rem 2rem; }
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
-        .contact-item { text-align: center; padding: 2rem; background: white; border-radius: 10px; }
-        .icon { font-size: 3rem; margin-bottom: 1rem; }
-        footer { background: var(--dark); color: white; padding: 3rem 2rem 1rem; }
-        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2rem; }
-        .footer-section h4 { color: var(--accent); margin-bottom: 1rem; }
-        .footer-section ul { list-style: none; }
-        .footer-section a { color: white; text-decoration: none; display: block; padding: 0.5rem 0; opacity: 0.8; }
-        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.7; max-width: 1200px; margin: 0 auto; }
-        @media (max-width: 768px) { nav ul { flex-direction: column; gap: 1rem; } .hero h2 { font-size: 2rem; } .footer-grid { grid-template-columns: 1fr; } }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a4d7a;
+            --secondary: #2c7bb5;
+            --accent: #e8b44d;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-section h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .tagline {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 77, 122, 0.85), rgba(44, 123, 181, 0.85)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%231a4d7a" width="1200" height="600"/><path fill="%232c7bb5" opacity="0.3" d="M0 300L50 280C100 260 200 220 300 200C400 180 500 180 600 200C700 220 800 260 900 280C1000 300 1100 300 1150 300L1200 300L1200 600L1150 600C1100 600 1000 600 900 600C800 600 700 600 600 600C500 600 400 600 300 600C200 600 100 600 50 600L0 600Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 2rem 100px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .hero h2 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .trust-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            text-align: center;
+        }
+
+        .trust-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .trust-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            background: var(--light);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateX(5px);
+        }
+
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .service-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--light);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            position: relative;
+        }
+
+        .quote-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            opacity: 0.3;
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+        }
+
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--gray);
+        }
+
+        .credentials {
+            margin-top: 2rem;
+        }
+
+        .credential-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: var(--light);
+            border-radius: 5px;
+        }
+
+        .credential-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--accent);
+        }
+
+        /* Contact */
+        .contact {
+            background: var(--light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border-left: 3px solid var(--accent);
+            background: var(--light);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--primary);
+        }
+
+        .contact-details h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-details a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .contact-details a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-button {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-button:hover {
+            background: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .about-content,
+            .contact-grid,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-indicators {
+                gap: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="header-content">
-            <div class="logo">
+            <div class="logo-section">
                 <h1>Options Property Management</h1>
-                <div class="tagline">San Diego Property Owners Since 2015</div>
+                <div class="tagline">Serving San Diego Property Owners Since 2015</div>
             </div>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="owner-info.html">Resources</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="owner-info.html">Owner Resources</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="listings.html">Listings</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -59,38 +598,304 @@
     </header>
 
     <section class="hero" id="home">
-        <h2>Professional Property Management</h2>
-        <p>Maximize your rental income in San Diego County</p>
-        <a href="#contact" class="btn">Get Started</a>
+        <h2>San Diego's Trusted Property Management Partner</h2>
+        <p>For nearly a decade, we've helped property owners maximize their investments through professional management, dedicated service, and local expertise.</p>
+        <a href="#contact" class="cta-button">Get Your Free Property Analysis</a>
+        
+        <div class="trust-indicators">
+            <div class="trust-item">
+                <div class="trust-number">10+</div>
+                <div class="trust-label">Years Experience</div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-number">200+</div>
+                <div class="trust-label">Properties Managed</div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-number">98%</div>
+                <div class="trust-label">Owner Satisfaction</div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-number">24/7</div>
+                <div class="trust-label">Emergency Support</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Property Owners Trust Options</h2>
+                <p>We've built our reputation on reliability, transparency, and results that matter to your bottom line.</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏆</div>
+                    <h3>Proven Track Record</h3>
+                    <p>Nearly a decade of successful property management in San Diego County with hundreds of satisfied property owners.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Maximum Returns</h3>
+                    <p>Our strategic pricing and tenant retention programs ensure your property generates optimal rental income.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔍</div>
+                    <h3>Thorough Screening</h3>
+                    <p>Comprehensive tenant background checks, credit reports, and employment verification protect your investment.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <h3>Complete Transparency</h3>
+                    <p>Detailed monthly statements, 24/7 owner portal access, and clear communication at every step.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛠️</div>
+                    <h3>Proactive Maintenance</h3>
+                    <p>Regular inspections and established contractor relationships keep your property in excellent condition.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚖️</div>
+                    <h3>Legal Compliance</h3>
+                    <p>Stay compliant with California landlord-tenant laws, fair housing regulations, and local ordinances.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Average Occupancy Rate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">14</div>
+                    <div class="stat-label">Average Days to Lease</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">$500K+</div>
+                    <div class="stat-label">Monthly Rent Collected</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2hrs</div>
+                    <div class="stat-label">Average Emergency Response</div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="services">
         <div class="container">
-            <h2 class="title">Our Services</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>🏠 Tenant Placement</h3>
-                    <p>Professional marketing and thorough screening to find quality tenants.</p>
+            <div class="section-header">
+                <h2>Comprehensive Property Management Services</h2>
+                <p>Full-service management that covers every aspect of your rental property investment.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Tenant Acquisition & Screening</h3>
+                    <p>We find quality tenants who pay on time and care for your property.</p>
+                    <ul>
+                        <li>Professional property marketing & photography</li>
+                        <li>Comprehensive background & credit checks</li>
+                        <li>Employment & income verification</li>
+                        <li>Previous landlord references</li>
+                        <li>Lease preparation & execution</li>
+                    </ul>
                 </div>
-                <div class="card">
-                    <h3>🔧 Maintenance</h3>
-                    <p>24/7 coordination with vetted contractors for property upkeep.</p>
+
+                <div class="service-card">
+                    <h3>Rent Collection & Financial Management</h3>
+                    <p>Efficient systems ensure you get paid on time, every time.</p>
+                    <ul>
+                        <li>Online rent payment portal</li>
+                        <li>Automated payment processing</li>
+                        <li>Late rent follow-up & collection</li>
+                        <li>Monthly owner statements</li>
+                        <li>Year-end tax reporting</li>
+                    </ul>
                 </div>
-                <div class="card">
-                    <h3>💰 Financial Reports</h3>
-                    <p>Monthly statements and year-end tax documentation.</p>
+
+                <div class="service-card">
+                    <h3>Property Maintenance & Repairs</h3>
+                    <p>Proactive care protects your investment and keeps tenants happy.</p>
+                    <ul>
+                        <li>24/7 emergency maintenance hotline</li>
+                        <li>Network of licensed, insured contractors</li>
+                        <li>Competitive pricing & quality work</li>
+                        <li>Regular property inspections</li>
+                        <li>Preventive maintenance programs</li>
+                    </ul>
                 </div>
-                <div class="card">
-                    <h3>⚖️ Legal Compliance</h3>
-                    <p>Expert navigation of California landlord-tenant law.</p>
+
+                <div class="service-card">
+                    <h3>Legal Compliance & Evictions</h3>
+                    <p>Navigate complex regulations with experienced guidance.</p>
+                    <ul>
+                        <li>Fair Housing Act compliance</li>
+                        <li>California landlord-tenant law adherence</li>
+                        <li>Proper eviction procedures when needed</li>
+                        <li>Legal documentation & notices</li>
+                        <li>Court representation coordination</li>
+                    </ul>
                 </div>
-                <div class="card">
-                    <h3>📊 Inspections</h3>
-                    <p>Regular property inspections with detailed reports.</p>
+
+                <div class="service-card">
+                    <h3>Property Inspections</h3>
+                    <p>Regular oversight ensures your property stays in top condition.</p>
+                    <ul>
+                        <li>Move-in & move-out inspections</li>
+                        <li>Quarterly property walkthroughs</li>
+                        <li>Detailed photo documentation</li>
+                        <li>Maintenance issue identification</li>
+                        <li>Lease compliance verification</li>
+                    </ul>
                 </div>
-                <div class="card">
-                    <h3>🎯 Rent Optimization</h3>
-                    <p>Market analysis to maximize your rental income.</p>
+
+                <div class="service-card">
+                    <h3>Owner Communication & Reporting</h3>
+                    <p>Stay informed with transparent, detailed reporting.</p>
+                    <ul>
+                        <li>24/7 online owner portal access</li>
+                        <li>Monthly financial statements</li>
+                        <li>Maintenance updates & approvals</li>
+                        <li>Direct owner support line</li>
+                        <li>Annual property performance reviews</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Property Owners Say About Us</h2>
+                <p>Real experiences from property owners who trust Options with their investments.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <div class="testimonial-text">
+                        I've worked with Options for over 6 years now with multiple properties. They handle everything professionally and I can count on them to protect my investment. Best decision I made was hiring them.
+                    </div>
+                    <div class="testimonial-author">Robert M.</div>
+                    <div class="testimonial-role">Multi-Property Owner, Escondido</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <div class="testimonial-text">
+                        After a nightmare experience with another company, Options was a breath of fresh air. They found great tenants quickly, handle maintenance issues promptly, and their monthly reports are crystal clear.
+                    </div>
+                    <div class="testimonial-author">Jennifer L.</div>
+                    <div class="testimonial-role">Investment Property Owner, San Marcos</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <div class="testimonial-text">
+                        Living out of state, I needed a management company I could trust completely. Options keeps me informed, handles emergencies efficiently, and my properties stay rented with quality tenants. Highly recommend!
+                    </div>
+                    <div class="testimonial-author">David K.</div>
+                    <div class="testimonial-role">Out-of-State Owner, Phoenix AZ</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Options Property Management</h2>
+                <p>Your local partner in property management excellence.</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Local Expertise, Professional Results</h3>
+                    <p>Founded in 2015, Options Property Management has grown to become one of San Diego County's most trusted property management firms. Our success is built on a simple principle: treating every property as if it were our own.</p>
+                    
+                    <p>We understand the unique challenges and opportunities of the San Diego rental market. From coastal properties to inland communities, we have the local knowledge and proven systems to maximize your rental income while minimizing your stress.</p>
+                    
+                    <p>Our team combines years of real estate experience with cutting-edge technology to deliver transparent, efficient property management services. We're not just managing properties—we're building long-term partnerships with property owners who value professionalism, integrity, and results.</p>
+
+                    <div class="credentials">
+                        <div class="credential-item">
+                            <div class="credential-icon">✓</div>
+                            <div>Licensed California Real Estate Professionals</div>
+                        </div>
+                        <div class="credential-item">
+                            <div class="credential-icon">✓</div>
+                            <div>Full Liability & E&O Insurance Coverage</div>
+                        </div>
+                        <div class="credential-item">
+                            <div class="credential-icon">✓</div>
+                            <div>NARPM Affiliated (National Association of Residential Property Managers)</div>
+                        </div>
+                        <div class="credential-item">
+                            <div class="credential-icon">✓</div>
+                            <div>Ongoing Professional Education & Training</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-image">
+                    <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="buildingGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#1a4d7a;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#2c7bb5;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        
+                        <!-- Sky -->
+                        <rect fill="#87CEEB" width="400" height="500"/>
+                        
+                        <!-- Sun -->
+                        <circle cx="320" cy="80" r="40" fill="#FFD700" opacity="0.8"/>
+                        
+                        <!-- Building -->
+                        <rect x="100" y="150" width="200" height="300" fill="url(#buildingGrad)"/>
+                        
+                        <!-- Windows -->
+                        <rect x="120" y="180" width="30" height="40" fill="#e8b44d" opacity="0.7"/>
+                        <rect x="165" y="180" width="30" height="40" fill="#e8b44d" opacity="0.7"/>
+                        <rect x="210" y="180" width="30" height="40" fill="#e8b44d" opacity="0.7"/>
+                        <rect x="255" y="180" width="30" height="40" fill="#e8b44d" opacity="0.7"/>
+                        
+                        <rect x="120" y="240" width="30" height="40" fill="#e8b44d" opacity="0.7"/>
+                        <rect x="165" y="240" width="30" height="40" fill="#e8b44d" opacity="0.7"/>
+                        <rect x="210" y="240" width="30" height="40" fill="#e8b44d" opacity="0.7"/>
+                        <rect x="255" y="240" width="30" height="40" fill="#e8b44d" opacity="0.7"/>
+                        
+                        <rect x="120" y="300" width="30" height="40" fill="#e8b44d" opacity="0.7"/>
+                        <rect x="165" y="300" width="30" height="40" fill="#e8b44d" opacity="0.7"/>
+                        <rect x="210" y="300" width="30" height="40" fill="#e8b44d" opacity="0.7"/>
+                        <rect x="255" y="300" width="30" height="40" fill="#e8b44d" opacity="0.7"/>
+                        
+                        <!-- Door -->
+                        <rect x="175" y="370" width="50" height="80" fill="#1f2937"/>
+                        
+                        <!-- Ground -->
+                        <rect y="450" width="400" height="50" fill="#2d5016"/>
+                        
+                        <!-- Tree -->
+                        <rect x="40" y="380" width="20" height="70" fill="#654321"/>
+                        <circle cx="50" cy="370" r="35" fill="#228B22"/>
+                        
+                        <!-- Text overlay -->
+                        <text x="200" y="480" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1a4d7a" text-anchor="middle">Established 2015</text>
+                    </svg>
                 </div>
             </div>
         </div>
@@ -98,64 +903,106 @@
 
     <section class="contact" id="contact">
         <div class="container">
-            <h2 class="title">Contact Us</h2>
+            <div class="section-header">
+                <h2>Get Started Today</h2>
+                <p>Ready to experience stress-free property management? Contact us for a free consultation.</p>
+            </div>
+
             <div class="contact-grid">
-                <div class="contact-item">
-                    <div class="icon">📞</div>
-                    <h4>Phone</h4>
-                    <p><strong>(760) 651-2271</strong></p>
-                    <p>Monday - Friday: 9am - 5pm</p>
+                <div class="contact-info">
+                    <h3 style="color: var(--primary); margin-bottom: 2rem;">Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <a href="tel:+17606512271">(760) 651-2271</a>
+                            <p>Monday - Friday: 9am - 5pm<br>Emergency Line: 24/7</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            optionspropertymgmnt@gmail.com
+                            <p>We respond within 24 hours</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>Office</h4>
+                            <p>28588 Cole Grade Rd #1353<br>Valley Center, CA 92082</p>
+                            <p>Serving all of San Diego County</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="contact-item">
-                    <div class="icon">📧</div>
-                    <h4>Email</h4>
-                    <p><strong>optionspropertymgmnt@gmail.com</strong></p>
-                    <p>We respond within 24 hours</p>
-                </div>
-                <div class="contact-item">
-                    <div class="icon">📍</div>
-                    <h4>Location</h4>
-                    <p><strong>Valley Center, CA</strong></p>
-                    <p>Serving San Diego County</p>
+
+                <div class="contact-form">
+                    <h3 style="color: var(--primary); margin-bottom: 2rem;">Request a Free Consultation</h3>
+                    <form action="mailto:optionspropertymgmnt@gmail.com" method="post" enctype="text/plain">
+                        <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="property">Property Address</label>
+                            <input type="text" id="property" name="property">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">How can we help you? *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-button">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="footer-grid">
-            <div class="footer-section">
-                <h4>Options Property Management</h4>
-                <p>Professional property management in San Diego County since 2015.</p>
-                <p><strong>Licensed • Insured • Professional</strong></p>
-                <p style="margin-top: 1rem;">28588 Cole Grade Rd #1353, Valley Center, CA 92082</p>
-                <p>(760) 651-2271</p>
-                <p>optionspropertymgmnt@gmail.com</p>
-            </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="owner-info.html">Resources</a></li>
-                    <li><a href="blog.html">Blog</a></li>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Options Property Management</h4>
+                    <p>Professional property management services in San Diego County since 2015. We help property owners maximize their investments through expert management, transparent communication, and dedicated service.</p>
+                    <p><strong>Licensed • Insured • Professional</strong></p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="owner-info.html">Owner Resources</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                     <li><a href="listings.html">Listings</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Service Areas</h4>
-                <ul>
-                    <li>Valley Center</li>
-                    <li>Escondido</li>
-                    <li>San Marcos</li>
-                    <li>Vista</li>
-                    <li>Oceanside</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Options Property Management. All rights reserved.</p>
-        </div>
-    </footer>
-</body>
-</html>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Service Areas</h4>
+                    <ul>
+                        <li>Valley Center</li>
+                        <li>Escondido</li>
+                        <li>San Marcos</li>
+                        <li>Vista</li>
+                        <li>Oceanside</li>
+                        <li>All San Diego Coun
