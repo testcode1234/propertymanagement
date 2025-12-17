@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fair Housing Policy | Options Property Management San Diego</title>
+    <meta name="description" content="Options Property Management is committed to fair housing practices. Learn about our equal opportunity housing policy and compliance with federal and California fair housing laws.">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Fair Housing Policy | Options Property Management">
+    <meta property="og:description" content="Our commitment to equal opportunity housing and compliance with fair housing laws in San Diego County.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.options-pm.com/fair-housing.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Fair Housing Policy | Options Property Management">
+    <meta name="twitter:description" content="Our commitment to equal opportunity housing and compliance with fair housing laws.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        .content-section h2 {
+            color: #1e3c72;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .content-section h3 {
+            color: #2a5298;
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .protected-classes {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .protected-classes ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .protected-classes li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .protected-classes li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .highlight-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .highlight-box h4 {
+            color: #1565C0;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo-section {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .logo-section img {
+            max-width: 200px;
+            margin-bottom: 1rem;
+        }
+
+        .commitment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .commitment-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-top: 3px solid #667eea;
+        }
+
+        .commitment-card h4 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-section h3 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .commitment-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Options Property Management</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="owner-info.html">Owner Resources</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Fair Housing Policy</h1>
+        <p>Our Commitment to Equal Opportunity Housing</p>
+    </section>
+
+    <div class="container">
+        <div class="content-section">
+            <h2>Our Commitment to Fair Housing</h2>
+            <p>Options Property Management is committed to full compliance with all federal, state, and local fair housing laws. We believe that everyone deserves equal access to housing opportunities regardless of their background, and we actively work to ensure that all rental decisions are made based solely on legitimate, non-discriminatory criteria.</p>
+            
+            <p>Since our founding in 2015, we have maintained a zero-tolerance policy for discrimination of any kind. Our team receives regular training on fair housing laws and best practices to ensure that every applicant, tenant, and client is treated with respect and fairness.</p>
+        </div>
+
+        <div class="logo-section">
+            <h3>Equal Housing Opportunity</h3>
+            <p style="font-size: 3rem; margin: 1rem 0;">⌂</p>
+            <p><strong>We are an Equal Opportunity Housing Provider</strong></p>
+        </div>
+
+        <div class="content-section">
+            <h2>Protected Classes Under Federal Law</h2>
+            <p>The Fair Housing Act prohibits discrimination in housing based on the following protected classes:</p>
+            
+            <div class="protected-classes">
+                <ul>
+                    <li><strong>Race or Color</strong> - No discrimination based on racial or ethnic background</li>
+                    <li><strong>National Origin</strong> - Equal treatment regardless of country of origin or ancestry</li>
+                    <li><strong>Religion</strong> - Protection for all religious beliefs and practices</li>
+                    <li><strong>Sex/Gender</strong> - Including sexual harassment and gender identity</li>
+                    <li><strong>Familial Status</strong> - Protection for families with children under 18</li>
+                    <li><strong>Disability</strong> - Including reasonable accommodations and modifications</li>
+                    <li><strong>Age</strong> - Protection against age-based discrimination</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>California Fair Housing Laws</h2>
+            <p>California's Fair Employment and Housing Act (FEHA) provides additional protections beyond federal law. In California, it is also illegal to discriminate based on:</p>
+            
+            <div class="protected-classes">
+                <ul>
+                    <li><strong>Ancestry</strong> - Protection based on ancestral background</li>
+                    <li><strong>Marital Status</strong> - Cannot discriminate based on marital situation</li>
+                    <li><strong>Sexual Orientation</strong> - Full protection for LGBTQ+ individuals</li>
+                    <li><strong>Gender Identity and Expression</strong> - Protection for transgender and non-binary individuals</li>
+                    <li><strong>Medical Condition</strong> - Including genetic characteristics</li>
+                    <li><strong>Military or Veteran Status</strong> - Protection for service members</li>
+                    <li><strong>Source of Income</strong> - Including Section 8 vouchers and other lawful income sources</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Important: Source of Income Protection</h4>
+                <p>California law specifically prohibits discrimination based on source of income. This means we cannot refuse to rent to qualified applicants who use Section 8 vouchers or other government assistance programs. All applicants are evaluated using the same objective screening criteria, regardless of how they will pay rent.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Our Fair Housing Practices</h2>
+            
+            <div class="commitment-grid">
+                <div class="commitment-card">
+                    <h4>Objective Screening</h4>
+                    <p>We use consistent, written screening criteria for all applicants. Decisions are based on verifiable factors such as credit history, rental history, income verification, and background checks.</p>
+                </div>
+                
+                <div class="commitment-card">
+                    <h4>Equal Marketing</h4>
+                    <p>All properties are marketed to the widest possible audience. We never use discriminatory language in advertising or show preferences based on protected classes.</p>
+                </div>
+                
+                <div class="commitment-card">
+                    <h4>Reasonable Accommodations</h4>
+                    <p>We provide reasonable accommodations for individuals with disabilities and make reasonable modifications to policies, practices, and physical structures when necessary.</p>
+                </div>
+                
+                <div class="commitment-card">
+                    <h4>Regular Training</h4>
+                    <p>Our entire team participates in ongoing fair housing education and training to stay current with laws and best practices.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Service Animals and Assistance Animals</h2>
+            <p>Under fair housing laws, we provide accommodations for individuals with disabilities who require service animals or assistance animals. Key points include:</p>
+            
+            <ul style="margin-left: 2rem; line-height: 2;">
+                <li>Service animals and emotional support animals are not considered "pets" under fair housing law</li>
+                <li>No pet deposits or pet rent can be charged for assistance animals</li>
+                <li>Properties with "no pets" policies must still accommodate assistance animals</li>
+                <li>We may request documentation of disability-related need from a healthcare provider</li>
+                <li>We cannot ask about the nature or extent of a person's disability</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Reasonable Modifications for Disabilities</h2>
+            <p>Tenants with disabilities have the right to make reasonable modifications to their dwelling unit or common areas at their own expense if necessary for full enjoyment of the premises. This may include:</p>
+            
+            <ul style="margin-left: 2rem; line-height: 2;">
+                <li>Installing grab bars in bathrooms</li>
+                <li>Widening doorways for wheelchair access</li>
+                <li>Installing ramps or lifts</li>
+                <li>Modifying kitchen cabinets or appliances</li>
+                <li>Installing visual alert systems for hearing-impaired residents</li>
+            </ul>
+            
+            <p>We work cooperatively with tenants to ensure modifications are done professionally and, when appropriate, restored upon move-out.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Familial Status Protections</h2>
+            <p>Families with children receive full protection under fair housing laws. It is illegal to:</p>
+            
+            <ul style="margin-left: 2rem; line-height: 2;">
+                <li>Refuse to rent to families with children</li>
+                <li>Impose different terms or conditions based on familial status</li>
+                <li>Advertise properties as "adults only" (except qualified senior housing)</li>
+                <li>Steer families toward or away from certain properties</li>
+                <li>Limit where children can play in common areas (except reasonable safety rules)</li>
+            </ul>
+        </div>
+
+        <div class="highlight-box">
+            <h4>Reporting Discrimination</h4>
+            <p>If you believe you have experienced housing discrimination, you can file a complaint with:</p>
+            <ul style="margin-left: 2rem; margin-top: 1rem;">
+                <li><strong>HUD (U.S. Department of Housing and Urban Development):</strong> 1-800-669-9777</li>
+                <li><strong>California Department of Fair Employment and Housing:</strong> 1-800-884-1684</li>
+                <li><strong>Online:</strong> www.hud.gov or www.dfeh.ca.gov</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Questions About Fair Housing?</h2>
+            <p>We are committed to maintaining the highest standards of fair housing compliance. If you have questions about our policies, need to request a reasonable accommodation, or want to discuss any fair housing matter, please contact us directly.</p>
+            
+            <p>Our management team is always available to discuss fair housing concerns and ensure that all parties understand their rights and responsibilities under the law.</p>
+        </div>
+
+        <div class="cta-section">
+            <h3>Work With a Compliant Property Manager</h3>
+            <p>Our commitment to fair housing protects both owners and tenants. Contact us to learn how our professional management services ensure full legal compliance.</p>
+            <a href="index.html#contact" class="cta-button">Contact Us Today</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Options Property Management. All rights reserved.</p>
+        <p>Licensed California Property Management | Serving San Diego County Since 2015</p>
+        <p><a href="fair-housing.html">Fair Housing Policy</a> | <a href="index.html#contact">Contact Us</a></p>
+    </footer>
+</body>
+</html>

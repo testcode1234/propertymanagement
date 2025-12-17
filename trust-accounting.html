@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trust Accounting | Options Property Management San Diego</title>
+    <meta name="description" content="Transparent trust accounting and financial management. Options Property Management maintains separate trust accounts and provides detailed financial reporting for all owner funds.">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Trust Accounting | Options Property Management">
+    <meta property="og:description" content="Transparent financial management with proper trust accounting and detailed reporting.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.options-pm.com/trust-accounting.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Trust Accounting | Options Property Management">
+    <meta name="twitter:description" content="Transparent financial management with proper trust accounting and detailed reporting.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .trust-badge {
+            text-align: center;
+            background: #f8f9fa;
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+        }
+
+        .trust-badge-icon {
+            font-size: 4rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .trust-badge h3 {
+            color: #1e3c72;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        .content-section h2 {
+            color: #1e3c72;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .content-section h3 {
+            color: #2a5298;
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .principle-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-top: 4px solid #667eea;
+        }
+
+        .principle-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .principle-card h4 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .info-box h4 {
+            color: #1565C0;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background: #f1f8e9;
+            border-left: 4px solid #8bc34a;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .highlight-box h4 {
+            color: #558b2f;
+            margin-bottom: 0.5rem;
+        }
+
+        .financial-flow {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+
+        .flow-step {
+            display: flex;
+            align-items: flex-start;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+
+        .flow-number {
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .flow-content h4 {
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+        }
+
+        .statement-example {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+
+        .statement-header {
+            background: #1e3c72;
+            color: white;
+            padding: 1rem;
+            border-radius: 4px 4px 0 0;
+            margin: -2rem -2rem 1rem -2rem;
+        }
+
+        .statement-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .statement-table th {
+            background: #f8f9fa;
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .statement-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .statement-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .statement-total {
+            background: #f8f9fa;
+            font-weight: bold;
+        }
+
+        .amount-positive {
+            color: #2e7d32;
+        }
+
+        .amount-negative {
+            color: #c62828;
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.8;
+        }
+
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .security-features {
+            background: #fff3e0;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .security-features h4 {
+            color: #e65100;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-section h3 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .statement-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Options Property Management</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="owner-info.html">Owner Resources</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Trust Accounting</h1>
+        <p>Complete Financial Transparency & Regulatory Compliance</p>
+    </section>
+
+    <div class="container">
+        <div class="trust-badge">
+            <div class="trust-badge-icon">🛡️</div>
+            <h3>Your Money, Properly Protected</h3>
+            <p style="max-width: 700px; margin: 1rem auto 0;">All owner and tenant funds are held in separate trust accounts at FDIC-insured financial institutions, never commingled with company operating funds.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>What is Trust Accounting?</h2>
+            <p>Trust accounting is a specialized form of financial management required by California law for property managers who handle client funds. When tenants pay rent, security deposits, or any other fees, those funds don't belong to the property management company—they belong to you, the property owner, or are held in trust for the tenant.</p>
+            
+            <p>California Department of Real Estate (DRE) regulations mandate that all brokers maintain trust accounts and detailed records for funds belonging to others. This protects your money, ensures accountability, and provides complete financial transparency.</p>
+            
+            <div class="info-box">
+                <h4>Legal Requirement</h4>
+                <p>California Business and Professions Code §10145 requires real estate brokers to maintain trust accounts for all funds received on behalf of clients. Failure to properly maintain trust accounts can result in license suspension or revocation, fines, and criminal charges.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Our Trust Accounting Principles</h2>
+            
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <div class="principle-card-icon">🏦</div>
+                    <h4>Separate Accounts</h4>
+                    <p>All owner and tenant funds are maintained in dedicated trust accounts, completely separate from company operating funds. Your money never mixes with ours.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-card-icon">📊</div>
+                    <h4>Daily Reconciliation</h4>
+                    <p>Trust accounts are reconciled daily to ensure every dollar is properly accounted for and transactions are accurately recorded.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-card-icon">🔍</div>
+                    <h4>Full Transparency</h4>
+                    <p>Monthly statements provide complete visibility into all income, expenses, and distributions. You can see exactly where every dollar goes.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-card-icon">✅</div>
+                    <h4>DRE Compliance</h4>
+                    <p>Our trust accounting practices meet or exceed all California Department of Real Estate requirements and industry best practices.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-card-icon">🔐</div>
+                    <h4>Audit Trail</h4>
+                    <p>Complete documentation and detailed records for every transaction, creating a comprehensive audit trail for tax purposes and verification.</p>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-card-icon">⚡</div>
+                    <h4>Timely Distributions</h4>
+                    <p>Owner distributions are processed promptly via ACH transfer, typically by the 10th of each month following rent collection.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>How Trust Accounting Works</h2>
+            
+            <div class="financial-flow">
+                <h3 style="color: #1e3c72; margin-bottom: 2rem;">Monthly Financial Flow</h3>
+                
+                <div class="flow-step">
+                    <div class="flow-number">1</div>
+                    <div class="flow-content">
+                        <h4>Tenant Pays Rent</h4>
+                        <p>Rent payments are received via check, ACH, or online payment portal. All funds are immediately deposited into the trust account.</p>
+                    </div>
+                </div>
+                
+                <div class="flow-step">
+                    <div class="flow-number">2</div>
+                    <div class="flow-content">
+                        <h4>Trust Account Receipt</h4>
+                        <p>Payment is posted to your property's ledger within 24 hours. You can view real-time balances through the owner portal.</p>
+                    </div>
+                </div>
+                
+                <div class="flow-step">
+                    <div class="flow-number">3</div>
+                    <div class="flow-content">
+                        <h4>Expense Processing</h4>
+                        <p>Approved expenses are paid from the trust account. All payments require proper documentation (invoices, receipts, work orders).</p>
+                    </div>
+                </div>
+                
+                <div class="flow-step">
+                    <div class="flow-number">4</div>
+                    <div class="flow-content">
+                        <h4>Management Fee Deduction</h4>
+                        <p>Our management fee is deducted from trust account proceeds only after rent is collected and verified.</p>
+                    </div>
+                </div>
+                
+                <div class="flow-step">
+                    <div class="flow-number">5</div>
+                    <div class="flow-content">
+                        <h4>Owner Distribution</h4>
+                        <p>Remaining balance is transferred to your designated bank account via ACH. Most distributions process by the 10th of the month.</p>
+                    </div>
+                </div>
+                
+                <div class="flow-step">
+                    <div class="flow-number">6</div>
+                    <div class="flow-content">
+                        <h4>Statement Delivery</h4>
+                        <p>Detailed monthly statement is posted to your owner portal and emailed, showing all transactions and current balances.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Monthly Statement Components</h2>
+            
+            <div class="statement-example">
+                <div class="statement-header">
+                    <h3 style="margin: 0; color: white;">Sample Owner Statement</h3>
+                    <p style="margin: 0.5rem 0 0 0; opacity: 0.9;">123 Maple Street, San Diego, CA 92101</p>
+                </div>
+                
+                <table class="statement-table">
+                    <thead>
+                        <tr>
+                            <th>Transaction</th>
+                            <th style="text-align: right;">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Beginning Balance</strong></td>
+                            <td style="text-align: right;">$0.00</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><strong>INCOME</strong></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;&nbsp;Rent Received</td>
+                            <td class="amount-positive" style="text-align: right;">+$3,200.00</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;&nbsp;Late Fee</td>
+                            <td class="amount-positive" style="text-align: right;">+$75.00</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total Income</strong></td>
+                            <td style="text-align: right;"><strong>$3,275.00</strong></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><strong>EXPENSES</strong></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;&nbsp;Management Fee (8%)</td>
+                            <td class="amount-negative" style="text-align: right;">-$256.00</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;&nbsp;HVAC Repair - ABC Services</td>
+                            <td class="amount-negative" style="text-align: right;">-$385.00</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;&nbsp;Landscaping - Green Thumb Co.</td>
+                            <td class="amount-negative" style="text-align: right;">-$120.00</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total Expenses</strong></td>
+                            <td style="text-align: right;"><strong>-$761.00</strong></td>
+                        </tr>
+                        <tr class="statement-total">
+                            <td><strong>OWNER DISTRIBUTION</strong></td>
+                            <td class="amount-positive" style="text-align: right;"><strong>$2,514.00</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ending Balance</strong></td>
+                            <td style="text-align: right;"><strong>$0.00</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">Distribution processed via ACH to account ending in ****4892 on January 10, 2025</p>
+            </div>
+            
+            <p>Each statement includes:</p>
+            <ul class="checklist">
+                <li>All rental income received</li>
+                <li>Complete expense breakdown with vendor details</li>
+                <li>Management fees and any other charges</li>
+                <li>Distribution amount and date</li>
+                <li>Reserve account balances (if applicable)</li>
+                <li>Year-to-date summaries</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Reserve Accounts</h2>
+            <p>Many owners choose to maintain reserve balances in their trust account for property expenses. This provides several advantages:</p>
+            
+            <ul class="checklist">
+                <li><strong>Emergency repairs:</strong> Immediate funds available for urgent issues</li>
+                <li><strong>Predictable expenses:</strong> Cover insurance, HOA fees, property taxes</li>
+                <li><strong>Vacancy buffer:</strong> Maintain mortgage payments during tenant turnover</li>
+                <li><strong>Cash flow smoothing:</strong> Avoid surprises in monthly distributions</li>
+            </ul>
+            
+            <div class="highlight-box">
+                <h4>Reserve Management</h4>
+                <p>Reserve balances remain in your trust account and earn interest (when applicable). You control the reserve amount and can adjust it at any time. We provide separate accounting for reserve funds versus operational funds in your monthly statement.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Security & Fraud Prevention</h2>
+            
+            <div class="security-features">
+                <h4>🔒 How We Protect Your Money</h4>
+                
+                <ul class="checklist" style="margin-top: 1rem;">
+                    <li><strong>FDIC Insurance:</strong> All trust accounts maintained at FDIC-insured institutions</li>
+                    <li><strong>Dual Authorization:</strong> Large disbursements require two-person approval</li>
+                    <li><strong>Positive Pay:</strong> Bank fraud prevention system verifies all checks</li>
+                    <li><strong>Daily Reconciliation:</strong> Immediate detection of any discrepancies</li>
+                    <li><strong>Vendor Verification:</strong> All payees verified before payment processing</li>
+                    <li><strong>Cybersecurity:</strong> Encrypted data transmission and secure payment processing</li>
+                    <li><strong>Regular Audits:</strong> Internal and external financial audits</li>
+                    <li><strong>Access Controls:</strong> Limited personnel with trust account access</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Regulatory Compliance</h2>
+            
+            <p>Our trust accounting practices comply with:</p>
+            
+            <div class="info-box">
+                <h4>California Department of Real Estate Requirements:</h4>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 2;">
+                    <li>Business and Professions Code §10145 - Trust fund handling</li>
+                    <li>Regulation 2832 - Handling of trust funds</li>
+                    <li>Regulation 2831 - Trust fund bank accounts</li>
+                    <li>Regulation 2834 - Separate record for each beneficiary</li>
+                    <li>Three-year record retention requirement</li>
+                    <li>Monthly reconciliation of accounts</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Tax Documentation</h2>
+            
+            <p>Proper trust accounting makes tax preparation straightforward:</p>
+            
+            <ul class="checklist">
+                <li>Complete income and expense records for Schedule E</li>
+                <li>Organized by property and by tax year</li>
+                <li>Supporting documentation for all deductions</li>
+                <li>1099 forms issued to vendors as required</li>
+                <li>Year-end summary statements by January 31</li>
+                <li>Digital access to all receipts and invoices</li>
+            </ul>
+            
+            <p style="margin-top: 1rem;">Your CPA will appreciate the clean, organized financial records that make tax filing efficient and accurate.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Questions About Trust Accounting?</h2>
+            
+            <p>We believe in complete financial transparency. Your money is your money, and you deserve to know exactly how it's being handled. If you have questions about:</p>
+            
+            <ul style="margin-left: 2rem; line-height: 2;">
+                <li>How trust accounts work</li>
+                <li>Reading your monthly statement</li>
+                <li>Setting up reserve accounts</li>
+                <li>Distribution schedules</li>
+                <li>Tax documentation</li>
+                <li>Our security measures</li>
+            </ul>
+            
+            <p style="margin-top: 1rem;">Please don't hesitate to contact us. We're happy to explain any aspect of our financial management and trust accounting practices.</p>
+        </div>
+
+        <div class="cta-section">
+            <h3>Professional Financial Management You Can Trust</h3>
+            <p>Your rental income deserves the same professional financial management as any business. Let us handle the complexities while you enjoy transparent, compliant, and secure handling of your property funds.</p>
+            <a href="index.html#contact" class="cta-button">Start Professional Management</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Options Property Management. All rights reserved.</p>
+        <p>Licensed California Property Management | Serving San Diego County Since 2015</p>
+        <p><a href="fair-housing.html">Fair Housing Policy</a> | <a href="index.html#contact">Contact Us</a></p>
+    </footer>
+</body>
+</html>
