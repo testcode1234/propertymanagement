@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Read Your Statement | Options Property Management San Diego</title>
+    <meta name="description" content="Learn how to read and understand your monthly property management financial statements. Complete guide to income, expenses, and owner distributions.">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="How to Read Your Statement | Options Property Management">
+    <meta property="og:description" content="Complete guide to understanding your monthly property management financial statements.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.options-pm.com/reading-statements.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="How to Read Your Statement | Options Property Management">
+    <meta name="twitter:description" content="Complete guide to understanding your monthly financial statements.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        .content-section h2 {
+            color: #1e3c72;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .content-section h3 {
+            color: #2a5298;
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Sample Statement */
+        .statement-example {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .statement-header {
+            background: #1e3c72;
+            color: white;
+            padding: 1.5rem;
+            margin: -2rem -2rem 2rem -2rem;
+            border-radius: 6px 6px 0 0;
+        }
+
+        .statement-header h3 {
+            margin: 0 0 0.5rem 0;
+            color: white;
+        }
+
+        .statement-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.95;
+        }
+
+        .statement-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        .statement-table th {
+            background: #f8f9fa;
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 2px solid #667eea;
+            font-weight: 600;
+        }
+
+        .statement-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .statement-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .category-row {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #1e3c72;
+        }
+
+        .indent {
+            padding-left: 2rem;
+        }
+
+        .total-row {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+
+        .final-total {
+            background: #667eea;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .amount-positive {
+            color: #2e7d32;
+            font-weight: 600;
+        }
+
+        .amount-negative {
+            color: #c62828;
+            font-weight: 600;
+        }
+
+        /* Annotation Boxes */
+        .annotation {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .annotation-number {
+            display: inline-block;
+            background: #ffc107;
+            color: #000;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            text-align: center;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .info-box h4 {
+            color: #1565C0;
+            margin-bottom: 0.5rem;
+        }
+
+        .tip-box {
+            background: #f1f8e9;
+            border-left: 4px solid #8bc34a;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .tip-box h4 {
+            color: #558b2f;
+            margin-bottom: 0.5rem;
+        }
+
+        .warning-box {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box h4 {
+            color: #c62828;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Section Breakdown */
+        .breakdown-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .breakdown-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-top: 4px solid #667eea;
+        }
+
+        .breakdown-card h4 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .breakdown-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .breakdown-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .breakdown-card li:last-child {
+            border-bottom: none;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            line-height: 1.8;
+        }
+
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-section h3 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .statement-info {
+                grid-template-columns: 1fr;
+            }
+
+            .statement-table {
+                font-size: 0.9rem;
+            }
+
+            .breakdown-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Options Property Management</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="owner-info.html">Owner Resources</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>How to Read Your Statement</h1>
+        <p>Understanding Your Monthly Financial Reports</p>
+    </section>
+
+    <div class="container">
+        <div class="content-section">
+            <h2>Your Monthly Statement Explained</h2>
+            <p>Every month by the 15th, you'll receive a detailed financial statement covering all activity for your rental property during the previous month. These statements provide complete transparency into your property's income, expenses, and the resulting owner distribution.</p>
+            
+            <p>Understanding how to read your statement empowers you to track your investment's performance, verify expenses, prepare for tax season, and make informed decisions about your property. This guide walks you through each section of your statement line by line.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Sample Monthly Statement</h2>
+            
+            <div class="statement-example">
+                <div class="statement-header">
+                    <h3>Owner Statement - December 2024</h3>
+                    <div class="statement-info">
+                        <div>
+                            <strong>Property:</strong> 456 Ocean View Drive<br>
+                            Carlsbad, CA 92008
+                        </div>
+                        <div>
+                            <strong>Owner:</strong> John Smith<br>
+                            <strong>Statement Date:</strong> January 10, 2025
+                        </div>
+                    </div>
+                </div>
+
+                <table class="statement-table">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th style="text-align: right;">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="category-row">
+                            <td colspan="3">BEGINNING BALANCE</td>
+                        </tr>
+                        <tr>
+                            <td>Owner Account Balance Forward</td>
+                            <td>12/01/2024</td>
+                            <td style="text-align: right;">$250.00</td>
+                        </tr>
+                        
+                        <tr class="category-row">
+                            <td colspan="3">INCOME</td>
+                        </tr>
+                        <tr>
+                            <td class="indent">Rent Payment - December</td>
+                            <td>12/01/2024</td>
+                            <td class="amount-positive" style="text-align: right;">+$3,500.00</td>
+                        </tr>
+                        <tr>
+                            <td class="indent">Pet Rent</td>
+                            <td>12/01/2024</td>
+                            <td class="amount-positive" style="text-align: right;">+$50.00</td>
+                        </tr>
+                        <tr>
+                            <td class="indent">Utility Reimbursement - Water</td>
+                            <td>12/15/2024</td>
+                            <td class="amount-positive" style="text-align: right;">+$45.00</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td colspan="2"><strong>Total Income</strong></td>
+                            <td style="text-align: right;"><strong>$3,595.00</strong></td>
+                        </tr>
+                        
+                        <tr class="category-row">
+                            <td colspan="3">EXPENSES</td>
+                        </tr>
+                        <tr>
+                            <td class="indent">Management Fee (8%)</td>
+                            <td>12/31/2024</td>
+                            <td class="amount-negative" style="text-align: right;">-$280.00</td>
+                        </tr>
+                        <tr>
+                            <td class="indent">HVAC Maintenance - Filter Change</td>
+                            <td>12/05/2024</td>
+                            <td class="amount-negative" style="text-align: right;">-$85.00</td>
+                        </tr>
+                        <tr>
+                            <td class="indent">Plumbing Repair - Kitchen Faucet</td>
+                            <td>12/12/2024</td>
+                            <td class="amount-negative" style="text-align: right;">-$275.00</td>
+                        </tr>
+                        <tr>
+                            <td class="indent">Landscaping Service</td>
+                            <td>12/15/2024</td>
+                            <td class="amount-negative" style="text-align: right;">-$120.00</td>
+                        </tr>
+                        <tr>
+                            <td class="indent">Property Insurance</td>
+                            <td>12/20/2024</td>
+                            <td class="amount-negative" style="text-align: right;">-$185.00</td>
+                        </tr>
+                        <tr>
+                            <td class="indent">HOA Fee</td>
+                            <td>12/01/2024</td>
+                            <td class="amount-negative" style="text-align: right;">-$225.00</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td colspan="2"><strong>Total Expenses</strong></td>
+                            <td style="text-align: right;"><strong>-$1,170.00</strong></td>
+                        </tr>
+                        
+                        <tr class="final-total">
+                            <td colspan="2"><strong>OWNER DISTRIBUTION</strong></td>
+                            <td style="text-align: right;"><strong>$2,675.00</strong></td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="3" style="padding-top: 1rem; font-size: 0.9rem; color: #666;">
+                                <strong>Distribution Details:</strong><br>
+                                ACH Transfer to Bank Account ending in ****4892<br>
+                                Processed: January 10, 2025
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Statement Sections Breakdown</h2>
+            
+            <div class="breakdown-grid">
+                <div class="breakdown-card">
+                    <h4>📋 Header Information</h4>
+                    <ul>
+                        <li><strong>Statement Period:</strong> Month being reported</li>
+                        <li><strong>Property Address:</strong> Your rental property</li>
+                        <li><strong>Owner Name:</strong> Property owner(s)</li>
+                        <li><strong>Statement Date:</strong> When statement was generated</li>
+                    </ul>
+                </div>
+                
+                <div class="breakdown-card">
+                    <h4>💵 Beginning Balance</h4>
+                    <ul>
+                        <li>Carryover from previous month</li>
+                        <li>Reserve funds held in trust</li>
+                        <li>Unapplied credits</li>
+                        <li>Usually $0 if fully distributed</li>
+                    </ul>
+                </div>
+                
+                <div class="breakdown-card">
+                    <h4>📈 Income Section</h4>
+                    <ul>
+                        <li>Monthly rent received</li>
+                        <li>Pet rent/deposits</li>
+                        <li>Late fees collected</li>
+                        <li>Utility reimbursements</li>
+                        <li>Other tenant charges</li>
+                    </ul>
+                </div>
+                
+                <div class="breakdown-card">
+                    <h4>💸 Expense Section</h4>
+                    <ul>
+                        <li>Management fees</li>
+                        <li>Maintenance and repairs</li>
+                        <li>Property insurance</li>
+                        <li>HOA fees</li>
+                        <li>Vendor services</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Understanding Income</h2>
+            
+            <h3>Rent Income</h3>
+            <p>The primary income source is the monthly rent payment from your tenant. This should match the rent amount specified in the lease agreement. The date shown indicates when the payment was received and deposited into the trust account.</p>
+            
+            <div class="annotation">
+                <span class="annotation-number">1</span>
+                <strong>Rent Collection:</strong> We collect rent on the 1st of each month with a grace period typically through the 3rd. Late fees apply after the grace period expires.
+            </div>
+            
+            <h3>Additional Income</h3>
+            <p>Beyond base rent, your statement may include:</p>
+            <ul style="margin-left: 2rem; line-height: 2;">
+                <li><strong>Pet Rent:</strong> Monthly recurring fee for approved pets (typically $25-50 per pet)</li>
+                <li><strong>Late Fees:</strong> Charges applied when rent is received after the grace period</li>
+                <li><strong>Utility Reimbursements:</strong> When tenants reimburse for water, trash, or other utilities you pay</li>
+                <li><strong>Lease Violation Fees:</strong> Charges for lease violations (smoking, unauthorized occupants, etc.)</li>
+                <li><strong>NSF Fees:</strong> Bank charges for returned/bounced payments</li>
+            </ul>
+            
+            <div class="info-box">
+                <h4>When Rent Is Late or Unpaid</h4>
+                <p>If rent isn't received, your statement will show $0 income for that month. We immediately begin our collection process, and you'll receive updates on the status. Unpaid rent does not reduce your management fee or other fixed expenses—these are still deducted as they represent services rendered or obligations due.</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Understanding Expenses</h2>
+            
+            <h3>Management Fees</h3>
+            <p>Our management fee is calculated as a percentage of collected rent (typically 8-10%, depending on your management agreement). This fee is only deducted when rent is actually received—if the tenant doesn't pay, neither do you pay our management fee for that month.</p>
+            
+            <div class="annotation">
+                <span class="annotation-number">2</span>
+                <strong>Fee Structure:</strong> Management fees cover tenant placement, rent collection, maintenance coordination, inspections, financial reporting, and 24/7 emergency response.
+            </div>
+            
+            <h3>Maintenance & Repairs</h3>
+            <p>All maintenance and repair expenses are itemized with:</p>
+            <ul style="margin-left: 2rem; line-height: 2;">
+                <li>Vendor name and service description</li>
+                <li>Date service was performed</li>
+                <li>Invoice amount charged</li>
+                <li>Copies of invoices available in your owner portal</li>
+            </ul>
+            
+            <div class="tip-box">
+                <h4>Maintenance Approval Process</h4>
+                <p><strong>Under $500 (Emergency):</strong> We authorize immediately to protect your property</p>
+                <p><strong>Over $500 (Non-Emergency):</strong> We contact you for approval with detailed estimates</p>
+                <p><strong>Preventive Maintenance:</strong> Scheduled services (HVAC, landscaping) are pre-approved per your management agreement</p>
+            </div>
+            
+            <h3>Fixed Expenses</h3>
+            <p>Some expenses occur monthly regardless of rental status:</p>
+            <ul style="margin-left: 2rem; line-height: 2;">
+                <li><strong>Property Insurance:</strong> Landlord insurance premiums</li>
+                <li><strong>HOA Fees:</strong> Homeowners association dues (if applicable)</li>
+                <li><strong>Mortgage Payment:</strong> If we're authorized to pay from trust account</li>
+                <li><strong>Property Taxes:</strong> When not escrowed with mortgage</li>
+            </ul>
+            
+            <div class="warning-box">
+                <h4>⚠️ Important: Fixed Expenses Continue During Vacancy</h4>
+                <p>Insurance, HOA fees, and other fixed costs continue even when the property is vacant between tenants. We recommend maintaining a reserve balance in your trust account to cover these expenses during turnover periods.</p>
+            </div>
+            
+            <h3>Utilities</h3>
+            <p>If you pay utilities that are later reimbursed by the tenant, you'll see both the initial expense and the reimbursement income. Common scenarios:</p>
+            <ul style="margin-left: 2rem; line-height: 2;">
+                <li><strong>Water/Sewer:</strong> Billed to owner, tenant reimburses monthly</li>
+                <li><strong>Trash Service:</strong> May be included in rent or billed separately</li>
+                <li><strong>Gas/Electric:</strong> Usually tenant pays directly, but some properties have shared meters</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Calculating Your Distribution</h2>
+            
+            <p>Your owner distribution is calculated using this simple formula:</p>
+            
+            <div class="info-box">
+                <h4>Distribution Formula</h4>
+                <p style="font-size: 1.1rem; margin-top: 1rem;">
+                    <strong>Beginning Balance</strong><br>
+                    + <strong>Total Income</strong><br>
+                    - <strong>Total Expenses</strong><br>
+                    = <strong>Owner Distribution</strong>
+                </p>
+            </div>
+            
+            <p>Using our sample statement:</p>
+            <ul style="margin-left: 2rem; line-height: 2; margin-top: 1rem;">
+                <li>Beginning Balance: $250.00</li>
+                <li>+ Total Income: $3,595.00</li>
+                <li>- Total Expenses: $1,170.00</li>
+                <li>= <strong>Distribution: $2,675.00</strong></li>
+            </ul>
+            
+            <h3>Distribution Timing</h3>
+            <p>Owner distributions are processed by the 10th of each month for the previous month's activity. For example, December's rent collected and expenses are reconciled in early January, with your distribution processed around January 10th.</p>
+            
+            <div class="tip-box">
+                <h4>Distribution Methods</h4>
+                <p><strong>ACH Transfer (Recommended):</strong> Direct deposit to your bank account—fastest and most secure</p>
+                <p><strong>Check:</strong> Mailed to address on file—takes 3-5 business days</p>
+                <p><strong>Reserve Account:</strong> Keep funds in trust account as reserves for future expenses</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Year-to-Date Summary</h2>
+            <p>Your statement includes year-to-date totals showing cumulative income and expenses from January through the current month. This helps you:</p>
+            
+            <ul class="checklist">
+                <li>Track annual performance against projections</li>
+                <li>Identify spending trends and patterns</li>
+                <li>Prepare for tax season with organized totals</li>
+                <li>Calculate actual vs. expected return on investment</li>
+                <li>Make informed decisions about property improvements</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Common Questions About Statements</h2>
+            
+            <h3>Why is my distribution lower than expected?</h3>
+            <p>Several factors can reduce distributions:</p>
+            <ul style="margin-left: 2rem; line-height: 2;">
+                <li>Unexpected maintenance or repair expenses</li>
+                <li>Annual insurance premium or semi-annual HOA fees</li>
+                <li>Tenant moved out mid-month (prorated rent)</li>
+                <li>Water bill higher than usual reimbursement</li>
+                <li>Preventive maintenance performed (HVAC service, etc.)</li>
+            </ul>
+            
+            <h3>What if I disagree with a charge?</h3>
+            <p>Contact us immediately. We'll review the charge, provide supporting documentation (invoices, work orders, photos), and address any discrepancies. All vendor invoices are available in your owner portal for verification.</p>
+            
+            <h3>Can I see invoices for repairs?</h3>
+            <p>Yes! Every expense over $50 includes a scanned invoice or receipt in your owner portal. You can view, download, and print these documents anytime for your records.</p>
+            
+            <h3>How do I save my statements for taxes?</h3>
+            <p>Statements are available in your owner portal indefinitely. We recommend:</p>
+            <ul style="margin-left: 2rem; line-height: 2;">
+                <li>Download monthly statements when received</li>
+                <li>Save electronically in a dedicated folder</li>
+                <li>Create a spreadsheet tracking key figures</li>
+                <li>Review year-end summary in January</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Using Statements for Tax Preparation</h2>
+            <p>Your monthly statements provide all the documentation needed for Schedule E (rental property income and expenses) on your tax return:</p>
+            
+            <div class="breakdown-grid">
+                <div class="breakdown-card">
+                    <h4>Income Reporting</h4>
+                    <ul>
+                        <li>Total rents received</li>
+                        <li>Other income (fees, utilities)</li>
+                        <li>Security deposit forfeitures</li>
+                    </ul>
+                </div>
+                
+                <div class="breakdown-card">
+                    <h4>Deductible Expenses</h4>
+                    <ul>
+                        <li>Management fees</li>
+                        <li>Repairs and maintenance</li>
+                        <li>Insurance premiums</li>
+                        <li>HOA fees</li>
+                        <li>Utilities paid by owner</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p style="margin-top: 2rem;">By January 31st annually, you'll receive a comprehensive year-end tax package including 1099 forms for vendors, categorized expense summaries, and documentation ready for your CPA.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Portal Access</h2>
+            <p>All your statements are available 24/7 through your secure owner portal:</p>
+            
+            <ul class="checklist">
+                <li>View current and historical statements</li>
+                <li>Download PDFs for your records</li>
+                <li>Access supporting documentation (invoices, receipts)</li>
+                <li>View real-time property financial dashboard</li>
+                <li>Generate custom reports by date range</li>
+                <li>Track year-over-year performance</li>
+            </ul>
+            
+            <p style="margin-top: 1.5rem;">Login at any time to review your property's financial performance and access all documentation needed for tax preparation or property analysis.</p>
+        </div>
+
+        <div class="cta-section">
+            <h3>Questions About Your Statement?</h3>
+            <p>Our team is here to help you understand every detail of your property's financial performance. Contact us anytime for clarification or assistance.</p>
+            <a href="index.html#contact" class="cta-button">Contact Us</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Options Property Management. All rights reserved.</p>
+        <p>Licensed California Property Management | Serving San Diego County Since 2015</p>
+        <p><a href="fair-housing.html">Fair Housing Policy</a> | <a href="index.html#contact">Contact Us</a></p>
+    </footer>
+</body>
+</html>

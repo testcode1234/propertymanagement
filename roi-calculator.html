@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Property ROI Calculator | Options Property Management</title>
+    <meta name="description" content="Calculate your rental property return on investment with our comprehensive ROI calculator. Understand cap rate, cash-on-cash return, and total returns.">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; }
+        header { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 1rem 0; }
+        nav { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: white; text-decoration: none; }
+        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 4rem 2rem; text-align: center; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 3rem 2rem; }
+        .calculator-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin: 2rem 0; }
+        .input-section, .results-section { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: #1e3c72; }
+        input { width: 100%; padding: 0.75rem; border: 2px solid #e0e0e0; border-radius: 4px; font-size: 1rem; }
+        input:focus { outline: none; border-color: #667eea; }
+        .calculate-btn { width: 100%; background: #667eea; color: white; padding: 1rem; border: none; border-radius: 5px; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
+        .calculate-btn:hover { background: #5568d3; }
+        .result-card { background: #f8f9fa; padding: 1.5rem; margin: 1rem 0; border-radius: 5px; border-left: 4px solid #667eea; }
+        .result-card h4 { color: #1e3c72; margin-bottom: 0.5rem; }
+        .result-value { font-size: 2rem; font-weight: bold; color: #667eea; }
+        .info-box { background: #e3f2fd; border-left: 4px solid #2196F3; padding: 1.5rem; margin: 2rem 0; border-radius: 4px; }
+        footer { background: #1e3c72; color: white; text-align: center; padding: 2rem; margin-top: 4rem; }
+        @media (max-width: 768px) { .calculator-grid { grid-template-columns: 1fr; } .nav-links { display: none; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Options Property Management</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="owner-info.html">Owner Resources</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Rental Property ROI Calculator</h1>
+        <p>Analyze Your Investment Returns</p>
+    </section>
+
+    <div class="container">
+        <div class="info-box">
+            <h4>Understanding Rental Property ROI</h4>
+            <p>Return on Investment (ROI) measures how much profit you make relative to your investment. For rental properties, this includes cash flow, appreciation, tax benefits, and mortgage pay-down. This calculator helps you understand multiple metrics that define investment success.</p>
+        </div>
+
+        <div class="calculator-grid">
+            <div class="input-section">
+                <h3 style="color: #1e3c72; margin-bottom: 1.5rem;">Property Details</h3>
+                
+                <div class="form-group">
+                    <label>Purchase Price ($)</label>
+                    <input type="number" id="purchasePrice" value="500000" min="0">
+                </div>
+
+                <div class="form-group">
+                    <label>Down Payment ($)</label>
+                    <input type="number" id="downPayment" value="100000" min="0">
+                </div>
+
+                <div class="form-group">
+                    <label>Closing Costs ($)</label>
+                    <input type="number" id="closingCosts" value="15000" min="0">
+                </div>
+
+                <div class="form-group">
+                    <label>Monthly Rent ($)</label>
+                    <input type="number" id="monthlyRent" value="3200" min="0">
+                </div>
+
+                <div class="form-group">
+                    <label>Monthly Expenses ($)</label>
+                    <input type="number" id="monthlyExpenses" value="1200" min="0">
+                    <small style="color: #666;">Management, insurance, taxes, HOA, etc.</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Monthly Mortgage Payment ($)</label>
+                    <input type="number" id="mortgagePayment" value="2100" min="0">
+                </div>
+
+                <div class="form-group">
+                    <label>Annual Appreciation (%)</label>
+                    <input type="number" id="appreciation" value="4" min="0" max="100" step="0.1">
+                </div>
+
+                <button class="calculate-btn" onclick="calculateROI()">Calculate Returns</button>
+            </div>
+
+            <div class="results-section">
+                <h3 style="color: #1e3c72; margin-bottom: 1.5rem;">Your Investment Returns</h3>
+                
+                <div class="result-card">
+                    <h4>Cash-on-Cash Return</h4>
+                    <div class="result-value" id="cashOnCash">--</div>
+                    <p style="margin-top: 0.5rem; color: #666;">Annual cash flow ÷ Total cash invested</p>
+                </div>
+
+                <div class="result-card">
+                    <h4>Cap Rate</h4>
+                    <div class="result-value" id="capRate">--</div>
+                    <p style="margin-top: 0.5rem; color: #666;">Net operating income ÷ Purchase price</p>
+                </div>
+
+                <div class="result-card">
+                    <h4>Monthly Cash Flow</h4>
+                    <div class="result-value" id="cashFlow">--</div>
+                    <p style="margin-top: 0.5rem; color: #666;">Rent - (Expenses + Mortgage)</p>
+                </div>
+
+                <div class="result-card">
+                    <h4>Total ROI (Year 1)</h4>
+                    <div class="result-value" id="totalROI">--</div>
+                    <p style="margin-top: 0.5rem; color: #666;">Cash flow + Appreciation + Principal pay-down</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem;">
+            <h2 style="color: #1e3c72; margin-bottom: 1.5rem;">Understanding the Metrics</h2>
+            
+            <div style="background: #f8f9fa; padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                <h3 style="color: #2a5298;">Cash-on-Cash Return</h3>
+                <p>This measures the annual pre-tax cash flow relative to your total cash invested (down payment + closing costs). A healthy cash-on-cash return for rental properties is typically 8-12%.</p>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                <h3 style="color: #2a5298;">Cap Rate (Capitalization Rate)</h3>
+                <p>Calculated as Net Operating Income divided by purchase price. Cap rate ignores financing and shows the property's natural return. San Diego County cap rates typically range from 3-6%.</p>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                <h3 style="color: #2a5298;">Monthly Cash Flow</h3>
+                <p>The money left over each month after paying all expenses and the mortgage. Positive cash flow is ideal, though some investors accept minimal or negative cash flow in high-appreciation markets.</p>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 2rem; border-radius: 8px;">
+                <h3 style="color: #2a5298;">Total ROI</h3>
+                <p>Combines cash flow, appreciation, mortgage principal pay-down, and tax benefits. This provides the complete picture of your investment's performance, often reaching 15-25% annually in strong markets.</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 3rem; border-radius: 8px; text-align: center;">
+            <h3 style="margin-bottom: 1rem;">Ready to Maximize Your Returns?</h3>
+            <p style="margin-bottom: 2rem;">Professional property management can increase your ROI by reducing vacancies, minimizing expenses, and maximizing rent collection.</p>
+            <a href="index.html#contact" style="display: inline-block; background: white; color: #667eea; padding: 1rem 2rem; text-decoration: none; border-radius: 5px; font-weight: bold;">Contact Us</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Options Property Management. All rights reserved.</p>
+    </footer>
+
+    <script>
+    function calculateROI() {
+        const purchasePrice = parseFloat(document.getElementById('purchasePrice').value) || 0;
+        const downPayment = parseFloat(document.getElementById('downPayment').value) || 0;
+        const closingCosts = parseFloat(document.getElementById('closingCosts').value) || 0;
+        const monthlyRent = parseFloat(document.getElementById('monthlyRent').value) || 0;
+        const monthlyExpenses = parseFloat(document.getElementById('monthlyExpenses').value) || 0;
+        const mortgagePayment = parseFloat(document.getElementById('mortgagePayment').value) || 0;
+        const appreciationRate = parseFloat(document.getElementById('appreciation').value) || 0;
+
+        const totalCashInvested = downPayment + closingCosts;
+        const monthlyCashFlow = monthlyRent - monthlyExpenses - mortgagePayment;
+        const annualCashFlow = monthlyCashFlow * 12;
+        const noi = (monthlyRent - monthlyExpenses) * 12;
+        
+        const cashOnCash = totalCashInvested > 0 ? (annualCashFlow / totalCashInvested * 100) : 0;
+        const capRate = purchasePrice > 0 ? (noi / purchasePrice * 100) : 0;
+        
+        const loanAmount = purchasePrice - downPayment;
+        const principalPayDown = loanAmount * 0.015;
+        const appreciation = purchasePrice * (appreciationRate / 100);
+        const totalReturn = totalCashInvested > 0 ? ((annualCashFlow + principalPayDown + appreciation) / totalCashInvested * 100) : 0;
+
+        document.getElementById('cashOnCash').textContent = cashOnCash.toFixed(1) + '%';
+        document.getElementById('capRate').textContent = capRate.toFixed(1) + '%';
+        document.getElementById('cashFlow').textContent = '$' + monthlyCashFlow.toFixed(0);
+        document.getElementById('totalROI').textContent = totalReturn.toFixed(1) + '%';
+
+        document.getElementById('cashOnCash').style.color = cashOnCash >= 8 ? '#2e7d32' : cashOnCash >= 5 ? '#f57c00' : '#c62828';
+        document.getElementById('cashFlow').style.color = monthlyCashFlow >= 0 ? '#2e7d32' : '#c62828';
+    }
+
+    window.onload = calculateROI;
+    </script>
+</body>
+</html>

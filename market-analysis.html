@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Diego Market Analysis | Options Property Management</title>
+    <meta name="description" content="Current San Diego County rental market analysis, trends, and investment insights for property owners and investors.">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; }
+        header { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 1rem 0; }
+        nav { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: white; text-decoration: none; }
+        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 4rem 2rem; text-align: center; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 3rem 2rem; }
+        .market-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 2rem 0; }
+        .stat-card { background: white; padding: 2rem; border-radius: 8px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-top: 4px solid #667eea; }
+        .stat-value { font-size: 2.5rem; font-weight: bold; color: #667eea; margin: 0.5rem 0; }
+        .stat-label { color: #666; font-size: 0.9rem; }
+        .trend-up { color: #2e7d32; }
+        .trend-down { color: #c62828; }
+        .info-box { background: #e3f2fd; border-left: 4px solid #2196F3; padding: 1.5rem; margin: 2rem 0; border-radius: 4px; }
+        h2 { color: #1e3c72; font-size: 2rem; margin: 3rem 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 3px solid #667eea; }
+        h3 { color: #2a5298; font-size: 1.5rem; margin: 2rem 0 1rem 0; }
+        .city-comparison { background: #f8f9fa; padding: 2rem; border-radius: 8px; margin: 2rem 0; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th { background: #1e3c72; color: white; padding: 1rem; text-align: left; }
+        td { padding: 1rem; border-bottom: 1px solid #e0e0e0; }
+        footer { background: #1e3c72; color: white; text-align: center; padding: 2rem; margin-top: 4rem; }
+        @media (max-width: 768px) { .nav-links { display: none; } .market-stats { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Options Property Management</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="owner-info.html">Owner Resources</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>San Diego Market Analysis</h1>
+        <p>Current Rental Market Trends & Investment Insights</p>
+    </section>
+
+    <div class="container">
+        <div class="info-box">
+            <p><strong>Market Data as of December 2024</strong> - San Diego County continues to be one of California's strongest rental markets with high demand, limited inventory, and steady appreciation.</p>
+        </div>
+
+        <h2>Current Market Snapshot</h2>
+        <div class="market-stats">
+            <div class="stat-card">
+                <div class="stat-label">Median Rent (SFH)</div>
+                <div class="stat-value">$3,450</div>
+                <div class="trend-up">↑ 3.2% YoY</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Average Days on Market</div>
+                <div class="stat-value">12</div>
+                <div class="trend-up">Fast Leasing</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Vacancy Rate</div>
+                <div class="stat-value">2.8%</div>
+                <div class="trend-down">↓ 0.4% YoY</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Median Home Price</div>
+                <div class="stat-value">$920K</div>
+                <div class="trend-up">↑ 5.1% YoY</div>
+            </div>
+        </div>
+
+        <h2>Rent by Property Type</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Property Type</th>
+                    <th>Median Monthly Rent</th>
+                    <th>Annual Change</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Single Family Home (3BR/2BA)</td>
+                    <td>$3,450</td>
+                    <td class="trend-up">+3.2%</td>
+                </tr>
+                <tr>
+                    <td>Condo/Townhome (2BR/2BA)</td>
+                    <td>$2,850</td>
+                    <td class="trend-up">+2.8%</td>
+                </tr>
+                <tr>
+                    <td>Apartment (2BR/1BA)</td>
+                    <td>$2,450</td>
+                    <td class="trend-up">+4.1%</td>
+                </tr>
+                <tr>
+                    <td>Studio/1BR</td>
+                    <td>$1,950</td>
+                    <td class="trend-up">+3.5%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Regional Breakdown</h2>
+        <div class="city-comparison">
+            <h3>North County Coastal</h3>
+            <p><strong>Cities:</strong> Carlsbad, Encinitas, Oceanside, Del Mar</p>
+            <p><strong>Median Rent:</strong> $3,750 | <strong>Character:</strong> Beach lifestyle, strong demand, premium pricing</p>
+            
+            <h3 style="margin-top: 2rem;">North County Inland</h3>
+            <p><strong>Cities:</strong> Escondido, San Marcos, Vista, Valley Center</p>
+            <p><strong>Median Rent:</strong> $2,950 | <strong>Character:</strong> Family-friendly, growing, value-oriented</p>
+            
+            <h3 style="margin-top: 2rem;">Central San Diego</h3>
+            <p><strong>Areas:</strong> Downtown, North Park, Hillcrest, Mission Valley</p>
+            <p><strong>Median Rent:</strong> $2,800 | <strong>Character:</strong> Urban living, young professionals, high density</p>
+            
+            <h3 style="margin-top: 2rem;">South County</h3>
+            <p><strong>Cities:</strong> Chula Vista, National City, Imperial Beach</p>
+            <p><strong>Median Rent:</strong> $2,600 | <strong>Character:</strong> Affordable, diverse, growing families</p>
+            
+            <h3 style="margin-top: 2rem;">East County</h3>
+            <p><strong>Cities:</strong> El Cajon, La Mesa, Santee</p>
+            <p><strong>Median Rent:</strong> $2,450 | <strong>Character:</strong> Suburban, value-focused, strong schools</p>
+        </div>
+
+        <h2>Market Trends & Insights</h2>
+        
+        <h3>Rental Demand Remains Strong</h3>
+        <p>San Diego's rental market continues to benefit from high home prices that keep would-be buyers in the rental market longer. With median home prices near $920K and mortgage rates elevated, many professionals and families are choosing to rent high-quality properties rather than stretch to buy.</p>
+        
+        <h3>Limited Inventory Supports Rent Growth</h3>
+        <p>New construction hasn't kept pace with population growth, creating persistent housing shortages. Vacancy rates below 3% indicate a landlord-favorable market where quality properties lease quickly at asking prices.</p>
+        
+        <h3>Geographic Preferences Shifting</h3>
+        <p>Remote work flexibility has increased demand in North County Inland areas (Escondido, San Marcos) and East County, where renters seek more space and affordability while maintaining San Diego County access. Coastal areas remain premium-priced but competitive.</p>
+        
+        <h3>Rent Control Considerations</h3>
+        <p>AB 1482's statewide rent cap (5% + CPI, max 10%) affects most properties 15+ years old. Current inflation would allow approximately 8-9% annual increases in 2025, though market conditions may not support maximum increases in all areas.</p>
+
+        <h2>Investment Outlook</h2>
+        
+        <h3>Strong Fundamentals</h3>
+        <p>San Diego's economy remains diverse and resilient with major employment in biotech, defense, healthcare, tourism, and education. Multiple military bases provide steady demand. Job growth and wage increases support continued rent growth.</p>
+        
+        <h3>Appreciation Expectations</h3>
+        <p>Most analysts project 4-6% annual appreciation for San Diego properties in 2025-2026, driven by limited supply and strong demand fundamentals. Areas with new development and improving infrastructure may see higher appreciation.</p>
+        
+        <h3>Cap Rates & Returns</h3>
+        <p>San Diego's cap rates typically range 3.5-5.5%, lower than national averages but compensated by strong appreciation potential and market stability. Total returns (cash flow + appreciation + tax benefits) often reach 12-18% annually for well-managed properties.</p>
+        
+        <h3>Best Property Types</h3>
+        <p>Single-family homes in good school districts remain highly desirable. 2-3 bedroom condos near employment centers show strong demand. Properties with parking and outdoor space command premium rents post-pandemic.</p>
+
+        <h2>What Property Owners Should Know</h2>
+        
+        <div style="background: #f1f8e9; border-left: 4px solid #8bc34a; padding: 1.5rem; margin: 2rem 0; border-radius: 4px;">
+            <h4 style="color: #558b2f; margin-bottom: 0.5rem;">2025 Strategy Recommendations</h4>
+            <ul style="margin-left: 1.5rem; line-height: 2;">
+                <li>Price competitively but don't leave money on the table—quality properties lease quickly at market rates</li>
+                <li>Plan maintenance and improvements strategically; tenant retention saves money in this market</li>
+                <li>Consider moderate annual rent increases rather than maximum allowed—tenant retention is valuable</li>
+                <li>Focus on property condition and amenities; tenants will pay premium for quality</li>
+                <li>Stay informed on local rent control and tenant protection laws</li>
+            </ul>
+        </div>
+
+        <h2>How We Help Maximize Your Returns</h2>
+        <p>Options Property Management leverages deep local market knowledge to optimize your investment:</p>
+        <ul style="margin-left: 2rem; line-height: 2;">
+            <li><strong>Pricing Expertise:</strong> We analyze comparable rentals weekly to ensure optimal rent pricing</li>
+            <li><strong>Fast Leasing:</strong> Professional marketing gets properties rented in 10-15 days on average</li>
+            <li><strong>Quality Tenants:</strong> Comprehensive screening reduces turnover and costly evictions</li>
+            <li><strong>Maintenance Efficiency:</strong> Our vendor network provides quality service at competitive pricing</li>
+            <li><strong>Market Intelligence:</strong> Regular updates on local market conditions and opportunities</li>
+        </ul>
+
+        <div style="margin-top: 3rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 3rem; border-radius: 8px; text-align: center;">
+            <h3 style="margin-bottom: 1rem;">Ready to Capitalize on San Diego's Strong Market?</h3>
+            <p style="margin-bottom: 2rem;">Let our local expertise and professional management maximize your rental property returns.</p>
+            <a href="index.html#contact" style="display: inline-block; background: white; color: #667eea; padding: 1rem 2rem; text-decoration: none; border-radius: 5px; font-weight: bold;">Get Free Market Analysis</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Options Property Management. All rights reserved.</p>
+    </footer>
+</body>
+</html>
