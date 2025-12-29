@@ -1,0 +1,83 @@
+<style>
+    /* Footer responsive styles */
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 3rem;
+        margin-bottom: 2rem;
+    }
+    
+    footer a:hover {
+        opacity: 1 !important;
+        transition: opacity 0.3s;
+    }
+    
+    @media (max-width: 968px) {
+        .footer-grid {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 2rem !important;
+        }
+        .footer-grid > div:first-child {
+            grid-column: 1 / -1 !important;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .footer-grid {
+            grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+            text-align: center !important;
+        }
+        .footer-grid > div:first-child {
+            grid-column: auto !important;
+        }
+        footer {
+            padding: 2rem 1rem 1rem !important;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .footer-grid {
+            gap: 1.5rem !important;
+        }
+        footer h4 {
+            font-size: 1rem !important;
+        }
+        footer p, footer li {
+            font-size: 0.9rem !important;
+        }
+    }
+</style>
+
+<footer style="background: #1f2937; color: white; padding: 3rem 2rem 1rem;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="footer-grid">
+            <div>
+                <h4 style="color: #e8b44d; margin-bottom: 1rem;">Options Property Management</h4>
+                <p style="margin-bottom: 1rem; opacity: 0.8; line-height: 1.6;">Professional property management services in San Diego County for over 20 years. We help property owners maximize their investments through expert management, transparent communication, and dedicated service.</p>
+                <p style="opacity: 0.9;"><strong>Licensed • Insured • Professional</strong></p>
+            </div>
+
+            <div>
+                <h4 style="color: #e8b44d; margin-bottom: 1rem;">Quick Links</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="padding: 0.5rem 0;"><a href="index.html" style="color: white; text-decoration: none; opacity: 0.8;">Home</a></li>
+                    <li style="padding: 0.5rem 0;"><a href="owner-info.html" style="color: white; text-decoration: none; opacity: 0.8;">Owner Resources</a></li>
+                    <li style="padding: 0.5rem 0;"><a href="blog.html" style="color: white; text-decoration: none; opacity: 0.8;">Blog</a></li>
+                    <li style="padding: 0.5rem 0;"><a href="index.html#contact" style="color: white; text-decoration: none; opacity: 0.8;">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 style="color: #e8b44d; margin-bottom: 1rem;">Contact Us</h4>
+                <p style="opacity: 0.8; line-height: 1.8;">(760) 651-2271</p>
+                <p style="opacity: 0.8; line-height: 1.8;">optionspropertymgmnt@gmail.com</p>
+                <p style="opacity: 0.8; line-height: 1.8;">28588 Cole Grade Rd #1353<br>Valley Center, CA 92082</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); opacity: 0.7;">
+            <p>&copy; 2025 Options Property Management. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
