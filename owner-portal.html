@@ -133,7 +133,8 @@
             font-weight: 500;
         }
 
-        .form-group input {
+        .form-group input,
+        .form-group textarea {
             width: 100%;
             padding: 0.75rem;
             border: 2px solid #e5e7eb;
@@ -143,7 +144,13 @@
             transition: border-color 0.3s;
         }
 
-        .form-group input:focus {
+        .form-group textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
             outline: none;
             border-color: var(--secondary);
         }
@@ -326,23 +333,35 @@
         <div class="container">
             <div class="portal-content">
                 <div class="portal-form">
-                    <h3>Login to Your Account</h3>
-                    <form action="mailto:optionspropertymgmnt@gmail.com" method="post" enctype="text/plain">
+                    <h3>Request Portal Access</h3>
+                    <p style="color: var(--gray); margin-bottom: 1.5rem; line-height: 1.6;">Are you an owner who needs access to your online portal? Send us your details and we'll get you set up.</p>
+                    <form action="https://formspree.io/f/mwvdpagb" method="POST">
+                        <input type="hidden" name="_subject" value="Owner portal access request — options-pm.com">
+                        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
                         <div class="form-group">
                             <label for="email">Email Address</label>
                             <input type="email" id="email" name="email" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" name="password" required>
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
                         </div>
 
-                        <button type="submit" class="login-button">Sign In</button>
+                        <div class="form-group">
+                            <label for="message">Message (optional)</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Property address or anything else we should know"></textarea>
+                        </div>
+
+                        <button type="submit" class="login-button">Request Access</button>
 
                         <div class="form-links">
-                            <a href="mailto:optionspropertymgmnt@gmail.com?subject=Password Reset Request">Forgot your password?</a>
-                            <a href="mailto:optionspropertymgmnt@gmail.com?subject=Portal Access Request">Need access? Contact us</a>
+                            <a href="index.html#contact">Prefer to talk? Contact us</a>
                         </div>
                     </form>
                 </div>
