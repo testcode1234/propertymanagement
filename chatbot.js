@@ -85,7 +85,7 @@
     {
       keys: ["contact", "call", "phone", "email", "reach", "talk", "speak"],
       reply:
-        "You can reach us at (760) 651-2271 or optionspropertymgmnt@gmail.com. " +
+        "You can reach us at (760) 651-2271 or optionspropertymanagementsd@gmail.com. " +
         "We're at 28588 Cole Grade Rd #1353, Valley Center, CA 92082.",
     },
     {
@@ -107,7 +107,7 @@
   var FALLBACK =
     "Great question! This is a preview assistant, so I can answer common " +
     "questions about our services, fees, areas, and contact info. For anything " +
-    "specific, call us at (760) 651-2271 or email optionspropertymgmnt@gmail.com.";
+    "specific, call us at (760) 651-2271 or email optionspropertymanagementsd@gmail.com.";
 
   function mockReply(text) {
     var t = (text || "").toLowerCase();

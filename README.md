@@ -5,7 +5,7 @@ Professional, SEO-optimized website for Options Property Management - San Diego 
 
 **Updated Address:** 28588 Cole Grade Rd #1353, Valley Center, CA 92082
 **Phone:** (760) 651-2271
-**Email:** optionspropertymgmnt@gmail.com
+**Email:** optionspropertymanagementsd@gmail.com
 
 ---
 
