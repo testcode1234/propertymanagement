@@ -2,6 +2,12 @@
 
 _Audit date: 2026-09-27. No site code was changed in this phase._
 
+## Update 2026-09-29: positioning
+
+Options Property Management is a new management business. It has no clients yet. The founders have been licensed since 2002 and previously managed their own rental properties for many years; they no longer own rentals. The brief's "consistent 20+ years branding" standard is **superseded**. All site copy, chat prompts, schema, ad landing pages and email sequences must stick to those facts. Don't claim years in business as a management company, client counts, results statistics or testimonials until they're real.
+
+Done so far: the "20+ years", "hundreds of properties", "98% satisfaction", days-to-lease and response-time claims, and the testimonials were removed from the header, footer, homepage, blog posts and chat prompts. `listings.html`, which showed example rentals that weren't real, was deleted and removed from the sitemap.
+
 ## 1. Repo map
 
 **Hosting:** GitHub Pages (`testcode1234/propertymanagement`, `main` branch, repo root). Domain `www.options-pm.com` via `CNAME`. DNS is at **GoDaddy** (`ns39/ns40.domaincontrol.com`), not Cloudflare. Responses come straight from GitHub's CDN (`server: GitHub.com`). No build step, no `.nojekyll`, no GitHub Actions, no `package.json`.

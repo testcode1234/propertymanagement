@@ -248,7 +248,7 @@ Once deployed, monitor these metrics:
 
 ### Annually:
 - Full content audit
-- Keep "20+ years" branding consistent (footer year updates automatically)
+- Only make experience claims that are true: licensed since 2002; founders previously managed their own rentals for many years. No client counts, stats, or testimonials until they are real.
 - Refresh property counts and statistics
 - Review and optimize for new keywords
 

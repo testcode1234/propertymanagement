@@ -79,8 +79,8 @@
     {
       keys: ["listing", "vacancy", "available", "for rent", "rental"],
       reply:
-        "Current rental listings are on our Listings page (listings.html). " +
-        "Want help finding a specific area or price range?",
+        "We don't have any rentals listed right now. For questions about " +
+        "renting a home we manage, call (760) 651-2271.",
     },
     {
       keys: ["contact", "call", "phone", "email", "reach", "talk", "speak"],
