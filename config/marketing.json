@@ -1,0 +1,17 @@
+{
+  "site_url": "https://www.options-pm.com",
+  "business": {
+    "name": "Options Property Management",
+    "phone": "(760) 651-2271",
+    "email": "optionspropertymanagementsd@gmail.com",
+    "address": "28588 Cole Grade Rd #1353, Valley Center, CA 92082",
+    "dre_license": ""
+  },
+  "booking_url": "",
+  "tracking": {
+    "ga4_id": "",
+    "google_ads_id": "",
+    "google_ads_lead_label": "",
+    "meta_pixel_id": ""
+  }
+}

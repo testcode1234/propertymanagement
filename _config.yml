@@ -1,0 +1,15 @@
+# GitHub Pages (Jekyll) build settings.
+# Everything in this repo is published to www.options-pm.com unless it's listed
+# here. Keep internal docs, drafts, source code and data out of the public site.
+exclude:
+  - README.md
+  - CHATBOT-README.md
+  - chatbot-worker.js
+  - docs
+  - drafts
+  - marketing
+  - scripts
+  - templates
+  - worker
+  - data
+  - config/chat-system-prompt.md

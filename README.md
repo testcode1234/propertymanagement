@@ -248,7 +248,7 @@ Once deployed, monitor these metrics:
 
 ### Annually:
 - Full content audit
-- Update "Since 2015" references as years pass
+- Keep "20+ years" branding consistent (footer year updates automatically)
 - Refresh property counts and statistics
 - Review and optimize for new keywords
 

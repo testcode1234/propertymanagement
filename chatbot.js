@@ -243,10 +243,16 @@
       });
   }
 
+  var chatStarted = false;
+
   function handleSubmit(e) {
     e.preventDefault();
     var text = input.value.trim();
     if (!text) return;
+    if (!chatStarted) {
+      chatStarted = true;
+      if (window.opmTrack) window.opmTrack("chat_started", {});
+    }
     addMessage("user", text);
     input.value = "";
     setBusy(true);
